@@ -32,7 +32,16 @@
 // console.log(getShotesWord("bitcoin take over the world maybe who knows perhaps"));
 
 
-                       //--------------------task3-------------------//
+                       
 // создайте функцию, которая берет список неотрицательных целых чисел и строк и возвращает
 //  новый список с отфильтрованными числами.
 
+function filter_list(list) {
+ return list.filter(listItem => typeof(listItem) === 'number');   
+    }
+
+
+console.log(filter_list([1, 2, 'a', 'b']));
+
+
+                       
