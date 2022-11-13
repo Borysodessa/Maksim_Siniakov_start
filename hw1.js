@@ -37,11 +37,11 @@
 //  новый список с отфильтрованными числами.
 
 function filter_list(list) {
- return list.filter(listItem => typeof(listItem) === 'number');   
-    }
+  return list.filter(listItem => typeof(listItem) === 'number');   
+}
 
 
-console.log(filter_list([1, 2, 'a', 'b']));
+
 
 
                        
