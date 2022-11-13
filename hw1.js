@@ -13,8 +13,8 @@
 // console.log(PositivSum([1, -4, 7, 12]));
 
 
-
-                        //--------------------task2-------------------//
+                     //--------------------task2-------------------//
+                        
 
 //Просто, учитывая строку слов, вернуть длину кратчайшего слова (слов).
 
@@ -32,16 +32,29 @@
 // console.log(getShotesWord("bitcoin take over the world maybe who knows perhaps"));
 
 
-                       
+                       //--------------------task3-------------------//
 // создайте функцию, которая берет список неотрицательных целых чисел и строк и возвращает
 //  новый список с отфильтрованными числами.
 
-function filter_list(list) {
-  return list.filter(listItem => typeof(listItem) === 'number');   
-}
+// function filter_list(list) {
+//   return list.filter(listItem => typeof(listItem) === 'number');   
+// }
 
 
+                        //--------------------task4-------------------//
+
+                     //возвести в квадрат каждую цифру числа и соединить их  
+                     
+// function squareDigits(num) {
+//     const arrSquareDigits = [];
+//     const stringDidgit = String(num);
+//     for (const letter of stringDidgit) {
+//         arrSquareDigits.push(Math.pow(Number(letter), 2));
+//     }
+//     return Number(arrSquareDigits.join(''));
+// }
+
+                            //--------------------task5-------------------//
 
 
-
-                       
+                         
