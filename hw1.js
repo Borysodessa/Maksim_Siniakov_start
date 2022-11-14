@@ -109,19 +109,43 @@
 // мы хотим найти положительное целое число k, если оно существует, такое,
 //     что сумма цифр n, взятых в последовательных степенях p, равна k * n.  
 
-function digPow(n, p) {
-    let sum = 0;
-    const string = String(n);
-   for (const str of string) {
-       const numberFromString = Number(str);
-       const digitPow = Math.pow(numberFromString, p);
-       sum += digitPow;
-       p += 1;
-    }
-    if (!Number.isInteger(sum / n)) {
-        return -1;
-    };
-    return sum/n;
-}
+// function digPow(n, p) {
+//     let sum = 0;
+//     const string = String(n);
+//    for (const str of string) {
+//        const numberFromString = Number(str);
+//        const digitPow = Math.pow(numberFromString, p);
+//        sum += digitPow;
+//        p += 1;
+//     }
+//     if (!Number.isInteger(sum / n)) {
+//         return -1;
+//     };
+//     return sum/n;
+// }
 
-console.log(digPow(694, 2))
+
+                        //--------------------task9-------------------//
+                        
+
+// Напишите функцию, которая может возвращать наименьшее значение массива или
+// индекс этого значения.Второй параметр функции скажет, должна ли она
+//  возвращать значение или индекс.
+//     Предположим, что первый параметр всегда будет массивом, заполненным как
+// минимум1 числом и без дубликатов.Предположим, что вторым параметром будет
+// строка, содержащая одно из двух значений: «значение» и «индекс».
+
+
+function min(arr, toReturn) {
+    const minNumber = arr[0];
+    for (let i = 0; i <= arr.length; i += 1) {
+        if (minNumber > arr[i]) {
+            minNumber = arr[i];
+        };
+    }
+    if (toReturn === 'value') {
+        return minNumber;
+    }
+        return arr.findIndex(arrElement => arrElement === minNumber)
+    }  
+console.log(min([1, 2, 3, 4, 5], 'index'));
