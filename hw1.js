@@ -73,14 +73,23 @@
 
                            //--------------------task6-------------------//
 // Верните фигуру такой же длины и ширины, как целое число. Целое число будет целым числом от 1 до 50.
+// Пример: n = 3, поэтому ожидается квадрат 3x3, как показано ниже, в виде строки:
+// +++
+// +++
+// +++
 
-// Пример
-// n = 3, поэтому я ожидаю квадрат 3x3, как показано ниже, в виде строки:
+function generateShape(integer) {
+    let str = '';
+    for (let i = 0; i < integer; i += 1){
+        for (let j = 0; j < integer; j += 1){
+            str += '+';  
+        }str += '\n';
+       
+    }
+    return str.slice(0, -1);
+}
+console.log(generateShape(5));
 
-// +++
-// +++
-// +++
-// ????????????????????????????????????????????????????????????????????
 //--------------------task7-------------------//
                             
 // вернуть количество гласных в заданной строке.
@@ -127,7 +136,6 @@
 
                         //--------------------task9-------------------//
                         
-
 // Напишите функцию, которая может возвращать наименьшее значение массива или
 // индекс этого значения.Второй параметр функции скажет, должна ли она
 //  возвращать значение или индекс.
@@ -135,17 +143,22 @@
 // минимум1 числом и без дубликатов.Предположим, что вторым параметром будет
 // строка, содержащая одно из двух значений: «значение» и «индекс».
 
+// function min(arr, toReturn) {
+//     const minNumber = arr[0];
+//     for (let i = 0; i <= arr.length; i += 1) {
+//         if (minNumber > arr[i]) {
+//             minNumber = arr[i];
+//         };
+//     }
+//     if (toReturn === 'value') {
+//         return minNumber;
+//     }
+//         return arr.findIndex(arrElement => arrElement === minNumber)
+//     }  
 
-function min(arr, toReturn) {
-    const minNumber = arr[0];
-    for (let i = 0; i <= arr.length; i += 1) {
-        if (minNumber > arr[i]) {
-            minNumber = arr[i];
-        };
-    }
-    if (toReturn === 'value') {
-        return minNumber;
-    }
-        return arr.findIndex(arrElement => arrElement === minNumber)
-    }  
-console.log(min([1, 2, 3, 4, 5], 'index'));
+                            //--------------------task10-------------------//
+                            
+// function arrayDiff(a, b) {
+//     return a.filter(element => !b.includes(element));
+// }
+
