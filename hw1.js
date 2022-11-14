@@ -81,3 +81,47 @@
 // +++
 // +++
 // ????????????????????????????????????????????????????????????????????
+//--------------------task7-------------------//
+                            
+// вернуть количество гласных в заданной строке.
+
+// function getCount(str) {
+//     const vowels = ['a', 'e', 'i', 'o', 'u'];
+//     const includeVowels = [];
+//     const arrFromStr = str.split(''); 
+
+//     for (let i = 0; i < arrFromStr.length; i += 1){
+//         for (let j = 0; j <= vowels.length; j += 1) { 
+//             if (str[i] === vowels[j]) {
+//                 includeVowels.push(str[i]); 
+//             }   
+//         }
+//     }
+//     return includeVowels.length;
+// }
+// console.log(getCount('abracadabra'));
+
+
+                //--------------------task8-------------------//
+                
+// Даны положительное целое число n, записанное в виде 
+// abcd... (a, b, c, d... являются цифрами), и положительное целое число p
+// мы хотим найти положительное целое число k, если оно существует, такое,
+//     что сумма цифр n, взятых в последовательных степенях p, равна k * n.  
+
+function digPow(n, p) {
+    let sum = 0;
+    const string = String(n);
+   for (const str of string) {
+       const numberFromString = Number(str);
+       const digitPow = Math.pow(numberFromString, p);
+       sum += digitPow;
+       p += 1;
+    }
+    if (!Number.isInteger(sum / n)) {
+        return -1;
+    };
+    return sum/n;
+}
+
+console.log(digPow(694, 2))
