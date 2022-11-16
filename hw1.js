@@ -1,16 +1,11 @@
 //------------------task1---------------------//
 //Вы получаете массив чисел, возвращаете сумму всех положительных.
 
-//function PositivSum(arr) {
-    // let sumOfPositives = 0;
-    // for (const number of arr) {
-    //     if (number > 0) {
-    //         sumOfPositives += number;
-    //     };
-    // }
-    // return sumOfPositives;
-//}
-//console.log(PositivSum([1, -4, 7, 12]));
+function PositivSum(arr) {
+    const positivNumbers =  arr.filter(arrEl => arrEl > 0);
+    return positivNumbers.reduce((positivNumberSum, positivNumber) => positivNumberSum + positivNumber)
+}
+    console.log(PositivSum([1, -4, 7, 12, 50]));
 
 
                      //--------------------task2-------------------//
@@ -34,7 +29,7 @@
                      //--------------------task4-------------------//
                      //возвести в квадрат каждую цифру числа и соединить их
                      
-// function squareDigits(num) { 
+// function squareDigits(num) {
 //     const stringDidgit = String(num);
 //     const arrDidgits = stringDidgit.split('');
 //     const arrSquareDigit = arrDidgits.map(arrDidgit => Math.pow(arrDidgit, 2));
@@ -46,7 +41,7 @@
                              //--------------------task5-------------------//
 //  Создайте программу, которая фильтрует список строк и возвращает список, содержащий только имена ваших друзей.
 // Если в имени ровно 4 буквы, можете быть уверены, что оно должно быть вашим другом! В противном случае, вы можете быть уверены, что он не...
-// Пример: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]     
+// Пример: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
 
 // function friend(friends) {
 //     const filteredFriends = friends.filter(friend => friend.length === 4);
@@ -62,17 +57,15 @@
 // +++
 
 // function generateShape(integer) {
-      
-
-//      let str = '';
+    //    let str = '';
 //      for (let i = 0; i < integer; i += 1){
 //          for (let j = 0; j < integer; j += 1){
 //              str += '+';  
 //          } str += '\n';
 //     }
 //     return str.slice(0, -1);
-//   }
-//   console.log(generateShape(5));
+// }
+//    console.log(generateShape(5));
 
 //--------------------task7-------------------//
 // вернуть количество гласных в заданной строке.
