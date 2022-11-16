@@ -113,49 +113,44 @@
 // мы хотим найти положительное целое число k, если оно существует, такое,
 //     что сумма цифр n, взятых в последовательных степенях p, равна k * n.  
 
-function digPow(n, p) {
-    const string = String(n);
-    const arrStrings = string.split(''); 
-    const arrPowNumbers = arrStrings.map(arrString =>
-        Math.pow(Number(arrString), (p+=1)-1)); 
-    const arrPowNumberSum = arrPowNumbers.reduce((sumNumbers, arrPowNumber) =>
-        sumNumbers + arrPowNumber);
-    if (!Number.isInteger (arrPowNumberSum / n)) { 
-        return -1
-    }
-    return arrPowNumberSum / n;
-}
+// function digPow(n, p) {
+//     const string = String(n);
+//     const arrStrings = string.split(''); 
+//     const arrPowNumbers = arrStrings.map(arrString =>
+//         Math.pow(Number(arrString), (p += 1) - 1)
+//     ); 
+//     const arrPowNumberSum = arrPowNumbers.reduce((sumNumbers, arrPowNumber) =>
+//         sumNumbers + arrPowNumber);
+    
+//     if (!Number.isInteger (arrPowNumberSum / n)) { 
+//         return -1
+//     }
+//     return arrPowNumberSum / n;
+// }
     //console.log(digPow(695, 2));
     //console.log(digPow(89, 1));
     //console.log(digPow(92, 1));
     //console.log(digPow(46288, 3));
 
-
-
- 
-
-
-                        //--------------------task9-------------------//
+                 //--------------------task9-------------------//
                         
 // Напишите функцию, которая может возвращать наименьшее значение массива или
 // индекс этого значения.Второй параметр функции скажет, должна ли она
 //  возвращать значение или индекс.
 //     Предположим, что первый параметр всегда будет массивом, заполненным как
-// минимум1 числом и без дубликатов.Предположим, что вторым параметром будет
+// минимум 1 числом и без дубликатов.Предположим, что вторым параметром будет
 // строка, содержащая одно из двух значений: «значение» и «индекс».
 
-// function min(arr, toReturn) {
-//     const minNumber = arr[0];
-//     for (let i = 0; i <= arr.length; i += 1) {
-//         if (minNumber > arr[i]) {
-//             minNumber = arr[i];
-//         };
-//     }
-//     if (toReturn === 'value') {
-//         return minNumber;
-//     }
-//         return arr.findIndex(arrElement => arrElement === minNumber)
-//     }  
+ function min(arr, toReturn) {
+     const minNumber = Math.min(...arr); 
+     if (toReturn === 'value') {
+         return minNumber;
+     }
+     return arr.findIndex(arrEl => arrEl === minNumber);
+
+ } console.log(min([1,2,3,4,5], 'value'))
+     
+
 
                             //--------------------task10-------------------//
                             
