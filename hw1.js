@@ -1,58 +1,52 @@
 //------------------task1---------------------//
 //Вы получаете массив чисел, возвращаете сумму всех положительных.
 
-// function PositivSum(arr) {
-//     let sumOfPositives = 0;
-//     for (const arrElement of arr) {
-//         if (arrElement > 0) {
-//             sumOfPositives += arrElement;
-//         };
-//     }
-//     return sumOfPositives;
-// }
-// console.log(PositivSum([1, -4, 7, 12]));
+//function PositivSum(arr) {
+
+
+    // let sumOfPositives = 0;
+    // for (const number of arr) {
+    //     if (number > 0) {
+    //         sumOfPositives += number;
+    //     };
+    // }
+    // return sumOfPositives;
+//}
+//console.log(PositivSum([1, -4, 7, 12]));
 
 
                      //--------------------task2-------------------//
                         
-
 //Просто, учитывая строку слов, вернуть длину кратчайшего слова (слов).
-
-// function getShotesWord(str) {
-//   const strSplit = str.split(' ');
-//   let shotesWord = strSplit[0];
-//      for (let i = 0; i < strSplit.length; i += 1) {
-        
-//      if (shotesWord.length > strSplit[i].length) {
-//           shotesWord = strSplit[i]
-//         }
-//   }
-//   return shotesWord.length;
-// }
-// console.log(getShotesWord("bitcoin take over the world maybe who knows perhaps"));
+    // function getShotesWord(str) {
+    //     const words = str.split(' ');
+    //     const length = words.map(word => word.length);
+    //     return Math.min(...length);
+    // }
+    // console.log(getShotesWord("bitcoin take over the world maybe who knows perhaps"));
 
 
                        //--------------------task3-------------------//
+
 // создайте функцию, которая берет список неотрицательных целых чисел и строк и возвращает
 //  новый список с отфильтрованными числами.
 
 // function filter_list(list) {
-//   return list.filter(listItem => typeof(listItem) === 'number');   
+//   return list.filter(listItem => typeof listItem === 'number');   
 // }
 
-
-                        //--------------------task4-------------------//
+                     //--------------------task4-------------------//
 
                      //возвести в квадрат каждую цифру числа и соединить их  
                      
-// function squareDigits(num) {
-//     const arrSquareDigits = [];
+// function squareDigits(num) { 
 //     const stringDidgit = String(num);
-//     for (const letter of stringDidgit) {
-//         arrSquareDigits.push(Math.pow(Number(letter), 2));
-//     }
-//     return Number(arrSquareDigits.join(''));
+//     const arrDidgits = stringDidgit.split('');
+//     const arrSquareDigit = arrDidgits.map(arrDidgit => Math.pow(arrDidgit, 2));
+//     const squareDigitsNum = arrSquareDigit.join('')
+//     return squareDigitsNum;
 // }
+//     console.log(">>>>", squareDigits(234));
 
                              //--------------------task5-------------------//
                             
@@ -78,17 +72,18 @@
 // +++
 // +++
 
-function generateShape(integer) {
-    let str = '';
-    for (let i = 0; i < integer; i += 1){
-        for (let j = 0; j < integer; j += 1){
-            str += '+';  
-        }str += '\n';
-       
-    }
-    return str.slice(0, -1);
-}
-console.log(generateShape(5));
+//  function generateShape(integer) {
+//      let str = '';
+
+
+//     for (let i = 0; i < integer; i += 1){
+//         for (let j = 0; j < integer; j += 1){
+//             str += '+';  
+//         }str += '\n';
+//     }
+//     return str.slice(0, -1);
+//  }
+//  console.log(generateShape(5));
 
 //--------------------task7-------------------//
                             
@@ -118,20 +113,26 @@ console.log(generateShape(5));
 // мы хотим найти положительное целое число k, если оно существует, такое,
 //     что сумма цифр n, взятых в последовательных степенях p, равна k * n.  
 
-// function digPow(n, p) {
-//     let sum = 0;
-//     const string = String(n);
-//    for (const str of string) {
-//        const numberFromString = Number(str);
-//        const digitPow = Math.pow(numberFromString, p);
-//        sum += digitPow;
-//        p += 1;
-//     }
-//     if (!Number.isInteger(sum / n)) {
-//         return -1;
-//     };
-//     return sum/n;
-// }
+function digPow(n, p) {
+    const string = String(n);
+    const arrStrings = string.split(''); 
+    const arrPowNumbers = arrStrings.map(arrString =>
+        Math.pow(Number(arrString), (p+=1)-1)); 
+    const arrPowNumberSum = arrPowNumbers.reduce((sumNumbers, arrPowNumber) =>
+        sumNumbers + arrPowNumber);
+    if (!Number.isInteger (arrPowNumberSum / n)) { 
+        return -1
+    }
+    return arrPowNumberSum / n;
+}
+    //console.log(digPow(695, 2));
+    //console.log(digPow(89, 1));
+    //console.log(digPow(92, 1));
+    //console.log(digPow(46288, 3));
+
+
+
+ 
 
 
                         //--------------------task9-------------------//
