@@ -1,11 +1,11 @@
 //------------------task1---------------------//
 //Вы получаете массив чисел, возвращаете сумму всех положительных.
 
-function PositivSum(arr) {
-    const positivNumbers =  arr.filter(arrEl => arrEl > 0);
-    return positivNumbers.reduce((positivNumberSum, positivNumber) => positivNumberSum + positivNumber)
-}
-    console.log(PositivSum([1, -4, 7, 12, 50]));
+// function PositivSum(arr) {
+//     const positivNumbers =  arr.filter(arrEl => arrEl > 0);
+//     return positivNumbers.reduce((positivNumberSum, positivNumber) => positivNumberSum + positivNumber)
+// }
+//     console.log(PositivSum([1, -4, 7, 12, 50]));
 
 
                      //--------------------task2-------------------//
@@ -118,8 +118,14 @@ function PositivSum(arr) {
 //      console.log(min([1, 2, 3, 4, 5], 'value'))
      
                  //--------------------task10-------------------//
-                            
 // function arrayDiff(a, b) {
 //     return a.filter(element => !b.includes(element));
 // }
+
+       //--------------------task11----------------//
+function capitals(word) {
+    const arrFromWord = word.split('');  
+    return Array.from(arrFromWord.entries()).filter(i => i[1] === i[1].toUpperCase()).map(i =>  i[0]);
+}   
+console.log(capitals('CodEWaRs'));
 
