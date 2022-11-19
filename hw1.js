@@ -1,5 +1,5 @@
-//------------------task1---------------------//
-//Вы получаете массив чисел, возвращаете сумму всех положительных.
+// ------------------task1---------------------//
+// Вы получаете массив чисел, возвращаете сумму всех положительных.
 
 // function PositivSum(arr) {
 //     const positivNumbers =  arr.filter(arrEl => arrEl > 0);
@@ -9,7 +9,7 @@
 
 
                      //--------------------task2-------------------//
-    //Просто, учитывая строку слов, вернуть длину кратчайшего слова (слов).
+ //   Просто, учитывая строку слов, вернуть длину кратчайшего слова (слов).
     // function getShotesWord(str) {
     //     const words = str.split(' ');
     //     const length = words.map(word => word.length);
@@ -123,9 +123,36 @@
 // }
 
        //--------------------task11----------------//
-function capitals(word) {
-    const arrFromWord = word.split('');  
-    return Array.from(arrFromWord.entries()).filter(i => i[1] === i[1].toUpperCase()).map(i =>  i[0]);
-}   
-console.log(capitals('CodEWaRs'));
+    //    Напишите функцию, которая принимает одну строку(word) в качестве аргумента. 
+    //    Функция должна возвращать упорядоченный список, содержащий индексы всех
+    //     заглавных букв в строке.
+    
+// function capitals(word) {
+//     const arrFromWord = word.split('');  
+//     return Array.from(arrFromWord.entries()).filter(i => i[1] === i[1].toUpperCase()).map(i =>  i[0]);
+// }   
+// console.log(capitals('CodEWaRs'));
+
+//--------------------------task12------------------//
+// Напишите функцию, insert_dash(num)которая будет вставлять тире('-') между каждыми
+//  двумя нечетными цифрами числа.Например: если число равно 454793, вывод должен 
+//  быть 4547 - 9 - 3. Не считайте ноль за нечетную цифру.insertDash(num)InsertDash(int num)
+// Обратите внимание, что число всегда будет неотрицательным (>= 0).
+
+
+
+function insertDash(num) {
+    const numberWithDash = [];
+    const arrStrings = String(num).split(''); 
+    for (let i = 0; i < arrStrings.length; i += 1) {
+        if (i > 0 && !Number.isInteger(Number(arrStrings[i-1] / 2)) && !Number.isInteger(Number(arrStrings[i] / 2 ))) {
+            numberWithDash.push('-');
+        }
+        numberWithDash.push(arrStrings[i]);
+    }
+    return numberWithDash.join('');
+}
+    console.log(insertDash(454793));
+
+
 
