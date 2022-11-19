@@ -30,13 +30,15 @@
                      //возвести в квадрат каждую цифру числа и соединить их
                      
 // function squareDigits(num) {
-//     const stringDidgit = String(num);
-//     const arrDidgits = stringDidgit.split('');
-//     const arrSquareDigit = arrDidgits.map(arrDidgit => Math.pow(arrDidgit, 2));
-//     const squareDigitsNum = arrSquareDigit.join('')
-//     return squareDigitsNum;
+//     const squareDigitsNum = num
+//         .toString()
+//         .split('')
+//         .map(didgit => didgit ** 2)
+//         .join('')
+//     // return Number(squareDigitsNum);
+//     return +squareDigitsNum;
 // }
-//     console.log(">>>>", squareDigits(234));
+//      console.log(">>>>", squareDigits(234));
 
                              //--------------------task5-------------------//
 //  Создайте программу, которая фильтрует список строк и возвращает список, содержащий только имена ваших друзей.
@@ -57,13 +59,23 @@
 // +++
 
 // function generateShape(integer) {
-    //    let str = '';
-//      for (let i = 0; i < integer; i += 1){
-//          for (let j = 0; j < integer; j += 1){
-//              str += '+';  
-//          } str += '\n';
-//     }
-//     return str.slice(0, -1);
+//     // let pluses = ""
+//     // for (let i = 0; i < integer; i += 1){
+//     //     pluses += '+';  
+//     // }
+//     const pluses = "+".repeat(integer);
+//     // let str = '';
+//     // for (let i = 0; i < integer; i += 1){
+//     //     str += pluses;
+//     //     if (i !== integer - 1) {
+//     //         str += '\n';
+//     //     }
+//     // }
+//     // return str;
+
+//     return Array(integer).fill(pluses).join("\n")
+
+//     // ["+++", "+++", "+++"].join("\n")
 // }
 //    console.log(generateShape(5));
 
@@ -72,9 +84,10 @@
 
 // function getCount(str) {
 //     const vowels = ['a', 'e', 'i', 'o', 'u'];
-//     const arrWords = str.split(''); 
-//     return vowels.flatMap(vowel => vowel = arrWords.filter(arrWord =>
-//         arrWord === vowel)).length;
+//     const letters = str.split(''); 
+//     // return vowels.flatMap(vowel => arrWords.filter(arrWord => arrWord === vowel)).length;
+//     return letters.filter(letter => vowels.includes(letter)).length
+    
 // }
 //     console.log(getCount('aavafrcascwswfzcw'));
 
@@ -86,19 +99,20 @@
 //     что сумма цифр n, взятых в последовательных степенях p, равна k * n.  
 
 // function digPow(n, p) {
-//     const string = String(n);
-//     const arrStrings = string.split(''); 
-//     const arrPowNumbers = arrStrings.map(arrString =>
-//         Math.pow(Number(arrString), (p += 1) - 1)
-//     ); 
-//     const arrPowNumberSum = arrPowNumbers.reduce((sumNumbers, arrPowNumber) =>
-//         sumNumbers + arrPowNumber);
-    
-//     if (!Number.isInteger (arrPowNumberSum / n)) { 
+//    const sum = n
+//         .toString()
+//         .split('')
+//         .map(Number)
+//         .reduce(
+//             (acc, digit, i) => acc + digit ** (p + i),
+//             0,
+//         );
+//         if (sum % n !== 0) { 
 //         return -1
 //     }
-//     return arrPowNumberSum / n;
+//     return sum / n;
 // }
+// console.log(digPow(695, 2));
 
                  //--------------------task9-------------------//
 // Напишите функцию, которая может возвращать наименьшее значение массива или
@@ -113,11 +127,14 @@
 //      if (toReturn === 'value') {
 //          return minNumber;
 //      }
-//      return arr.findIndex(arrEl => arrEl === minNumber);
+//      return arr.indexOf(minNumber);
 //  } 
-//      console.log(min([1, 2, 3, 4, 5], 'value'))
+// console.log(min([1, 2, 3, 4, 5], 'value'));
      
                  //--------------------task10-------------------//
+// реализовать функцию разности, которая вычитает один список из другого и возвращает результат.
+// Он должен удалить из списка все значения a, которые присутствуют в списке b, сохраняя их порядок.
+
 // function arrayDiff(a, b) {
 //     return a.filter(element => !b.includes(element));
 // }
@@ -128,8 +145,11 @@
     //     заглавных букв в строке.
     
 // function capitals(word) {
-//     const arrFromWord = word.split('');  
-//     return Array.from(arrFromWord.entries()).filter(i => i[1] === i[1].toUpperCase()).map(i =>  i[0]);
+//     const letters = word.split('');  
+//     // return Array.from(letters.entries()).filter(i => i[1] === i[1].toUpperCase()).map(i =>  i[0]);
+//     return letters
+//         .map((_, i) => i)
+//         .filter(i => "A" <= letters[i] && letters[i] <= "Z");
 // }   
 // console.log(capitals('CodEWaRs'));
 
@@ -139,20 +159,18 @@
 //  быть 4547 - 9 - 3. Не считайте ноль за нечетную цифру.insertDash(num)InsertDash(int num)
 // Обратите внимание, что число всегда будет неотрицательным (>= 0).
 
-
-
-function insertDash(num) {
-    const numberWithDash = [];
-    const arrStrings = String(num).split(''); 
-    for (let i = 0; i < arrStrings.length; i += 1) {
-        if (i > 0 && !Number.isInteger(Number(arrStrings[i-1] / 2)) && !Number.isInteger(Number(arrStrings[i] / 2 ))) {
-            numberWithDash.push('-');
-        }
-        numberWithDash.push(arrStrings[i]);
-    }
-    return numberWithDash.join('');
-}
-    console.log(insertDash(454793));
+// function insertDash(num) {
+//     const numberWithDash = [];
+//     const arrStrings = String(num).split(''); 
+//     for (let i = 0; i < arrStrings.length; i += 1) {
+//         if (i > 0 && arrStrings[i-1] % 2 !== 0 && arrStrings[i] % 2 !== 0) {
+//             numberWithDash.push('-');
+//         }
+//         numberWithDash.push(arrStrings[i]);
+//     }
+//     return numberWithDash.join('');
+// }
+//     console.log(insertDash(454793));
 
 
 
