@@ -171,6 +171,7 @@
 //     console.log(insertDash(454793));
 
 //============================================================================================================
+
            //---------------task13----------//
 // Учитывая массив (arr) в качестве аргумента, завершите функцию countSmileys, которая
 // должна вернуть общее количество улыбающихся лиц.
@@ -181,18 +182,43 @@
 // Не допускается использование дополнительных символов, кроме упомянутых.
 // Примеры допустимых смайликов: :) :D ;-D :~)
 
-// function countSmileys(arr) {
 
-//     return arr
-//         .filter(smile => (smile.includes('D') || smile.includes(')')) && (smile.includes(':') || smile.includes(';')) && smile.length <=3)
-//         .filter(i => i[1] === ':' || i[1] === ')' || i[1] === 'D' || i[1] === ';' || i[1] === '~' || i[1] === '-').length;
+
+ 
+// function countSmileys(arr) {
+//     return arr.filter(str => isSmile(str)).length;
 // }
 // console.log(countSmileys([":---)", "))", ";~~D", ";D"]));
- 
-// ВОПРОС в filter может ли быть if?
 
+// function isSmile(str) {
+//     const eyes = [':', ';'];
+//     const mouth = ['D', ')'];
+//     const nose = ['~', '-'];
+//     if (str.length === 2) {
+//         return eyes.includes(str[0]) && mouth.includes(str[1]);
+//     }
+//     if (str.length === 3) {
+//         return eyes.includes(str[0]) && nose.includes(str[1]) && mouth.includes(str[2]);
+//     }
+//     return false;
+// }
 
-   //---------------task14----------//
+// console.log(isSmile(":)")) // true
+// console.log(isSmile(":-D"))
+// console.log(isSmile(":))"))
+// console.log(isSmile(":"))
+// console.log(isSmile(""))
+// console.log(isSmile(":x")) // false
+// console.log(isSmile("):")) // false
+// console.log(isSmile(":))"))
+// console.log(isSmile(":-Dqweerty"))
+
+// https://en.wikipedia.org/wiki/ASCII
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
+
+//=======================================================================================================================================================
+                       
+                            //---------------task14----------//
 //    Учитывая двумерный массив, вернуть новый массив, который переносит только те массивы из
 // оригинала, которые не были пустыми и элементы которых все одного типа(т.е.однородные).Для простоты
 //  массивы внутри массива будут содержать только символы и целые числа.
@@ -204,8 +230,50 @@
 // Неявное приведение типов не допускается. Подмассив [1, '2'] будет считаться недопустимым и должен быть отфильтрован.
 
 
-function filterHomogenous(arrays) {
-   return arrays.filter((arr => arr.length !== 0  && arr.every((a) => (typeof a) === (typeof arr[0]) )));
-} 
-console.log(filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]]));
+// function filterHomogenous(arrays) {
+//    return arrays.filter((arr => arr.length !== 0  && arr.every((a) => (typeof a) === (typeof arr[0]) )));
+// } 
+// console.log(filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]]));
 
+          //--------------------------- task15 -------------------------//
+              
+//               Учитывая массив положительных целых чисел(веса людей), верните новый массив / кортеж из двух целых
+// чисел, где первое — это общий вес команды 1, а второе — общий вес команды 2.
+              
+// function rowWeights(array){
+//     const sum1 = array
+//         .filter((arr, i) => i % 2 !== 0)
+//         .reduce((sum, element) => sum + element, 0);
+    
+//     const sum2 = array
+//         .filter((arr, i) => i % 2 === 0)
+//         .reduce((sum, element) => sum + element, 0);
+//     return  [sum2, sum1];
+// };
+ // console.log(rowWeights([100,51,50,100]));
+ 
+ //-----------------------task 16-----------------------//
+//  Учитывая лотерейный билет(билет), представленный массивом массивов с двумя значениями, вы должны выяснить, выиграли 
+//  ли вы джекпот.
+// Пример билета:
+
+// [ [ 'ABC', 65 ], [ 'HGR', 74 ], [ 'BYHT', 74 ] ]
+
+// Для этого вы должны сначала подсчитать «мини - выигрыши» в своем билете.Каждый подмассив содержит как строку, так и число. 
+// Если код любого из символов в строке совпадает с числом, вы получаете мини - выигрыш.Обратите внимание, что у вас может
+//  быть только один мини - выигрыш на подмассив.
+// После того, как вы подсчитали все свои мини - выигрыши, сравните это число с другим введенным значением(выигрышем).Если 
+// ваша сумма больше или равна(выигрыш), верните «Победитель!». В противном случае верните «Неудачник!».
+ 
+// function bingo(ticket, win) {
+//     const b = ticket
+//         .map(miniTicket => miniTicket[0]
+//         .split('')
+//             .filter(simbols => simbols.includes(String.fromCharCode(miniTicket[1]))))
+//         .filter(c => c.length > 0);
+//     if (b.length >= win) {
+//         return 'Winner!';
+//     }
+//     return 'Loser!';
+// }
+     
