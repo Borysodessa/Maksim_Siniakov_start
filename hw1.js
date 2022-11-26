@@ -276,4 +276,55 @@
 //     }
 //     return 'Loser!';
 // }
+
+//-------------------------task 17-----------------------//
+
+//завершить функцию, которая принимает строку и возвращает массив со всеми возможными поворотами данной строки в верхнем регистре .
      
+// function scrollingText(text) {
+//     const scrollText = [];
+//     for (letter of text) {
+//         scrollText.push(text.toUpperCase());
+//         text = text.slice(1) + text[0];
+//     }
+//     return scrollText;
+// }
+// console.log(scrollingText('abc'));
+
+//  function scrollingText(text) { 
+//      const arr = text
+//          .split('')
+//          .map((el, i) => text.toUpperCase().slice(i) + text.toUpperCase().slice(0, i));
+//      return arr;
+// }
+// console.log(scrollingText('abc'));
+
+
+
+//дано число, и вам нужно будет вернуть его в виде строки в расширенной форме
+
+// function expandedForm(num) {
+//     return String(num)
+//         .split('')
+//         .reverse()
+//         .map((el, i) => el + '0'
+//         .repeat(i))
+//         .filter(el => el != 0)
+//         .reverse()
+//         .join(' + ');
+// }
+// console.log(expandedForm(50026));
+
+//-------------------------task 18-----------------------//
+// Является ли каждое значение в массиве массивом?
+//     Это должно проверять только второе измерение массива.Значения вложенных массивов не
+//  обязательно должны быть массивами.
+
+// const arrCheck = value => {
+//     const filteredValue = value.filter(el => Array.isArray(el)); 
+//     if (value.length === filteredValue.length) {
+//         return true
+//     }
+//     return false
+// }
+// console.log(arrCheck([]));
