@@ -51,6 +51,7 @@
 // }
 //     console.log(friend(["Ryan", "Kieran", "Jason", "Yous", "Olga", "Makar"]));
 
+
                            //--------------------task6-------------------//
 // Верните фигуру такой же длины и ширины, как целое число. Целое число будет целым числом от 1 до 50.
 // Пример: n = 3, поэтому ожидается квадрат 3x3, как показано ниже, в виде строки:
@@ -61,7 +62,7 @@
 // function generateShape(integer) {
 //     // let pluses = ""
 //     // for (let i = 0; i < integer; i += 1){
-//     //     pluses += '+';  
+//     //     pluses += '+';
 //     // }
 //     const pluses = "+".repeat(integer);
 //     // let str = '';
@@ -75,9 +76,10 @@
 
 //     return Array(integer).fill(pluses).join("\n")
 
-//     // ["+++", "+++", "+++"].join("\n")
+//     // ["+++", "+++", "+++"].join("\n")                        перенос "\n"
 // }
 //    console.log(generateShape(5));
+
 
 //--------------------task7-------------------//
 // вернуть количество гласных в заданной строке.
@@ -182,9 +184,6 @@
 // Не допускается использование дополнительных символов, кроме упомянутых.
 // Примеры допустимых смайликов: :) :D ;-D :~)
 
-
-
- 
 // function countSmileys(arr) {
 //     return arr.filter(str => isSmile(str)).length;
 // }
@@ -218,7 +217,7 @@
 
 //=======================================================================================================================================================
                        
-                            //---------------task14----------//
+                            //--------------- task14 ----------//
 //    Учитывая двумерный массив, вернуть новый массив, который переносит только те массивы из
 // оригинала, которые не были пустыми и элементы которых все одного типа(т.е.однородные).Для простоты
 //  массивы внутри массива будут содержать только символы и целые числа.
@@ -229,10 +228,13 @@
 // Результирующие массивы должны быть в том порядке, в котором они были изначально, и их значения не должны изменяться.
 // Неявное приведение типов не допускается. Подмассив [1, '2'] будет считаться недопустимым и должен быть отфильтрован.
 
+// function isHomogenous(arr) {
+//     return arr.every(a => typeof a === typeof arr[0]);
+// }
 
 // function filterHomogenous(arrays) {
-//    return arrays.filter((arr => arr.length !== 0  && arr.every((a) => (typeof a) === (typeof arr[0]) )));
-// } 
+//    return arrays.filter(arr => arr.length !== 0 && isHomogenous(arr));
+//} 
 // console.log(filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]]));
 
           //--------------------------- task15 -------------------------//
@@ -240,15 +242,15 @@
 //               Учитывая массив положительных целых чисел(веса людей), верните новый массив / кортеж из двух целых
 // чисел, где первое — это общий вес команды 1, а второе — общий вес команды 2.
               
-// function rowWeights(array){
+//function rowWeights(array){
 //     const sum1 = array
-//         .filter((arr, i) => i % 2 !== 0)
+//         .filter((_, i) => i % 2 !== 0)                 // если аргумент не используется то ставят _
 //         .reduce((sum, element) => sum + element, 0);
     
 //     const sum2 = array
-//         .filter((arr, i) => i % 2 === 0)
+//         .filter((_, i) => i % 2 === 0)
 //         .reduce((sum, element) => sum + element, 0);
-//     return  [sum2, sum1];
+//     return [sum2, sum1];
 // };
  // console.log(rowWeights([100,51,50,100]));
  
@@ -264,31 +266,39 @@
 //  быть только один мини - выигрыш на подмассив.
 // После того, как вы подсчитали все свои мини - выигрыши, сравните это число с другим введенным значением(выигрышем).Если 
 // ваша сумма больше или равна(выигрыш), верните «Победитель!». В противном случае верните «Неудачник!».
- 
-// function bingo(ticket, win) {
-//     const b = ticket
-//         .map(miniTicket => miniTicket[0]
-//         .split('')
-//             .filter(simbols => simbols.includes(String.fromCharCode(miniTicket[1]))))
-//         .filter(c => c.length > 0);
-//     if (b.length >= win) {
-//         return 'Winner!';
-//     }
-//     return 'Loser!';
+// function isMiniWin(str, code) {  // predicate
+//     const targetCharacter = String.fromCharCode(code);
+//     return str.split('').includes(targetCharacter);
 // }
-
-//-------------------------task 17-----------------------//
-
-//завершить функцию, которая принимает строку и возвращает массив со всеми возможными поворотами данной строки в верхнем регистре .
+// if (str.split('').includes(targetCharacter)) {
+//     return true;
+// }
+// return false;
      
-// function scrollingText(text) {
+// function bingo(ticket, win) {
+//     const winningMiniTikets = ticket.filter(([str, code]) => isMiniWin(str, code))
+//     return winningMiniTikets.length >= win ? 'Winner!' : 'Loser!'
+    
+    // if (winningMiniTikets.length >= win) {
+    //     return 'Winner!';
+    // }
+    // return 'Loser!';
+//}
+
+
+
+//завершить функцию, которая принимает строку и возвращает массив со всеми
+// возможными поворотами данной строки в верхнем регистре.
+     
+// function scrollingText(rawText) {
+//     let text = rawText.toUpperCase()
 //     const scrollText = [];
-//     for (letter of text) {
+//     for (let i = 0; i < rawText.length; i++) {
 //         scrollText.push(text.toUpperCase());
 //         text = text.slice(1) + text[0];
 //     }
 //     return scrollText;
-// }
+//}
 // console.log(scrollingText('abc'));
 
 //  function scrollingText(text) { 
@@ -300,6 +310,7 @@
 // console.log(scrollingText('abc'));
 
 
+//-------------------------task 18-----------------------//
 
 //дано число, и вам нужно будет вернуть его в виде строки в расширенной форме
 
@@ -307,15 +318,16 @@
 //     return String(num)
 //         .split('')
 //         .reverse()
-//         .map((el, i) => el + '0'
-//         .repeat(i))
-//         .filter(el => el != 0)
+//         .map((el, i) => el + '0'.repeat(i))
+//         .filter(el => !el.startsWith("0")) // "0000"      //startsWith
 //         .reverse()
 //         .join(' + ');
 // }
 // console.log(expandedForm(50026));
 
-//-------------------------task 18-----------------------//
+
+//------------------------- task 19 -----------------------//
+
 // Является ли каждое значение в массиве массивом?
 //     Это должно проверять только второе измерение массива.Значения вложенных массивов не
 //  обязательно должны быть массивами.
@@ -328,3 +340,22 @@
 //     return false
 // }
 // console.log(arrCheck([]));
+
+
+//----------------------- 20 ------------------------//
+
+// Учитывая число в качестве параметра(от 2 до 30), вернуть
+// массив, содержащий строки, которые образуют поле.
+
+// function box(n) {
+//     const strings = []; 
+//     const baseString = '-'.repeat(n); 
+//     const substrings = '-' + ' '.repeat(n-2) + '-'; 
+//     strings.length = n;
+//     strings.fill(substrings).splice(strings.length, 0, baseString);
+//     strings.splice(0, 2, baseString); 
+//     return strings;
+// }
+// console.log(box(10));
+
+
