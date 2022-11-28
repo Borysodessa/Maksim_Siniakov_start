@@ -360,7 +360,7 @@
 // console.log(box(10));
 
 
-//----------------------- 21 ------------------------//???????????????
+//----------------------- 21 ------------------------//
 
 // Магический индекс в массиве A[1...n - 1] определяется как такой индекс,
 //     что A[i] = i.Учитывая отсортированный массив различных целых чисел,
@@ -384,8 +384,6 @@
 //     Примечание.Ваш ответ всегда должен состоять из 6 символов, сокращение с 3
 //  здесь не сработает.
 
-
-
 // function rgb(r, g, b) {
     
 
@@ -403,17 +401,17 @@
 // }
 // console.log(rgb(2, 0, 1));
 
-//----------------------- 22 ------------------------//
+//----------------------- 23 ------------------------//
 // Учитывая двумерный массив целых чисел, вернуть сглаженную версию массива со всеми
 // целыми числами в отсортированном(по возрастанию) порядке
-function compareNumeric(a, b) {
-    if (a > b) return 1;
-    if (a == b) return 0;
-    if (a < b) return -1;
-}
-function flattenAndSort(array) {
-    const d = array.reduce((arr, elem) => arr.concat(elem), [])
-        .sort(compareNumeric);
-    return d;
-}
-console.log(flattenAndSort([[3, 2, 100, 1], [4, 6, 5], [], [9, 7, 8]]));
+// function compareNumeric(a, b) {
+//     if (a > b) return 1;
+//     if (a == b) return 0;
+//     if (a < b) return -1;
+// }
+// function flattenAndSort(array) {
+//     const d = array.reduce((arr, elem) => arr.concat(elem), [])
+//         .sort(compareNumeric);
+//     return d;
+// }
+// console.log(flattenAndSort([[3, 2, 100, 1], [4, 6, 5], [], [9, 7, 8]]));
