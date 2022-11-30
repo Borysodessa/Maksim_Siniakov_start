@@ -348,15 +348,16 @@
 // Учитывая число в качестве параметра(от 2 до 30), вернуть
 // массив, содержащий строки, которые образуют поле.
 
-// function box(n) {
-//     const strings = []; 
-//     const baseString = '-'.repeat(n); 
-//     const substrings = '-' + ' '.repeat(n-2) + '-'; 
-//     strings.length = n;
-//     strings.fill(substrings).splice(strings.length, 0, baseString);
-//     strings.splice(0, 2, baseString); 
-//     return strings;
-// }
+function box(n) {
+  const baseString = '-'.repeat(n); 
+  const substrings = '-' + ' '.repeat(n-2) + '-'; 
+  const strings = Array(n - 2).fill(substrings);
+
+  strings.push(baseString); 
+  strings.unshift(baseString);
+
+  return strings;
+}
 // console.log(box(10));
 
 
@@ -368,38 +369,43 @@
 //         в массиве A.
 
 // function findMagic(arr){
-//     const magicNumber =  +arr.filter(elem => elem === arr.indexOf(elem))
-//         .join('');
-//     return magicNumber > 0 ? magicNumber : -1;
+//     const magicNumber =  arr.filter((elem, i)=> elem === i)
+        
+//     return magicNumber.length > 0 ? magicNumber[0] : -1;
 // }
-// console.log(findMagic([6,5,83,5,3,18]));
+
+// // find
+// // findIndex
+
+//  console.log(findMagic([6, 5, 2, 3,18])); // 2
 
 
 //----------------------- 22 ------------------------//???????????????????????
 
-// Функция rgb неполная.Завершите его, чтобы передача десятичных значений RGB 
-// приводила к возврату шестнадцатеричного представления.Допустимые десятичные 
+// Функция rgb неполная.Завершите его, чтобы передача десятичных значений RGB
+// приводила к возврату шестнадцатеричного представления.Допустимые десятичные
 // значения для RGB: 0–255. Любые значения, выпадающие из этого диапазона, должны
 //  быть округлены до ближайшего допустимого значения.
 //     Примечание.Ваш ответ всегда должен состоять из 6 символов, сокращение с 3
 //  здесь не сработает.
 
-// function rgb(r, g, b) {
-    
+function convert(a) {
+     if (a > 255) {
+          a = 255
+     } else if (a < 0) {
+          a = 0
+      }
+     return a.toString(16).padStart(2, 0);
+}
 
-//      const values = [];
-//      const strings = String(r) + String(g) + String(b);
-//      if (strings.length === 3 && !strings.includes('0')) {
-//           values.push(String(r) + String(r), String(g) + String(g), String(b) + String(b)); 
-//      } else if (strings.length === 3) {
-         
-//       }
-  
-//      const convertedValues = values.map(value => +value.toString(16));
-    
-//      return convertedValues;
-// }
-// console.log(rgb(2, 0, 1));
+function rgb(r, g, b) {
+     const values = [];
+     values.push(r, g, b); 
+     return values.map(value => convert(value))
+          .join('')
+          .toUpperCase();
+}
+console.log(rgb(255, 0, 12));
 
 //----------------------- 23 ------------------------//
 // Учитывая двумерный массив целых чисел, вернуть сглаженную версию массива со всеми
@@ -415,3 +421,24 @@
 //     return d;
 // }
 // console.log(flattenAndSort([[3, 2, 100, 1], [4, 6, 5], [], [9, 7, 8]]));
+
+
+//----------------------- 23 ------------------------//
+
+// Напишите функцию, которая принимает массив чисел(целые числа для тестов) и целевое.
+//Он должен найти в массиве два разных элемента, которые при суммировании дают целевое значение
+//  целевое значение.Затем индексы этих
+//  элементов должны быть возвращены в виде кортежа / списка(в зависимости от вашего
+//      языка) следующим образом: (index1, index2).
+
+// function twoSum(numbers, target) {
+//      for (let i = 0; i < numbers.length; i += 1){
+//           for (let j = 0; j < numbers.length; j += 1){
+//                if (numbers[i] + numbers[i + 1] === target) {
+//                     return numbers[i] + numbers[i + 1];
+//                };
+//           }
+//      }
+// }
+// console.log(twoSum([1, 2, 3], 4));
+
