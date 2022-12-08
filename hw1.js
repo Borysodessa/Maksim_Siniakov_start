@@ -328,7 +328,6 @@
 
 
 //------------------------- task 19 -----------------------//
-
 // Является ли каждое значение в массиве массивом?
 //     Это должно проверять только второе измерение массива.Значения вложенных массивов не
 //  обязательно должны быть массивами.
@@ -344,7 +343,6 @@
 
 
 //----------------------- 20 ------------------------//
-
 // Учитывая число в качестве параметра(от 2 до 30), вернуть
 // массив, содержащий строки, которые образуют поле.
 
@@ -354,7 +352,6 @@
 //   const strings = Array(n - 2).fill(substrings);
 //   strings.push(baseString); 
 //   strings.unshift(baseString);
-
 //   return strings;
 // }
 //  console.log(box(10));
@@ -475,8 +472,9 @@
 //      return numbersFour.length;
 // }
 // console.log(zeroPlentiful([0, 2, 0, 0, 0, 0, 3, 4, 5, 0, 0, 0, 0, 0]));
+//====================================================================================================
 
-                                     //----------------------- 26 ------------------------//?????????????????????????????? не проходит тест(Should pass edge cases/ Должны проходить пограничные случаи)
+                    //----------------------- 26 ------------------------//?????????????????????????????? не проходит тест(Should pass edge cases/ Должны проходить пограничные случаи)
 // function getLengthOfMissingArray(arrayOfArrays) {
 //     if (arrayOfArrays === null || arrayOfArrays === []) {
 //           return 0;
@@ -489,11 +487,11 @@
 //      } 
 //      return 0;
 // }
-//console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]));
-//console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [1, 11, 9], [5, 6, 7, 8, 9]]));
-//console.log(getLengthOfMissingArray([[], [2], [2, 0, 3, 4, 4, 3, 3], [4, 2], [2, 4, 4, 1], [1, 0, 4, 1, 0, 0], [4, 0, 1, 2, 0]]));
-//console.log(getLengthOfMissingArray([[1], [4, 0, 2, 2, 2, 4], [2, 1, 1], [4, 0, 2, 2, 2, 4, 2], [0, 0, 3, 4], [0, 1, 1, 3, 1], [0, 4]]));
-//console.log(getLengthOfMissingArray([[0]]));
+// console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]));
+// console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [1, 11, 9], [5, 6, 7, 8, 9]]));
+// console.log(getLengthOfMissingArray([[], [2], [2, 0, 3, 4, 4, 3, 3], [4, 2], [2, 4, 4, 1], [1, 0, 4, 1, 0, 0], [4, 0, 1, 2, 0]]));
+// console.log(getLengthOfMissingArray([[1], [4, 0, 2, 2, 2, 4], [2, 1, 1], [4, 0, 2, 2, 2, 4, 2], [0, 0, 3, 4], [0, 1, 1, 3, 1], [0, 4]]));
+// console.log(getLengthOfMissingArray([[0]]));
 
 
 
@@ -520,17 +518,43 @@
 // function duplicateEncode(word){
 //      const arr = [];
 //      for (let i = 0; i < word.length; i += 1){
-//           for (let j = 0; j > i; j += 1) {
-//                if (word[i] === word[j] || word[i] === ')') {
-//                     arr.push(')')
-//                }
-//           }   
-//      } console.log(arr);
+       //      } 
+ // }
+// console.log(duplicateEncode("reek"));
 
-//      return arr.join('');
-// }
+//----------------------- 29 ------------------------//
+// Получив строку, сделайте заглавными буквы, которые занимают четные и нечетные индексы отдельно,
+//      и верните, как показано ниже. Индекс 0 будет считаться четным.
 
-// console.log(duplicateEncode("recede"));
+function even(s) {
+     const array = [];
+     for (let i = 0; i < s.length; i += 1){
+          const arr = s.split(''); 
+          if (i % 2 === 0 || i === 0) {
+               array.push(arr[i].toUpperCase());
+          } else if (i % 2 !== 0 && i !== 0) {
+               array.push(arr[i]);
+          }
+     }
+     return array;
+}
+console.log(even("abcdef"));
 
+function odd(s) {
+     const array = [];
+     for (let i = 0; i < s.length; i += 1){
+          const arr = s.split(''); 
+          if (i % 2 !== 0 && i !== 0) {
+               array.push(arr[i].toUpperCase());
+          } else if (i % 2 === 0 || i === 0) {
+               array.push(arr[i]);
+          }
+     }
+     return array;
+}
+console.log(odd("abcdef"));
 
-
+function capitalize(s) {
+      return [even(s).join(''), odd(s).join('')];
+}
+console.log(capitalize("abcdef"));
