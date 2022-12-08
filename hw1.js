@@ -348,17 +348,16 @@
 // Учитывая число в качестве параметра(от 2 до 30), вернуть
 // массив, содержащий строки, которые образуют поле.
 
-function box(n) {
-  const baseString = '-'.repeat(n); 
-  const substrings = '-' + ' '.repeat(n-2) + '-'; 
-  const strings = Array(n - 2).fill(substrings);
+// function box(n) {
+//   const baseString = '-'.repeat(n); 
+//   const substrings = '-' + ' '.repeat(n-2) + '-'; 
+//   const strings = Array(n - 2).fill(substrings);
+//   strings.push(baseString); 
+//   strings.unshift(baseString);
 
-  strings.push(baseString); 
-  strings.unshift(baseString);
-
-  return strings;
-}
-// console.log(box(10));
+//   return strings;
+// }
+//  console.log(box(10));
 
 
 //----------------------- 21 ------------------------//
@@ -369,7 +368,7 @@ function box(n) {
 //         в массиве A.
 
 // function findMagic(arr){
-//     const magicNumber =  arr.filter((elem, i)=> elem === i)
+//     const magicNumber =  arr.filter((elem, i) => elem === i)
         
 //     return magicNumber.length > 0 ? magicNumber[0] : -1;
 // }
@@ -380,7 +379,7 @@ function box(n) {
 //  console.log(findMagic([6, 5, 2, 3,18])); // 2
 
 
-//----------------------- 22 ------------------------//???????????????????????
+//----------------------- 22 ------------------------// не проверенно: else, вторая функция.  
 
 // Функция rgb неполная.Завершите его, чтобы передача десятичных значений RGB
 // приводила к возврату шестнадцатеричного представления.Допустимые десятичные
@@ -389,56 +388,149 @@ function box(n) {
 //     Примечание.Ваш ответ всегда должен состоять из 6 символов, сокращение с 3
 //  здесь не сработает.
 
-function convert(a) {
-     if (a > 255) {
-          a = 255
-     } else if (a < 0) {
-          a = 0
-      }
-     return a.toString(16).padStart(2, 0);
-}
+// function convert(a) {
+//      if (a > 255) {
+//           a = 255
+//      } else if (a < 0) {
+//           a = 0
+//       }
+//      return a.toString(16).padStart(2, 0);
+// }
 
-function rgb(r, g, b) {
-     const values = [];
-     values.push(r, g, b); 
-     return values.map(value => convert(value))
-          .join('')
-          .toUpperCase();
-}
-console.log(rgb(255, 0, 12));
-
-//----------------------- 23 ------------------------//
+// function rgb(r, g, b) {
+//     return [r, g, b]
+//         .map(value => convert(value))
+//         .join('')
+//         .toUpperCase();
+// }
+// console.log(rgb(255, 0, 12));
+//=========================================================================================================================
+//=--------------23------------------------//
 // Учитывая двумерный массив целых чисел, вернуть сглаженную версию массива со всеми
 // целыми числами в отсортированном(по возрастанию) порядке
 // function compareNumeric(a, b) {
-//     if (a > b) return 1;
-//     if (a == b) return 0;
-//     if (a < b) return -1;
+//     // if (a > b) return 1;
+//     // if (a === b) return 0;
+//     // if (a < b) return -1;
+
+//     return a - b;
 // }
 // function flattenAndSort(array) {
-//     const d = array.reduce((arr, elem) => arr.concat(elem), [])
-//         .sort(compareNumeric);
-//     return d;
-// }
+//     return array
+//         .reduce((arr, elem) => {
+//             arr.push(...elem);
+//             return arr;
+//         }, [])
+//         // .reduce((arr, elem) => arr.concat(elem), [])
+//         // .flat()
+//         // .sort(compareNumeric);
+//         .sort((a, b) => a - b);
+//     }
 // console.log(flattenAndSort([[3, 2, 100, 1], [4, 6, 5], [], [9, 7, 8]]));
 
 
-//----------------------- 23 ------------------------//
+//----------------------- 24 ------------------------//
 
 // Напишите функцию, которая принимает массив чисел(целые числа для тестов) и целевое.
-//Он должен найти в массиве два разных элемента, которые при суммировании дают целевое значение
-//  целевое значение.Затем индексы этих
-//  элементов должны быть возвращены в виде кортежа / списка(в зависимости от вашего
-//      языка) следующим образом: (index1, index2).
+// Он должен найти в массиве два разных элемента, которые при суммировании дают целевое значение
+//  целевое значение. Затем индексы этихэлементов должны быть возвращены в виде 
+// списка(в зависимости от вашего языка) следующим образом: (index1, index2).
 
 // function twoSum(numbers, target) {
-//      for (let i = 0; i < numbers.length; i += 1){
-//           for (let j = 0; j < numbers.length; j += 1){
-//                if (numbers[i] + numbers[i + 1] === target) {
-//                     return numbers[i] + numbers[i + 1];
-//                };
+//      for (let i = 1; i < numbers.length; i += 1) {
+//           console.log("----", numbers[i]);
+//           for (let j = 0; j < i; j += 1){
+//                if (numbers[i] + numbers[j] === target) {
+//                     return  [i, j];  
+//                }
 //           }
 //      }
 // }
-// console.log(twoSum([1, 2, 3], 4));
+// console.log(twoSum([1, 2, 3, 4, 5, 3], 4));
+//=========================================================================================================================
+
+// //----------------------- 25 ------------------------//
+// // Массив называется нулевым, если он содержит несколько нулей, и каждая 
+// // последовательность нулей состоит не менее чем из 4 элементов.
+// // Ваша задача — вернуть количество нулевых последовательностей, если
+// //  заданный массив нулевой, иначе 0.
+
+// function zeroPlentiful(arr) {
+//      const array = [];
+//      let counter = 0;
+//      for (let i = 0; i < arr.length; i += 1){
+//           if (arr[i] === 0) {
+//                counter += 1;
+//           } else if (arr[i] !== 0) { 
+//                counter = 0;
+//           }
+//           array.push(counter);
+//      }
+//      console.log(array);
+//      const numbersOne = array.filter(num => num === 1); console.log(numbersOne);
+//      const numbersFour = array.filter(num => num === 4); console.log(numbersFour);
+//      if (numbersOne.length !== numbersFour.length || !array.includes(1) || !array.includes(4) ) {
+//           return 0;
+//      }
+//      return numbersFour.length;
+// }
+// console.log(zeroPlentiful([0, 2, 0, 0, 0, 0, 3, 4, 5, 0, 0, 0, 0, 0]));
+
+                                     //----------------------- 26 ------------------------//?????????????????????????????? не проходит тест(Should pass edge cases/ Должны проходить пограничные случаи)
+// function getLengthOfMissingArray(arrayOfArrays) {
+//     if (arrayOfArrays === null || arrayOfArrays === []) {
+//           return 0;
+//      }
+//      arrayOfArrays.sort((a, b) => a.length - b.length);
+//     for (let i = 1; i < arrayOfArrays.length; i += 1) {
+//           if ((arrayOfArrays[i-1].length + 1) !== arrayOfArrays[i].length) {
+//                return arrayOfArrays[i-1].length+1;
+//           }
+//      } 
+//      return 0;
+// }
+//console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]));
+//console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [1, 11, 9], [5, 6, 7, 8, 9]]));
+//console.log(getLengthOfMissingArray([[], [2], [2, 0, 3, 4, 4, 3, 3], [4, 2], [2, 4, 4, 1], [1, 0, 4, 1, 0, 0], [4, 0, 1, 2, 0]]));
+//console.log(getLengthOfMissingArray([[1], [4, 0, 2, 2, 2, 4], [2, 1, 1], [4, 0, 2, 2, 2, 4, 2], [0, 0, 3, 4], [0, 1, 1, 3, 1], [0, 4]]));
+//console.log(getLengthOfMissingArray([[0]]));
+
+
+
+//----------------------- 27 ------------------------//
+// Поток данных получен и должен быть реверсирован.Каждый сегмент имеет длину 8 бит, что
+// означает, что порядок этих сегментов должен быть обратным, например:
+
+// function dataReverse(data) {
+//      const reverse = [];
+//      for (let i = 0; i < data.length / 8; i += 1) {
+//           reverse.unshift(data.slice(i * 8, (i + 1) * 8))
+//           }
+//      console.log(reverse);
+//      return reverse.flat();
+// }        
+// console.log(dataReverse([4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]));
+
+
+//----------------------- 28 ------------------------//???????????????????????????????????????
+// преобразовать строку в новую строку, где каждый символ в новой строке соответствует тому, "("если этот символ появляется 
+// только один раз в исходной строке или ")"если этот символ появляется в исходной строке более одного раза.Игнорировать 
+// заглавные буквы при определении, является ли символ дубликатом.
+
+// function duplicateEncode(word){
+//      const arr = [];
+//      for (let i = 0; i < word.length; i += 1){
+//           for (let j = 0; j > i; j += 1) {
+//                if (word[i] === word[j] || word[i] === ')') {
+//                     arr.push(')')
+//                }
+//           }   
+//      } console.log(arr);
+
+//      return arr.join('');
+// }
+
+// console.log(duplicateEncode("recede"));
+
+
 
