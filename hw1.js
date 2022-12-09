@@ -573,3 +573,32 @@
 // }     
 // console.log(sortArray([5, 8, 6, 3, 4])); //odd = [3, 5];
 // console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])); //odd = [1, 3, 5, 7, 9];
+
+//----------------------- 31 ------------------------//
+
+// а) удалить орфографические ошибки в словах «ei».(Пример слов: their, caffeine, deceive, weight)
+// б) использовать только первую букву каждого предложения.Убедитесь, что остальная часть предложения
+//  написана строчными буквами.
+
+//  Example: He haD iEght ShOTs of CAffIEne. --> He had eight shots of caffeine.
+
+// function proofread(str) { 
+//      const arr = str
+//           .toLowerCase()
+//           .split('');
+//      for (let i = 0; i < arr.length; i+=1){
+//      if (arr[i] + arr[i + 1] === 'i' + 'e') {
+//           arr[i] = 'e', arr[i + 1] = 'i'
+//           }
+//      }
+//      for (let i = 0; i < arr.length; i+=1){
+//      if (arr[i-2] === '.') {
+//           arr[i] = arr[i].toUpperCase();
+//      }}
+//      arr[0] = arr[0].toUpperCase()
+//        return   arr.join('')
+      
+// } 
+
+
+// console.log(proofread ("ShE deCIeved HiM."));
