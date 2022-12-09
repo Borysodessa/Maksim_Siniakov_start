@@ -463,9 +463,8 @@
 //           }
 //           array.push(counter);
 //      }
-//      console.log(array);
-//      const numbersOne = array.filter(num => num === 1); console.log(numbersOne);
-//      const numbersFour = array.filter(num => num === 4); console.log(numbersFour);
+//      const numbersOne = array.filter(num => num === 1); 
+//      const numbersFour = array.filter(num => num === 4); 
 //      if (numbersOne.length !== numbersFour.length || !array.includes(1) || !array.includes(4) ) {
 //           return 0;
 //      }
@@ -509,7 +508,6 @@
 // }        
 // console.log(dataReverse([4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]));
 
-
 //----------------------- 28 ------------------------//???????????????????????????????????????
 // преобразовать строку в новую строку, где каждый символ в новой строке соответствует тому, "("если этот символ появляется 
 // только один раз в исходной строке или ")"если этот символ появляется в исходной строке более одного раза.Игнорировать 
@@ -526,35 +524,52 @@
 // Получив строку, сделайте заглавными буквы, которые занимают четные и нечетные индексы отдельно,
 //      и верните, как показано ниже. Индекс 0 будет считаться четным.
 
-function even(s) {
-     const array = [];
-     for (let i = 0; i < s.length; i += 1){
-          const arr = s.split(''); 
-          if (i % 2 === 0 || i === 0) {
-               array.push(arr[i].toUpperCase());
-          } else if (i % 2 !== 0 && i !== 0) {
-               array.push(arr[i]);
-          }
-     }
-     return array;
-}
-console.log(even("abcdef"));
+// function even(s) {
+//      const array = [];
+//      for (let i = 0; i < s.length; i += 1){
+//           const arr = s.split(''); 
+//           if (i % 2 === 0 || i === 0) {
+//                array.push(arr[i].toUpperCase());
+//           } else if (i % 2 !== 0 && i !== 0) {
+//                array.push(arr[i]);
+//           }
+//      }
+//      return array;
+// }
+// console.log(even("abcdef"));
 
-function odd(s) {
-     const array = [];
-     for (let i = 0; i < s.length; i += 1){
-          const arr = s.split(''); 
-          if (i % 2 !== 0 && i !== 0) {
-               array.push(arr[i].toUpperCase());
-          } else if (i % 2 === 0 || i === 0) {
-               array.push(arr[i]);
-          }
-     }
-     return array;
-}
-console.log(odd("abcdef"));
+// function odd(s) {
+//      const array = [];
+//      for (let i = 0; i < s.length; i += 1){
+//           const arr = s.split(''); 
+//           if (i % 2 !== 0 && i !== 0) {
+//                array.push(arr[i].toUpperCase());
+//           } else if (i % 2 === 0 || i === 0) {
+//                array.push(arr[i]);
+//           }
+//      }
+//      return array;
+// }
+// console.log(odd("abcdef"));
 
-function capitalize(s) {
-      return [even(s).join(''), odd(s).join('')];
-}
-console.log(capitalize("abcdef"));
+// function capitalize(s) {
+//       return [even(s).join(''), odd(s).join('')];
+// }
+// console.log(capitalize("abcdef"));
+
+//----------------------- 30 ------------------------//
+// Вы должны отсортировать нечетные числа в порядке возрастания, оставив четные числа на их исходных позициях.
+
+// function sortArray(array) {
+//      const odd = array.filter(el => el % 2 !== 0).sort((a, b) => a - b); 
+//      let counter = 0;
+//      for (let i = 0; i < array.length; i += 1) {
+//           if (array[i] % 2 !== 0) {
+//                array[i] = odd[counter];
+//                counter += 1
+//           }
+//      }
+//      return array;
+// }     
+// console.log(sortArray([5, 8, 6, 3, 4])); //odd = [3, 5];
+// console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])); //odd = [1, 3, 5, 7, 9];
