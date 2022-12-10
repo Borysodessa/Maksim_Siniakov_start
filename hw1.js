@@ -458,17 +458,17 @@
 //      for (let i = 0; i < arr.length; i += 1){
 //           if (arr[i] === 0) {
 //                counter += 1;
-//           } else if (arr[i] !== 0) { 
+//           } else { 
 //                counter = 0;
 //           }
 //           array.push(counter);
 //      }
-//      const numbersOne = array.filter(num => num === 1); 
-//      const numbersFour = array.filter(num => num === 4); 
-//      if (numbersOne.length !== numbersFour.length || !array.includes(1) || !array.includes(4) ) {
+//      const numbersOne = array.filter(num => num === 1).length; 
+//      const numbersFour = array.filter(num => num === 4.length); 
+//      if (numbersOne !== numbersFour) {
 //           return 0;
 //      }
-//      return numbersFour.length;
+//      return numbersFour;
 // }
 // console.log(zeroPlentiful([0, 2, 0, 0, 0, 0, 3, 4, 5, 0, 0, 0, 0, 0]));
 //====================================================================================================
@@ -492,8 +492,6 @@
 // console.log(getLengthOfMissingArray([[1], [4, 0, 2, 2, 2, 4], [2, 1, 1], [4, 0, 2, 2, 2, 4, 2], [0, 0, 3, 4], [0, 1, 1, 3, 1], [0, 4]]));
 // console.log(getLengthOfMissingArray([[0]]));
 
-
-
 //----------------------- 27 ------------------------//
 // Поток данных получен и должен быть реверсирован.Каждый сегмент имеет длину 8 бит, что
 // означает, что порядок этих сегментов должен быть обратным, например:
@@ -503,7 +501,7 @@
 //      for (let i = 0; i < data.length / 8; i += 1) {
 //           reverse.unshift(data.slice(i * 8, (i + 1) * 8))
 //           }
-//      console.log(reverse);
+//     
 //      return reverse.flat();
 // }        
 // console.log(dataReverse([4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]));
@@ -514,11 +512,33 @@
 // заглавные буквы при определении, является ли символ дубликатом.
 
 // function duplicateEncode(word){
-//      const arr = [];
-//      for (let i = 0; i < word.length; i += 1){
-       //      } 
- // }
-// console.log(duplicateEncode("reek"));
+//      const array = [];
+//      const wordSplit = word.toLowerCase().split('');
+//      const arr = wordSplit
+//            .map(letter => wordSplit.filter(simbol => simbol === letter)
+//            .length);
+//      for (const el of arr) { 
+//           array.push(el === 1 ? '(' : ')');
+//      }
+//      return array.join('');
+
+     // map ↓
+     // for (const simbol of word) { 
+     //      // filter ↓
+     //     let counter = 0;
+     //      for (const letter of word) {
+     //           if (simbol === letter) {
+     //                counter += 1
+     //           }
+     //      }
+          // counter === 1 ? arr.push('(') : arr.push(')');
+          // arr.push(counter === 1 ? '(' : ')');
+     //     result += counter === 1 ? '(' : ')';
+      //console.log(counter)
+     //return result;
+     // return arr.join('');
+}
+ console.log(duplicateEncode("Success"));
 
 //----------------------- 29 ------------------------//
 // Получив строку, сделайте заглавными буквы, которые занимают четные и нечетные индексы отдельно,
