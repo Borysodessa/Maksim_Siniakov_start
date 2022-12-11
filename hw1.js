@@ -473,24 +473,30 @@
 // console.log(zeroPlentiful([0, 2, 0, 0, 0, 0, 3, 4, 5, 0, 0, 0, 0, 0]));
 //====================================================================================================
 
-                    //----------------------- 26 ------------------------//?????????????????????????????? не проходит тест(Should pass edge cases/ Должны проходить пограничные случаи)
+                    //----------------------- 26 ------------------------//?????????????????????????????? 
+//  Вы получаете массив массивов.
+// Если вы отсортируете массивы по их длине, вы увидите, что их значения длины следуют друг за другом.
+// Но одного массива не хватает!
+
 // function getLengthOfMissingArray(arrayOfArrays) {
-//     if (arrayOfArrays === null || arrayOfArrays === []) {
-//           return 0;
-//      }
-//      arrayOfArrays.sort((a, b) => a.length - b.length);
-//     for (let i = 1; i < arrayOfArrays.length; i += 1) {
-//           if ((arrayOfArrays[i-1].length + 1) !== arrayOfArrays[i].length) {
-//                return arrayOfArrays[i-1].length+1;
-//           }
+//      const arr = arrayOfArrays.sort((a, b) => a.length - b.length);
+//      console.log(arrayOfArrays)
+   
+//      for (let i = 0; i < arr.length; i += 1) {
+//           if (arr === null || arr.length === 0 || arr[i] === null || arr[i].length === 0) {
+//                return 0;
+//           }else if (arr[i].length + 1 !== arr[i + 1].length) {
+//                   return arr[i].length + 1;
+//          } 
 //      } 
-//      return 0;
 // }
-// console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]));
+//console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]));
 // console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [1, 11, 9], [5, 6, 7, 8, 9]]));
-// console.log(getLengthOfMissingArray([[], [2], [2, 0, 3, 4, 4, 3, 3], [4, 2], [2, 4, 4, 1], [1, 0, 4, 1, 0, 0], [4, 0, 1, 2, 0]]));
+ //console.log(getLengthOfMissingArray([[], [2], [2, 0, 3, 4, 4, 3, 3], [4, 2], [2, 4, 4, 1], [1, 0, 4, 1, 0, 0], [4, 0, 1, 2, 0]]));
 // console.log(getLengthOfMissingArray([[1], [4, 0, 2, 2, 2, 4], [2, 1, 1], [4, 0, 2, 2, 2, 4, 2], [0, 0, 3, 4], [0, 1, 1, 3, 1], [0, 4]]));
-// console.log(getLengthOfMissingArray([[0]]));
+// console.log(getLengthOfMissingArray([]));
+//console.log(getLengthOfMissingArray([[], [null], [null, null, null]]));
+ //console.log(getLengthOfMissingArray([[]]));
 
 //----------------------- 27 ------------------------//
 // Поток данных получен и должен быть реверсирован.Каждый сегмент имеет длину 8 бит, что
@@ -537,8 +543,8 @@
       //console.log(counter)
      //return result;
      // return arr.join('');
-}
- console.log(duplicateEncode("Success"));
+// }
+//  console.log(duplicateEncode("Success"));
 
 //----------------------- 29 ------------------------//
 // Получив строку, сделайте заглавными буквы, которые занимают четные и нечетные индексы отдельно,
@@ -550,13 +556,12 @@
 //           const arr = s.split(''); 
 //           if (i % 2 === 0 || i === 0) {
 //                array.push(arr[i].toUpperCase());
-//           } else if (i % 2 !== 0 && i !== 0) {
+//           } else {
 //                array.push(arr[i]);
 //           }
 //      }
-//      return array;
+//      return array.join('');
 // }
-// console.log(even("abcdef"));
 
 // function odd(s) {
 //      const array = [];
@@ -564,16 +569,15 @@
 //           const arr = s.split(''); 
 //           if (i % 2 !== 0 && i !== 0) {
 //                array.push(arr[i].toUpperCase());
-//           } else if (i % 2 === 0 || i === 0) {
+//           } else {
 //                array.push(arr[i]);
 //           }
 //      }
-//      return array;
+//      return array.join('');
 // }
-// console.log(odd("abcdef"));
 
 // function capitalize(s) {
-//       return [even(s).join(''), odd(s).join('')];
+//       return [even(s), odd(s)];
 // }
 // console.log(capitalize("abcdef"));
 
@@ -599,26 +603,69 @@
 // а) удалить орфографические ошибки в словах «ei».(Пример слов: their, caffeine, deceive, weight)
 // б) использовать только первую букву каждого предложения.Убедитесь, что остальная часть предложения
 //  написана строчными буквами.
-
 //  Example: He haD iEght ShOTs of CAffIEne. --> He had eight shots of caffeine.
 
 // function proofread(str) { 
 //      const arr = str
 //           .toLowerCase()
 //           .split('');
-//      for (let i = 0; i < arr.length; i+=1){
-//      if (arr[i] + arr[i + 1] === 'i' + 'e') {
+//      for (let i = 0; i < arr.length; i +=1 ){
+//      if (arr[i] + arr[i + 1] === 'ie') {
 //           arr[i] = 'e', arr[i + 1] = 'i'
 //           }
 //      }
-//      for (let i = 0; i < arr.length; i+=1){
-//      if (arr[i-2] === '.') {
-//           arr[i] = arr[i].toUpperCase();
-//      }}
+//      for (let i = 0; i < arr.length; i += 1){
+//           if (arr[i-2] === '.') {
+//                arr[i] = arr[i].toUpperCase();   //?????????
+//           }
+//      }
 //      arr[0] = arr[0].toUpperCase()
 //        return   arr.join('')
-      
 // } 
-
-
 // console.log(proofread ("ShE deCIeved HiM."));
+
+//----------------------- 32 ------------------------// Format a string of names like "Bart, Lisa & Maggie"?????????????????????
+// Дано: массив, содержащий хэши имен
+// Возврат: строка, отформатированная как список имен, разделенных запятыми, за
+//  исключением двух последних имен, которые должны быть разделены амперсандом.
+
+// function list(names){
+//     const arr = names.map(name => name.name);        //['Bart', 'Lisa', 'Maggie']
+//      arr.splice((arr.length - 1), 0, '&') ;
+//      return  arr.join(', ')
+// }
+// console.log(list([{ name: 'Bart' }, { name: 'Lisa' }, { name: 'Maggie' }]));
+
+
+//----------------------- 33 ------------------------//Simple Fun #79: Delete a Digit
+//Для заданного целого числа n найдите максимальное число, которое можно получить, удалив ровно одну цифру данного числа.
+// function isMakeArr(n) {
+//      const didgit = String(n); 
+//      const numbers = [];
+//      for (let num of didgit) {
+//           numbers.push(+num);
+//      }
+//      return numbers;
+// }
+
+// function deleteDigit(n) {
+//      const arr = [];
+//       for (let i = 0; i < isMakeArr(n).length; i += 1){
+//           let el = isMakeArr(n)
+//            el.splice(i, 1);
+//            arr.push(el); 
+//      }
+//      return Math.max(...arr.map(arrey => +arrey.join('')));
+// }
+// console.log(deleteDigit(1234));
+//----------------------------------------------------------------------------------------------------------------------
+
+function deleteDigit(n) {
+     const str = String(n); 
+     const arr = [];
+      for (let i = 0; i < str.length; i += 1){
+        arr.push(+(str.slice(0, (str.length - i)-1) + str.slice((str.length - i))));
+     }
+     return Math.max(...arr);
+}
+console.log(deleteDigit(1234));
