@@ -149,7 +149,7 @@
 //     // return Array.from(letters.entries()).filter(i => i[1] === i[1].toUpperCase()).map(i =>  i[0]);
 //     return letters
 //         .map((_, i) => i)
-//         .filter(i => "A" <= letters[i] && letters[i] <= "Z");
+//         .filter(i => "A" <= letters[i] && letters[i] <= "Z");     //сравнение на букву
 // }   
 // console.log(capitals('CodEWaRs'));
 
@@ -163,7 +163,7 @@
 //     const numberWithDash = [];
 //     const arrStrings = String(num).split(''); 
 //     for (let i = 0; i < arrStrings.length; i += 1) {
-//         if (i > 0 && arrStrings[i-1] % 2 !== 0 && arrStrings[i] % 2 !== 0) {
+//         if (i > 0 && arrStrings[i-1] % 2 !== 0 && arrStrings[i] % 2 !== 0) {      
 //             numberWithDash.push('-');
 //         }
 //         numberWithDash.push(arrStrings[i]);
@@ -630,17 +630,17 @@
 //  исключением двух последних имен, которые должны быть разделены амперсандом.
 
 // function list(names){
-//     const arr = names.map(name => name.name);        //['Bart', 'Lisa', 'Maggie']
-//      arr.splice((arr.length - 1), 0, '&') ;
-//      return  arr.join(', ')
+//     const str = names.map(name => name.name).reverse().join(', ');        //['Bart', 'Lisa', 'Maggie']
+    
+//     return str;
 // }
 // console.log(list([{ name: 'Bart' }, { name: 'Lisa' }, { name: 'Maggie' }]));
 
 
-//----------------------- 33 ------------------------//Simple Fun #79: Delete a Digit
+////----------------------- 33 ------------------------//Simple Fun #79: Delete a Digit
 //Для заданного целого числа n найдите максимальное число, которое можно получить, удалив ровно одну цифру данного числа.
 // function isMakeArr(n) {
-//      const didgit = String(n); 
+//      const didgit = String(n);
 //      const numbers = [];
 //      for (let num of didgit) {
 //           numbers.push(+num);
@@ -653,19 +653,115 @@
 //       for (let i = 0; i < isMakeArr(n).length; i += 1){
 //           let el = isMakeArr(n)
 //            el.splice(i, 1);
-//            arr.push(el); 
+//            arr.push(el);
 //      }
 //      return Math.max(...arr.map(arrey => +arrey.join('')));
 // }
 // console.log(deleteDigit(1234));
 //----------------------------------------------------------------------------------------------------------------------
 
-function deleteDigit(n) {
-     const str = String(n); 
-     const arr = [];
-      for (let i = 0; i < str.length; i += 1){
-        arr.push(+(str.slice(0, (str.length - i)-1) + str.slice((str.length - i))));
-     }
-     return Math.max(...arr);
+// function deleteDigit(n) {
+//      const str = String(n);
+//      const arr = [];
+//       for (let i = 0; i < str.length; i += 1){
+//            arr.push(+(str.slice(0, (str.length - i) - 1) + str.slice((str.length - i))));
+//      }
+//      return Math.max(...arr);
+// }
+// console.log(deleteDigit(1234));
+
+
+//----------------------- 34 ------------------------//?????????????????????????????????( Equal Sides Of An Array)
+// Дан массив целых чисел.Ваша задача состоит в том, чтобы взять этот массив и найти индекс
+// N, где сумма целых чисел слева от N равна сумме целых чисел справа от N.Если такого 
+// индекса нет, верните - 1.
+
+// function findEvenIndex(arr) {
+//     let left = 0;
+//     let right = 0;
+//     for (let i = 0; i < arr.length; i += 1){
+//         if (i === 0) {
+//             left = 0;
+//             right = arr.slice(i, arr.length - 1).reduce((acc, el) => acc + el, 0);
+//           } //else  { 
+//         //     arrLeft= ;
+//     }console.log()
+//     if (left === right) {
+//         return i
+//     }
+//     return -1;
+//  }
+//  console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+
+//----------------------- 35 ------------------------//???????????????????????????????? Easy Balance Checking
+
+// function isClearString(book) {              
+//     const cleanStr = [];
+//     for (let i = 0; i < book.length; i += 1){
+//         if (("A" <= book[i] && book[i] <= "z") || (0 <= book[i] && book[i] <= 9) || book[i] === "." || book[i] === " ") {
+//             cleanStr.push(book[i]);
+//         }
+//     } 
+//     return cleanStr.join('');
+// }
+// console.log(isClearString(`1000.00!=
+// 125 Market !=:125.45
+// 126 Hardware =34.95
+// 127 Video! 7.45
+// 128 Book :14.32
+// 129 Gasoline ::16.10
+// `));
+
+// function balance(book) {
+//     const a = isClearString(book).split('');
+//     a.unshift("Original Balance:");
+//     for (i = 0; i < a.length; i += 1) {
+//         // if (a[i] === '/n') {
+//         //     console.log( i) 
+//         //  }
+//         console.log()
+//     }
+//     return (a);
+// }
+// console.log(balance(`1000.00!=
+// 125 Market !=:125.45
+// 126 Hardware =34.95
+// 127 Video! 7.45
+// 128 Book :14.32
+// 129 Gasoline ::16.10
+// `));
+
+
+//----------------------- 36 ------------------------// Birthday I - Cake
+//Номера свечей на торте (candles)  maxCandles=1000. Если количество упавших 
+//свечей превышает 70 % от общего числа свечей, ковер загорится.вычислите количество свечей, 
+// которые выпадут из предоставленной строчной строки(debris).Вы должны сложить код ASCII 
+// каждого символа с четным индексом(предположим, что индексация начинается с 0) в строке с 
+// алфавитной позицией("a" = 1, "b" = 2 и т.д.) каждого символа с нечетным индексом, чтобы
+//  получить общее количество строк.
+// "abc"  -->  "a" = 97, "b" = 2, "c" = 99  -->  total = 198
+// Если ковер загорится, верните "Fire!", если нет, верните "That was close!".
+function isAlphabetNumber(letter) { 
+    return 'abcdefghijklmnopqrstuvwxyz'
+        .split('')
+        .indexOf(letter);
 }
-console.log(deleteDigit(1234));
+
+function cake(x, y){
+    const arr = y.split(''); ;
+    const values = []; 
+   for (let i = 0; i < arr.length; i += 1) {
+        if (i % 2 === 0) {
+            values.push(arr[i].charCodeAt());
+        } else if (i % 2 !== 0) {
+            values.push(isAlphabetNumber(arr[i]));
+        } 
+   }console.log(values);
+    const sum = values
+        .reduce((acc, elem) => acc + elem); console.log(sum);
+   if (x * 0.7 > sum) {
+        return 'That was close!'
+    }
+    return 'Fire!'
+ }
+console.log(cake(389, 'cdeuo')); 
