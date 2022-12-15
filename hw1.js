@@ -446,11 +446,11 @@
 // console.log(twoSum([1, 2, 3, 4, 5, 3], 4));
 //=========================================================================================================================
 
-// //----------------------- 25 ------------------------//
-// // Массив называется нулевым, если он содержит несколько нулей, и каждая 
-// // последовательность нулей состоит не менее чем из 4 элементов.
-// // Ваша задача — вернуть количество нулевых последовательностей, если
-// //  заданный массив нулевой, иначе 0.
+// ----------------------- 25 ------------------------//
+//  Массив называется нулевым, если он содержит несколько нулей, и каждая 
+//  последовательность нулей состоит не менее чем из 4 элементов.
+//  Ваша задача — вернуть количество нулевых последовательностей, если
+//   заданный массив нулевой, иначе 0.
 
 // function zeroPlentiful(arr) {
 //      const array = [];
@@ -471,7 +471,7 @@
 //      return numbersFour;
 // }
 // console.log(zeroPlentiful([0, 2, 0, 0, 0, 0, 3, 4, 5, 0, 0, 0, 0, 0]));
-//====================================================================================================
+//====================================================================================================//
 
                     //----------------------- 26 ------------------------//?????????????????????????????? 
 //  Вы получаете массив массивов.
@@ -479,24 +479,24 @@
 // Но одного массива не хватает!
 
 // function getLengthOfMissingArray(arrayOfArrays) {
-//      const arr = arrayOfArrays.sort((a, b) => a.length - b.length);
-//      console.log(arrayOfArrays)
-   
-//      for (let i = 0; i < arr.length; i += 1) {
-//           if (arr === null || arr.length === 0 || arr[i] === null || arr[i].length === 0) {
+//     const arr = arrayOfArrays.sort((a, b) => a.length - b.length);
+//     console.log(arr);
+//      for (let i = 0; i < arr.length-1; i += 1) {
+//           if (arr === null || arr.length === 0 || arr[i] === null || arr[i].length === 0) {   //arr.length === 0
 //                return 0;
-//           }else if (arr[i].length + 1 !== arr[i + 1].length) {
+//           }else if (arr[i].length !== arr[i+1].length-1) {
 //                   return arr[i].length + 1;
 //          } 
-//      } 
+//     }
+//     //return 0;
 // }
 //console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]));
-// console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [1, 11, 9], [5, 6, 7, 8, 9]]));
- //console.log(getLengthOfMissingArray([[], [2], [2, 0, 3, 4, 4, 3, 3], [4, 2], [2, 4, 4, 1], [1, 0, 4, 1, 0, 0], [4, 0, 1, 2, 0]]));
+//console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [1, 11, 9], [5, 6, 7, 8, 9]]));
+//  console.log(getLengthOfMissingArray([[], [2], [2, 0, 3, 4, 4, 3, 3], [4, 2], [2, 4, 4, 1], [1, 0, 4, 1, 0, 0], [4, 0, 1, 2, 0]]));
 // console.log(getLengthOfMissingArray([[1], [4, 0, 2, 2, 2, 4], [2, 1, 1], [4, 0, 2, 2, 2, 4, 2], [0, 0, 3, 4], [0, 1, 1, 3, 1], [0, 4]]));
-// console.log(getLengthOfMissingArray([]));
+//console.log(getLengthOfMissingArray([]));
 //console.log(getLengthOfMissingArray([[], [null], [null, null, null]]));
- //console.log(getLengthOfMissingArray([[]]));
+//console.log(getLengthOfMissingArray([[]]));
 
 //----------------------- 27 ------------------------//
 // Поток данных получен и должен быть реверсирован.Каждый сегмент имеет длину 8 бит, что
@@ -507,85 +507,54 @@
 //      for (let i = 0; i < data.length / 8; i += 1) {
 //           reverse.unshift(data.slice(i * 8, (i + 1) * 8))
 //           }
-//     
-//      return reverse.flat();
-// }        
+//     return reverse.flat();
+// }
 // console.log(dataReverse([4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]));
-
-//----------------------- 28 ------------------------//???????????????????????????????????????
-// преобразовать строку в новую строку, где каждый символ в новой строке соответствует тому, "("если этот символ появляется 
-// только один раз в исходной строке или ")"если этот символ появляется в исходной строке более одного раза.Игнорировать 
+//==============================================================================================================//
+//----------------------- 28 ------------------------//   ?
+// преобразовать строку в новую строку, где каждый символ в новой строке соответствует тому, "("если этот символ появляется
+// только один раз в исходной строке или ")"если этот символ появляется в исходной строке более одного раза.Игнорировать
 // заглавные буквы при определении, является ли символ дубликатом.
 
-// function duplicateEncode(word){
-//      const array = [];
-//      const wordSplit = word.toLowerCase().split('');
-//      const arr = wordSplit
-//            .map(letter => wordSplit.filter(simbol => simbol === letter)
-//            .length);
-//      for (const el of arr) { 
-//           array.push(el === 1 ? '(' : ')');
-//      }
-//      return array.join('');
-
-     // map ↓
-     // for (const simbol of word) { 
-     //      // filter ↓
-     //     let counter = 0;
-     //      for (const letter of word) {
-     //           if (simbol === letter) {
-     //                counter += 1
-     //           }
-     //      }
-          // counter === 1 ? arr.push('(') : arr.push(')');
-          // arr.push(counter === 1 ? '(' : ')');
-     //     result += counter === 1 ? '(' : ')';
-      //console.log(counter)
-     //return result;
-     // return arr.join('');
+// function duplicateEncode(word) {
+//      return word
+//           .toLowerCase()
+//           .split('')
+//           .map((letter, _i, arr) => arr.filter(simbol => simbol === letter).length)
+//           .map(count => count === 1 ? '(' : ')')
+//           .join('');
 // }
-//  console.log(duplicateEncode("Success"));
-
-//----------------------- 29 ------------------------//
+// console.log(duplicateEncode('recede'));
+//==========================================================================================================//
+     
+     //----------------------- 29 ------------------------//
 // Получив строку, сделайте заглавными буквы, которые занимают четные и нечетные индексы отдельно,
 //      и верните, как показано ниже. Индекс 0 будет считаться четным.
 
 // function even(s) {
-//      const array = [];
-//      for (let i = 0; i < s.length; i += 1){
-//           const arr = s.split(''); 
-//           if (i % 2 === 0 || i === 0) {
-//                array.push(arr[i].toUpperCase());
-//           } else {
-//                array.push(arr[i]);
-//           }
-//      }
-//      return array.join('');
+//      return s
+//           .split('')
+//           .map((letter, i) => i % 2 === 0 ? letter.toUpperCase() : letter)
+//           .join('');
 // }
 
 // function odd(s) {
-//      const array = [];
-//      for (let i = 0; i < s.length; i += 1){
-//           const arr = s.split(''); 
-//           if (i % 2 !== 0 && i !== 0) {
-//                array.push(arr[i].toUpperCase());
-//           } else {
-//                array.push(arr[i]);
-//           }
-//      }
-//      return array.join('');
+//      return s
+//           .split('')
+//           .map((letter, i) => i % 2 !== 0 ? letter.toUpperCase() : letter)
+//           .join('');
 // }
 
 // function capitalize(s) {
 //       return [even(s), odd(s)];
 // }
 // console.log(capitalize("abcdef"));
-
+//============================================================================================//
 //----------------------- 30 ------------------------//
 // Вы должны отсортировать нечетные числа в порядке возрастания, оставив четные числа на их исходных позициях.
 
 // function sortArray(array) {
-//      const odd = array.filter(el => el % 2 !== 0).sort((a, b) => a - b); 
+//      const odd = array.filter(el => el % 2 !== 0).sort((a, b) => a - b);
 //      let counter = 0;
 //      for (let i = 0; i < array.length; i += 1) {
 //           if (array[i] % 2 !== 0) {
@@ -594,9 +563,10 @@
 //           }
 //      }
 //      return array;
-// }     
-// console.log(sortArray([5, 8, 6, 3, 4])); //odd = [3, 5];
-// console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])); //odd = [1, 3, 5, 7, 9];
+// }
+// console.log(sortArray([5, 8, 6, 3, 4]));
+// console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]));
+//==============================================================================================================//
 
 //----------------------- 31 ------------------------//
 
@@ -605,12 +575,12 @@
 //  написана строчными буквами.
 //  Example: He haD iEght ShOTs of CAffIEne. --> He had eight shots of caffeine.
 
-// function proofread(str) { 
+// function proofread(str) {
 //      const arr = str
 //           .toLowerCase()
 //           .split('');
-//      for (let i = 0; i < arr.length; i +=1 ){
-//      if (arr[i] + arr[i + 1] === 'ie') {
+//     for (let i = 0; i < arr.length; i += 1){
+//         if (arr[i] + arr[i + 1] === 'ie') {
 //           arr[i] = 'e', arr[i + 1] = 'i'
 //           }
 //      }
@@ -639,34 +609,11 @@
 
 ////----------------------- 33 ------------------------//Simple Fun #79: Delete a Digit
 //Для заданного целого числа n найдите максимальное число, которое можно получить, удалив ровно одну цифру данного числа.
-// function isMakeArr(n) {
-//      const didgit = String(n);
-//      const numbers = [];
-//      for (let num of didgit) {
-//           numbers.push(+num);
-//      }
-//      return numbers;
-// }
 
 // function deleteDigit(n) {
-//      const arr = [];
-//       for (let i = 0; i < isMakeArr(n).length; i += 1){
-//           let el = isMakeArr(n)
-//            el.splice(i, 1);
-//            arr.push(el);
-//      }
-//      return Math.max(...arr.map(arrey => +arrey.join('')));
-// }
-// console.log(deleteDigit(1234));
-//----------------------------------------------------------------------------------------------------------------------
-
-// function deleteDigit(n) {
-//      const str = String(n);
-//      const arr = [];
-//       for (let i = 0; i < str.length; i += 1){
-//            arr.push(+(str.slice(0, (str.length - i) - 1) + str.slice((str.length - i))));
-//      }
-//      return Math.max(...arr);
+//     const arr = String(n).split('');
+//     return Math.max(...arr.map((_, i) => [...arr.slice(0, (arr.length - i) - 1), ...arr.slice(arr.length - i)])
+//         .map(el => el.reduce((acc, current) => acc + current)));
 // }
 // console.log(deleteDigit(1234));
 
@@ -677,32 +624,40 @@
 // индекса нет, верните - 1.
 
 // function findEvenIndex(arr) {
-//     let left = 0;
-//     let right = 0;
+//     let a = [];
 //     for (let i = 0; i < arr.length; i += 1){
-//         if (i === 0) {
-//             left = 0;
-//             right = arr.slice(i, arr.length - 1).reduce((acc, el) => acc + el, 0);
-//           } //else  { 
-//         //     arrLeft= ;
-//     }console.log()
-//     if (left === right) {
-//         return i
+//          a.push(arr.slice(0, i));
 //     }
-//     return -1;
-//  }
-//  console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+//     return a;
+     
+//       for (let i = 0; i < arr.length; i += 1){
+//          // для теущего i посчитать left (0..i-1) и right (i+1..arr.length-1)
+//          let left = 0;
+//          let right = 0;
+//          for (let j = 0; j < i; j += 1){
+//              left += arr[j];
+//          }
+//          for (let j = i + 1; j < arr.length; j += 1){
+//              right += arr[j];
+//          }
+//         if (left === right) {
+//              return i;
+//          }
+//   }
+// findIndex slice reduce ??????????????????????????????????
+  //}
+    // console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
 
 //----------------------- 35 ------------------------//???????????????????????????????? Easy Balance Checking
 
-// function isClearString(book) {              
+// function isClearString(book) {
 //     const cleanStr = [];
 //     for (let i = 0; i < book.length; i += 1){
 //         if (("A" <= book[i] && book[i] <= "z") || (0 <= book[i] && book[i] <= 9) || book[i] === "." || book[i] === " ") {
 //             cleanStr.push(book[i]);
 //         }
-//     } 
-//     return cleanStr.join('');
+//     }
+//     return cleanStr.split('/n');
 // }
 // console.log(isClearString(`1000.00!=
 // 125 Market !=:125.45
@@ -715,12 +670,7 @@
 // function balance(book) {
 //     const a = isClearString(book).split('');
 //     a.unshift("Original Balance:");
-//     for (i = 0; i < a.length; i += 1) {
-//         // if (a[i] === '/n') {
-//         //     console.log( i) 
-//         //  }
-//         console.log()
-//     }
+ 
 //     return (a);
 // }
 // console.log(balance(`1000.00!=
@@ -733,35 +683,58 @@
 
 
 //----------------------- 36 ------------------------// Birthday I - Cake
-//Номера свечей на торте (candles)  maxCandles=1000. Если количество упавших 
-//свечей превышает 70 % от общего числа свечей, ковер загорится.вычислите количество свечей, 
-// которые выпадут из предоставленной строчной строки(debris).Вы должны сложить код ASCII 
-// каждого символа с четным индексом(предположим, что индексация начинается с 0) в строке с 
+// Номера свечей на торте (candles)  maxCandles=1000. Если количество упавших
+// свечей превышает 70 % от общего числа свечей, ковер загорится.вычислите количество свечей,
+// которые выпадут из предоставленной строчной строки(debris).Вы должны сложить код ASCII
+// каждого символа с четным индексом(предположим, что индексация начинается с 0) в строке с
 // алфавитной позицией("a" = 1, "b" = 2 и т.д.) каждого символа с нечетным индексом, чтобы
 //  получить общее количество строк.
 // "abc"  -->  "a" = 97, "b" = 2, "c" = 99  -->  total = 198
 // Если ковер загорится, верните "Fire!", если нет, верните "That was close!".
-function isAlphabetNumber(letter) { 
-    return 'abcdefghijklmnopqrstuvwxyz'
-        .split('')
-        .indexOf(letter);
-}
 
-function cake(x, y){
-    const arr = y.split(''); ;
-    const values = []; 
-   for (let i = 0; i < arr.length; i += 1) {
-        if (i % 2 === 0) {
-            values.push(arr[i].charCodeAt());
-        } else if (i % 2 !== 0) {
-            values.push(isAlphabetNumber(arr[i]));
-        } 
-   }console.log(values);
-    const sum = values
-        .reduce((acc, elem) => acc + elem); console.log(sum);
-   if (x * 0.7 > sum) {
-        return 'That was close!'
-    }
-    return 'Fire!'
- }
-console.log(cake(389, 'cdeuo')); 
+// function isAlphabetNumber(letter) {
+//     return 'abcdefghijklmnopqrstuvwxyz'
+//         .split('')
+//         .indexOf(letter);
+// }
+
+// function cake(x, y) {
+//     const arr = y.split(''); 
+//     const sum = arr
+//         .map((_, i) => i % 2 === 0 ? arr[i].charCodeAt() : isAlphabetNumber(arr[i]))
+//         .reduce((acc, elem) => acc + elem); 
+//     return (x * 0.7 > sum ? 'That was close!' : 'Fire!');
+//    }
+// console.log(cake(389, 'cdeuo'));
+
+
+//----------------------- 37 ------------------------// (Element equals its index)??????????????(это заняло слишком много времени)
+// Учитывая отсортированный массив различных целых чисел, напишите функцию
+// indexEqualsValue, которая возвращает наименьший индекс, для которого array[index] == index.
+// Возврат, -1если такого индекса нет.
+
+// function indexEqualsValue(a) {
+//     const res = Math.min(...a.filter((el, i) => el === i));
+//     return (a.length === 0 || !isFinite(res) ? -1 : res);
+// }
+//  console.log(indexEqualsValue([-8,0,-2,5]));
+
+
+//----------------------- 38 ------------------------//Sort by Last Char
+// Учитывая строку слов(x), вам нужно вернуть массив слов, отсортированных в алфавитном порядке по последнему 
+// символу в каждом.
+// Если два слова имеют одинаковую последнюю букву, возвращаемый ими массив должен отображать их в том порядке,
+//     в котором они появились в данной строке.
+
+// function isAlphabetNumber(letter) {
+//     return 'abcdefghijklmnopqrstuvwxyz'
+//         .split('')
+//         .indexOf(letter);
+// }
+
+// function last(x){
+//   return  x.split(' ').sort((a, b,_, arr) => isAlphabetNumber(a[a.length-1]) - isAlphabetNumber(b[b.length-1]));
+// }
+// console.log(last('man i need a taxi up to ubud'));
+
+
