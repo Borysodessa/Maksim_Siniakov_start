@@ -737,4 +737,12 @@
 // }
 // console.log(last('man i need a taxi up to ubud'));
 
+//----------------------- 39 ------------------------// Sort array by string length
 
+// Напишите функцию, которая принимает массив строк в качестве аргумента и возвращает отсортированный массив, содерж
+//аргумента:
+
+// function sortByLength (array) {
+//     return array.sort((a, b) => a.length - b.length);
+// };
+// console.log(sortByLength (["Telescopes", "Glasses", "Eyes", "Monocles"]));
