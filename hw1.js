@@ -341,7 +341,6 @@
 // }
 // console.log(arrCheck([]));
 
-
 //----------------------- 20 ------------------------//
 // Учитывая число в качестве параметра(от 2 до 30), вернуть
 // массив, содержащий строки, которые образуют поле.
@@ -365,16 +364,9 @@
 //         в массиве A.
 
 // function findMagic(arr){
-//     const magicNumber =  arr.filter((elem, i) => elem === i)
-        
-//     return magicNumber.length > 0 ? magicNumber[0] : -1;
+//     return arr.findIndex((elem, i) => elem === i);
 // }
-
-// // find
-// // findIndex
-
-//  console.log(findMagic([6, 5, 2, 3,18])); // 2
-
+//  console.log(findMagic([6, 5, 4, 3,18])); // 2
 
 //----------------------- 22 ------------------------// не проверенно: else, вторая функция.  
 
@@ -424,7 +416,7 @@
 //         .sort((a, b) => a - b);
 //     }
 // console.log(flattenAndSort([[3, 2, 100, 1], [4, 6, 5], [], [9, 7, 8]]));
-
+//==========================================================================//
 
 //----------------------- 24 ------------------------//
 
@@ -473,31 +465,36 @@
 // console.log(zeroPlentiful([0, 2, 0, 0, 0, 0, 3, 4, 5, 0, 0, 0, 0, 0]));
 //====================================================================================================//
 
-                    //----------------------- 26 ------------------------//?????????????????????????????? 
+                    //----------------------- 26 ------------------------//Length of missing array 
 //  Вы получаете массив массивов.
 // Если вы отсортируете массивы по их длине, вы увидите, что их значения длины следуют друг за другом.
 // Но одного массива не хватает!
 
-// function getLengthOfMissingArray(arrayOfArrays) {
-//     const arr = arrayOfArrays.sort((a, b) => a.length - b.length);
-//     console.log(arr);
-//      for (let i = 0; i < arr.length-1; i += 1) {
-//           if (arr === null || arr.length === 0 || arr[i] === null || arr[i].length === 0) {   //arr.length === 0
-//                return 0;
-//           }else if (arr[i].length !== arr[i+1].length-1) {
-//                   return arr[i].length + 1;
-//          } 
-//     }
-//     //return 0;
-// }
-//console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]));
-//console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [1, 11, 9], [5, 6, 7, 8, 9]]));
-//  console.log(getLengthOfMissingArray([[], [2], [2, 0, 3, 4, 4, 3, 3], [4, 2], [2, 4, 4, 1], [1, 0, 4, 1, 0, 0], [4, 0, 1, 2, 0]]));
-// console.log(getLengthOfMissingArray([[1], [4, 0, 2, 2, 2, 4], [2, 1, 1], [4, 0, 2, 2, 2, 4, 2], [0, 0, 3, 4], [0, 1, 1, 3, 1], [0, 4]]));
-//console.log(getLengthOfMissingArray([]));
-//console.log(getLengthOfMissingArray([[], [null], [null, null, null]]));
-//console.log(getLengthOfMissingArray([[]]));
+// const isNullOrEmpty = el => el === null || el.length === 0;
 
+// function getLengthOfMissingArray(arrayOfArrays) {
+//     if (isNullOrEmpty(arrayOfArrays) || arrayOfArrays.some(isNullOrEmpty)) { 
+//         return 0;
+//     }
+    
+//     const lengths = arrayOfArrays.map(a => a.length).sort((a, b) => a - b);
+//     for (let i = 0; i < lengths.length - 1; i += 1) {
+//         if(lengths[i] !== lengths[i + 1] - 1) {
+//             return lengths[i] + 1;
+//         } 
+//     }
+// }
+// console.log(getLengthOfMissingArray(null))
+// console.log(getLengthOfMissingArray([]))
+// console.log(getLengthOfMissingArray([[1, 1], null, [1, 1, 1, 1]]))
+// console.log(getLengthOfMissingArray([[1, 1], [], [1, 1, 1, 1]]))
+
+//  console.log(getLengthOfMissingArray( [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]));
+//  console.log(getLengthOfMissingArray([[], [2], [2, 0, 3, 4, 4, 3, 3], [4, 2], [2, 4, 4, 1], [1, 0, 4, 1, 0, 0], [4, 0, 1, 2, 0]]));
+//     console.log(getLengthOfMissingArray([]));
+//     console.log(getLengthOfMissingArray([[null], [null, null, null]])); // 2
+//  console.log(getLengthOfMissingArray([[]]));
+//==============================================================================================================
 //----------------------- 27 ------------------------//
 // Поток данных получен и должен быть реверсирован.Каждый сегмент имеет длину 8 бит, что
 // означает, что порядок этих сегментов должен быть обратным, например:
@@ -576,35 +573,31 @@
 //  Example: He haD iEght ShOTs of CAffIEne. --> He had eight shots of caffeine.
 
 // function proofread(str) {
-//      const arr = str
-//           .toLowerCase()
-//           .split('');
-//     for (let i = 0; i < arr.length; i += 1){
-//         if (arr[i] + arr[i + 1] === 'ie') {
-//           arr[i] = 'e', arr[i + 1] = 'i'
-//           }
-//      }
-//      for (let i = 0; i < arr.length; i += 1){
-//           if (arr[i-2] === '.') {
-//                arr[i] = arr[i].toUpperCase();   //?????????
-//           }
-//      }
-//      arr[0] = arr[0].toUpperCase()
-//        return   arr.join('')
+//         return str
+//             .toLowerCase()
+//             .replaceAll('ie', 'ei')
+//             .split('. ')
+//             .map(word => word[0].toUpperCase() + word.slice(1))
+//             .join('. ');
 // } 
-// console.log(proofread ("ShE deCIeved HiM."));
-
-//----------------------- 32 ------------------------// Format a string of names like "Bart, Lisa & Maggie"?????????????????????
+// console.log(proofread ("ShE deCIeved deCIeved HiM. ShE deCIeved deCIeved HiM. ShE deCIeved deCIeved HiM."));
+//==============================================================================================================
+//----------------------- 32 ------------------------// Format a string of names like "Bart, Lisa & Maggie"
 // Дано: массив, содержащий хэши имен
 // Возврат: строка, отформатированная как список имен, разделенных запятыми, за
 //  исключением двух последних имен, которые должны быть разделены амперсандом.
 
 // function list(names){
-//     const str = names.map(name => name.name).reverse().join(', ');        //['Bart', 'Lisa', 'Maggie']
-    
-//     return str;
+//     const arr = names.map(name => name.name);               
+//     const recentElements = arr.slice(- 2); 
+//     if (recentElements.length > 1) { 
+//         recentElements.splice(-1, 0, '&')};              
+//     const str = recentElements.join(' ');                  
+//     const array = arr.slice(0, -2);                  
+//     array.push(str);                                      
+//     return array.join(', '); 
 // }
-// console.log(list([{ name: 'Bart' }, { name: 'Lisa' }, { name: 'Maggie' }]));
+// console.log(list([{ name: 'Gart' }, {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'}]));
 
 
 ////----------------------- 33 ------------------------//Simple Fun #79: Delete a Digit
@@ -616,71 +609,60 @@
 //         .map(el => el.reduce((acc, current) => acc + current)));
 // }
 // console.log(deleteDigit(1234));
+//============================================================================================================
 
-
-//----------------------- 34 ------------------------//?????????????????????????????????( Equal Sides Of An Array)
+//----------------------- 34 ------------------------//( Equal Sides Of An Array)
 // Дан массив целых чисел.Ваша задача состоит в том, чтобы взять этот массив и найти индекс
 // N, где сумма целых чисел слева от N равна сумме целых чисел справа от N.Если такого 
 // индекса нет, верните - 1.
 
 // function findEvenIndex(arr) {
-//     let a = [];
-//     for (let i = 0; i < arr.length; i += 1){
-//          a.push(arr.slice(0, i));
-//     }
-//     return a;
-     
-//       for (let i = 0; i < arr.length; i += 1){
-//          // для теущего i посчитать left (0..i-1) и right (i+1..arr.length-1)
-//          let left = 0;
-//          let right = 0;
-//          for (let j = 0; j < i; j += 1){
-//              left += arr[j];
-//          }
-//          for (let j = i + 1; j < arr.length; j += 1){
-//              right += arr[j];
-//          }
-//         if (left === right) {
-//              return i;
-//          }
+
+//     return arr.findIndex((_, i)=> {
+//         const left = arr.slice(0, i).reduce((acc, el) => acc + el, 0);
+//         const right = arr.slice(i + 1).reduce((acc, el) => acc + el, 0);
+//         return left === right;
+//     });
 //   }
-// findIndex slice reduce ??????????????????????????????????
-  //}
-    // console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
-
-//----------------------- 35 ------------------------//???????????????????????????????? Easy Balance Checking
-
-// function isClearString(book) {
-//     const cleanStr = [];
-//     for (let i = 0; i < book.length; i += 1){
-//         if (("A" <= book[i] && book[i] <= "z") || (0 <= book[i] && book[i] <= 9) || book[i] === "." || book[i] === " ") {
-//             cleanStr.push(book[i]);
-//         }
-//     }
-//     return cleanStr.split('/n');
-// }
-// console.log(isClearString(`1000.00!=
-// 125 Market !=:125.45
-// 126 Hardware =34.95
-// 127 Video! 7.45
-// 128 Book :14.32
-// 129 Gasoline ::16.10
-// `));
-
+//      console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+//=========================================================================================
+//----------------------- 35 ------------------------// Easy Balance Checking
 // function balance(book) {
-//     const a = isClearString(book).split('');
-//     a.unshift("Original Balance:");
- 
-//     return (a);
+//     const [firstLine, ...lines] = book
+//         .replace(/[^0-9a-z. \n]/gi, "")
+//         .split("\n")
+//         .filter(el => el !== '');
+                                           
+//     const originalBalance = Number(firstLine);     
+//     let balance = originalBalance;
+//     const array = [];
+
+//     for (const line of lines) {     
+//         const [id, title, priceStr] = line.split(' ');
+//         const price = Number(priceStr)
+//         balance -= price;
+//         array.push(`${id} ${title} ${price.toFixed(2)} Balance ${balance.toFixed(2)}`);
+//     }
+
+//     const totalExpense = originalBalance - balance;
+//     const averageExpense = totalExpense / lines.length;
+                                                        
+//     array.unshift(`Original Balance: ${originalBalance.toFixed(2)}`); 
+//     array.push(`Total expense  ${totalExpense.toFixed(2)}`);
+//     array.push(`Average expense  ${averageExpense.toFixed(2)}`);
+
+//     return array.join('\r\n');
 // }
-// console.log(balance(`1000.00!=
+
+// console.log(balance ( `1000.00!=
+
 // 125 Market !=:125.45
 // 126 Hardware =34.95
 // 127 Video! 7.45
 // 128 Book :14.32
 // 129 Gasoline ::16.10
-// `));
-
+// `))
+//=================================================================================================//
 
 //----------------------- 36 ------------------------// Birthday I - Cake
 // Номера свечей на торте (candles)  maxCandles=1000. Если количество упавших
@@ -693,56 +675,67 @@
 // Если ковер загорится, верните "Fire!", если нет, верните "That was close!".
 
 // function isAlphabetNumber(letter) {
-//     return 'abcdefghijklmnopqrstuvwxyz'
+//    return 'abcdefghijklmnopqrstuvwxyz'.indexOf(letter) + 1;
+// } 
+// function cake(x, y) { 
+//     const score = y
 //         .split('')
-//         .indexOf(letter);
+//         .map((letter, i) => i % 2 === 0 ? letter.charCodeAt() : isAlphabetNumber(letter))
+//         .reduce((akk, number) => akk + number, 0)
+
+//     return score  < x * 0.7 ? "That was close!" : "Fire!";
 // }
-
-// function cake(x, y) {
-//     const arr = y.split(''); 
-//     const sum = arr
-//         .map((_, i) => i % 2 === 0 ? arr[i].charCodeAt() : isAlphabetNumber(arr[i]))
-//         .reduce((acc, elem) => acc + elem); 
-//     return (x * 0.7 > sum ? 'That was close!' : 'Fire!');
-//    }
 // console.log(cake(389, 'cdeuo'));
-
 
 //----------------------- 37 ------------------------// (Element equals its index)??????????????(это заняло слишком много времени)
 // Учитывая отсортированный массив различных целых чисел, напишите функцию
-// indexEqualsValue, которая возвращает наименьший индекс, для которого array[index] == index.
+// indexEqualsValue, которая возвращает наименьший индекс, для которого array[index] ===index.
 // Возврат, -1если такого индекса нет.
 
 // function indexEqualsValue(a) {
-//     const res = Math.min(...a.filter((el, i) => el === i));
+//     const res = Math.min(...(a.filter((el, i) => el === i)));
 //     return (a.length === 0 || !isFinite(res) ? -1 : res);
 // }
-//  console.log(indexEqualsValue([-8,0,-2,5]));
 
+// function indexEqualsValue(a) {
+//     return a.filter((num, i) => i === num).length > 0 ? Math.min(...a.filter((num, i) => i === num)) : -1;
+// }
+//  console.log(indexEqualsValue([-8,0,2,5]));
 
 //----------------------- 38 ------------------------//Sort by Last Char
 // Учитывая строку слов(x), вам нужно вернуть массив слов, отсортированных в алфавитном порядке по последнему 
-// символу в каждом.
-// Если два слова имеют одинаковую последнюю букву, возвращаемый ими массив должен отображать их в том порядке,
-//     в котором они появились в данной строке.
+// символу в каждом.Если два слова имеют одинаковую последнюю букву, возвращаемый ими массив должен 
+//отображать их в том порядке, в котором они появились в данной строке.
 
-// function isAlphabetNumber(letter) {
-//     return 'abcdefghijklmnopqrstuvwxyz'
-//         .split('')
-//         .indexOf(letter);
+// function last(x) {
+//     let arr = [];
+//     const words = x.split(' ');
+//     const numberOfEmpty = words.filter(word => word === '');
+//     const sortedWords = words
+//         .filter(word => word !== '') 
+//         .sort((a, b) => a[a.length - 1].charCodeAt() - b[b.length - 1].charCodeAt());
+//     return arr = [...numberOfEmpty, ...sortedWords];
 // }
-
-// function last(x){
-//   return  x.split(' ').sort((a, b,_, arr) => isAlphabetNumber(a[a.length-1]) - isAlphabetNumber(b[b.length-1]));
-// }
-// console.log(last('man i need a taxi up to ubud'));
+// console.log(last('    '));
 
 //----------------------- 39 ------------------------// Sort array by string length
-
-// Напишите функцию, которая принимает массив строк в качестве аргумента и возвращает отсортированный массив, содерж
-//аргумента:
-
 // function sortByLength (array) {
 //     return array.sort((a, b) => a.length - b.length);
 // };
 // console.log(sortByLength (["Telescopes", "Glasses", "Eyes", "Monocles"]));
+//==========================================================================================
+
+//----------------------- 40 ------------------------// Valid Parentheses
+// Напишите функцию, которая принимает строку скобок и определяет, допустим ли порядок скобок.Функция должна
+//  возвращать true значение, если строка действительна и false недействительна.
+//.replace(/[^0-9a-z. \n]/gi, "")
+// function validParentheses(parens) {
+//     let sum = 0;
+//     for (let i = 0; i < parens.length; i += 1){
+//         if (sum < 0) return false;
+//         parens[i] === '(' ? sum += 1 : sum -= 1
+//     }
+//     return sum === 0;
+// }
+// console.log(validParentheses('(()())(((())))'));
+
