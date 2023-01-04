@@ -269,3 +269,68 @@
 //     return values;
 // }
 // console.log(pluck([{ a: 1 }, { a: 2 }, { b: 2 }], 'a'));
+
+
+//------------------------------- 11 --------------------------//Remove duplicate words ???????????Использовать вместо  for of - for each ?
+// удалить из строки все повторяющиеся слова, оставив только одиночные (первые) слова.
+
+//function removeDuplicateWords(s) {
+ 
+    
+    // const words = {};
+    // const arr = s.split(' ');
+    // for (let word of arr) { 
+    //     if (!words.hasOwnProperty(word)) { 
+    //         words[word] = 0;
+    //     }
+    // }
+    // return Object.keys(words).join(' ');
+
+    // const words = [];
+    // const arr = s.split(' ');
+    // for (let word of arr) {
+    //     if (!words.includes(word)) {
+    //         words.push(word);
+    //     }
+    // }
+    // return words.join(' ')
+// }
+// console.log(removeDuplicateWords('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'));
+
+//------------------------------- 12 --------------------------//Find the unique number
+// function findUnique(numbers) {
+//     const num = {};
+//     numbers.forEach(element => {
+//         if (!num.hasOwnProperty(element)) { 
+//             num[element] = 0;
+//         }
+//         if (num.hasOwnProperty(element)) {
+//             num[element] += 1;
+//         }
+//     });
+// return +Object.keys(num).filter(key => num[key] === 1).join('')
+// }
+// console.log(findUnique([1, 8, 4, 4, 6, 1, 8]));
+
+//------------------------------- 13 --------------------------//Coding Meetup #2 - Higher-Order Functions Series - Greet developers
+
+// function greetDevelopers(list) {
+//     list.forEach(developer => {
+//     developer.greeting = `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`
+//       //console.log(developer.firstName);
+//   });
+//     return list;
+// }
+
+// const list1 = [
+//       {
+//         firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
+//       },
+//       {
+//         firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python',
+//       },
+//       {
+//         firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby',
+//       },
+// ];
+// console.log(greetDevelopers(list1));
