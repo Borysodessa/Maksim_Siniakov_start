@@ -80,7 +80,6 @@
 //         .reduce((akk, points) => akk + points, 0);
         
 //     console.log(pointsBoredom);
-    // return pointsBoredom <= 80 ? 'kill me now' : 100 > pointsBoredom && pointsBoredom > 80 ? 'i can handle this' : 'party time!!';
 //     if (pointsBoredom <= 80) {
 //         return 'kill me now'
 //     }
@@ -149,14 +148,116 @@
 //     }
 //     return chairs;
 //  }
-// //                         0            1            1            4
+//                         0            1            1            4
 //  console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 7], ['XXXXX', 9]], 4));
 //==============================================================================================
 
-const whosOnline = (friends) => {
-// Your code here...
-}
+//------------------------------- 7 --------------------------// Who's Online?
+// Получив ввод массива объектов, содержащих имена пользователей, статус и время с момента последнего
+// действия(в минутах), создайте функцию для определения, кто есть online, offline и away.
+// Если кто - то есть, onlineно они lastActivity были более 10 минут назад, их следует учитывать away.
 
+//  const getUserStatus = (friend) => {
+//     const { status, lastActivity, username } = friend;
 
+//     if (status === 'online' && lastActivity <= 10) {
+//         return 'online';
+//     }
+//     if (status === 'online' && lastActivity > 10) {
+//         return 'away';
+//     }
+//     return 'offline';
+// }
+// const whosOnline = (friends) => {
+//     let friendsStatus = {};
+//     for (let i = 0; i < friends.length; i += 1) {
+//         const status = getUserStatus(friends[i]);
+//         const username = friends[i].username
+//         // if (friendsStatus[status] === undefined) {
+//         // if (!(status in friendsStatus)) {
+//         if (!friendsStatus.hasOwnProperty(status)) {
+//             friendsStatus[status] = [];
+//         }
+//         friendsStatus[status].push(username);
+        
+//     }
+//     return friendsStatus;
+    
+// }
+// console.log(whosOnline([
+// {
+//     username: 'David',
+//     status: 'online',
+//     lastActivity: 11
+// },
+// {
+//     username: 'Lucy',
+//     status: 'offline',
+//     lastActivity: 22
+//   },
+//  {
+//     username: 'Bob',
+//     status: 'online',
+//     lastActivity: 10
+// },
+//  {
+//     username: 'Boba',
+//     status: 'online',
+//     lastActivity: 10
+// },
+//  {
+//     username: 'coba',
+//     status: 'online',
+//     lastActivity: 5
+// }
+// ]
+// ));
+//==================================================================================================
 
+//------------------------------- 8 --------------------------// Where my anagrams at? (retired)
+// Два слова являются анаграммами друг друга, если они оба содержат одни и те же буквы
+// Напишите функцию, которая найдет все анаграммы слова из списка.
+// function isAnagrams(word, word2) {
+//     const obj = {};
+//     for (let letter of word) {
+//         if (!obj.hasOwnProperty(letter)) {
+//             obj[letter] = 0;
+//         }
+//         obj[letter] += 1;
+//     }
+//     for (let letter of word2) {
+//         if (!obj.hasOwnProperty(letter)) {
+//             obj[letter] = 0;
+//         }
+//         obj[letter] -= 1;
+//         if (obj[letter] < 0) {
+//             obj[letter] = Math.abs(obj[letter])
+//         }
+//     }
+//     return Object.values(obj).reduce((akk, value) => akk + value, 0) === 0 ;
+//     // 1. прибавлять буквы первого слова
+//     // 2. вычитать буквы второго слова
+//     // 3. проверить, что все буквы имеют значение 0
+// }
 
+// function anagrams(word, words) {
+//     return words.filter(el => isAnagrams(word.split(''), el.split('')));
+// }
+//  console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']));
+
+//------------------------------- 9 --------------------------//Make a function that does arithmetic!
+// Имея два числа и арифметический оператор(его имя в виде строки), верните результат двух чисел,
+//     к которым был применен этот оператор.
+
+// function arithmetic(a, b, operator) {
+//     const operators = {
+//         "add": a + b,
+//         "subtract": a - b,
+//         "multiply": a * b,
+//         "divide": a / b
+//     };
+//     return  operators[operator];
+// }
+// console.log(arithmetic(8, 2, 'divide')); //3
+
+//------------------------------- 10 --------------------------// Pluck
