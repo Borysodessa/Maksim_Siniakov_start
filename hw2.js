@@ -261,3 +261,11 @@
 // console.log(arithmetic(8, 2, 'divide')); //3
 
 //------------------------------- 10 --------------------------// Pluck
+// function pluck(objs, name) {
+//     const values = [];
+//     for (let obj of objs) {
+//         values.push(obj[name]);
+//     }
+//     return values;
+// }
+// console.log(pluck([{ a: 1 }, { a: 2 }, { b: 2 }], 'a'));
