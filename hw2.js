@@ -334,3 +334,43 @@
 //       },
 // ];
 // console.log(greetDevelopers(list1));
+
+
+//------------------------------- 14 --------------------------//Convert Hash To An Array 
+//Преобразование хеша в массив.Ни больше ни меньше.
+// function isAlphabetNumber(letter) {
+//     return 'abcdefghijklmnopqrstuvwxyz'.indexOf(letter) + 1;
+// } 
+
+// function convertHashToArray(hash) {
+//     const sortObj = {};
+//     const sortKeys = Object.keys(hash)
+//         .sort((a, b) => (a[0] !== b[0]) ? (isAlphabetNumber(a[0]) - isAlphabetNumber(b[0])) : (isAlphabetNumber(a[1]) - isAlphabetNumber(b[1])));
+//     sortKeys.forEach(el => sortObj[el] = hash[el]);
+                                 
+//     return Object.entries(sortObj);
+// };
+// console.log(convertHashToArray({ powerLevelOver: 9000, product: "CodeWars"}));
+    
+//------------------------------- 14 --------------------------//Kebabize
+
+//  function kebabize(str) {
+//      return str.replace(/[A-Z]/g, c=>'-'+c.toLowerCase()).replace(/[0-9]/g, '').replace(/^-/, '');
+
+//      //     let arr = [];
+// //     str.split('').forEach((element, i) => {
+// //         if ( element === element.toUpperCase() && 
+// //         (element.charCodeAt() < '0'.charCodeAt() || element.charCodeAt() > '9'.charCodeAt()) ) { 
+// //             element = element.toLowerCase();
+// //             arr.push('-');
+// //         }
+// //         if ( 'A' <= element && element <= 'z') { 
+// //             arr.push(element);
+// //         }
+// //     });
+// //     while (arr[0] === '-') {
+// //         arr = arr.splice(1)
+// //      }
+// //     return arr.join('');
+//  }
+//  console.log(kebabize('CamelCased3Str-ing'));
