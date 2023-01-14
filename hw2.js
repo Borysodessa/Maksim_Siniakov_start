@@ -230,18 +230,16 @@
 //             obj[letter] = 0;
 //         }
 //         obj[letter] -= 1;
-//         if (obj[letter] < 0) {
-//             obj[letter] = Math.abs(obj[letter])
-//         }
 //     }
-//     return Object.values(obj).reduce((akk, value) => akk + value, 0) === 0 ;
+    
+//     return Object.values(obj).every(el => el === 0) ;
 //     // 1. прибавлять буквы первого слова
 //     // 2. вычитать буквы второго слова
 //     // 3. проверить, что все буквы имеют значение 0
 // }
 
 // function anagrams(word, words) {
-//     return words.filter(el => isAnagrams(word.split(''), el.split('')));
+//     return words.filter(el => isAnagrams(word, el));
 // }
 //  console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']));
 
@@ -249,24 +247,23 @@
 // Имея два числа и арифметический оператор(его имя в виде строки), верните результат двух чисел,
 //     к которым был применен этот оператор.
 
+// const operators = {
+//     "add": (a, b) => a + b,
+//     "subtract": (a, b) => a - b,
+//     "multiply": (a, b) => a * b,
+//     "divide": (a, b) => a / b
+// };
 // function arithmetic(a, b, operator) {
-//     const operators = {
-//         "add": a + b,
-//         "subtract": a - b,
-//         "multiply": a * b,
-//         "divide": a / b
-//     };
-//     return  operators[operator];
+//     return operators[operator](a, b);
 // }
 // console.log(arithmetic(8, 2, 'divide')); //3
 
 //------------------------------- 10 --------------------------// Pluck
+ //возвращает последовательность, содержащую именованное свойство каждого объекта
 // function pluck(objs, name) {
-//     const values = [];
-//     for (let obj of objs) {
-//         values.push(obj[name]);
-//     }
-//     return values;
+    
+//     return objs.map(obj => obj[name])
+    
 // }
 // console.log(pluck([{ a: 1 }, { a: 2 }, { b: 2 }], 'a'));
 
@@ -274,17 +271,15 @@
 //------------------------------- 11 --------------------------//Remove duplicate words ???????????Использовать вместо  for of - for each ?
 // удалить из строки все повторяющиеся слова, оставив только одиночные (первые) слова.
 
-//function removeDuplicateWords(s) {
- 
-    
-    // const words = {};
-    // const arr = s.split(' ');
-    // for (let word of arr) { 
-    //     if (!words.hasOwnProperty(word)) { 
-    //         words[word] = 0;
-    //     }
-    // }
-    // return Object.keys(words).join(' ');
+// function removeDuplicateWords(s) {
+//     const words = {};
+//     const arr = s.split(' ');
+//     for (let word of arr) {
+//         if (!words.hasOwnProperty(word)) {
+//             words[word] = 0;
+//         }
+//     }
+//     return Object.keys(words).join(' ');
 
     // const words = [];
     // const arr = s.split(' ');
@@ -301,28 +296,33 @@
 // function findUnique(numbers) {
 //     const num = {};
 //     numbers.forEach(element => {
-//         if (!num.hasOwnProperty(element)) { 
+//         if (!num.hasOwnProperty(element)) {
 //             num[element] = 0;
 //         }
-//         if (num.hasOwnProperty(element)) {
-//             num[element] += 1;
-//         }
+//         num[element] += 1;
 //     });
-// return +Object.keys(num).filter(key => num[key] === 1).join('')
+//     return +Object.keys(num).find(key => num[key] === 1);
 // }
-// console.log(findUnique([1, 8, 4, 4, 6, 1, 8]));
+//  console.log(findUnique([1, 8, 4, 4, 6, 1, 8]));
 
-//------------------------------- 13 --------------------------//Coding Meetup #2 - Higher-Order Functions Series - Greet developers
+// //------------------------------- 13 --------------------------//Coding Meetup #2 - Higher-Order Functions Series - Greet developers
 
 // function greetDevelopers(list) {
-//     list.forEach(developer => {
-//     developer.greeting = `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`
-//       //console.log(developer.firstName);
-//   });
-//     return list;
+//     return list.map(developer => ({
+//         ...developer,
+//         greeting: `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`,
+//     }));
+// }
+// function greetDevelopers(list) {
+//     return list.map(developer => {
+//         return {
+//             ...developer,
+//             greeting: `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`,
+//         };
+//     });
 // }
 
-// const list1 = [
+// const list2 = [
 //       {
 //         firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
 //       },
@@ -333,44 +333,194 @@
 //         firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby',
 //       },
 // ];
-// console.log(greetDevelopers(list1));
+
+// const rawtrseyrtduytifucfj = [
+//     {
+//         firstName: 'Aaaaaa', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
+//     },
+// ]
 
 
-//------------------------------- 14 --------------------------//Convert Hash To An Array 
+// console.log(greetDevelopers(rawtrseyrtduytifucfj));
+// console.log(greetDevelopers(list2));
+// console.log('2',list2);
+//============================================================================================================================//
+
+
+//------------------------------- 14 --------------------------//Convert Hash To An Array  
 //Преобразование хеша в массив.Ни больше ни меньше.
-// function isAlphabetNumber(letter) {
-//     return 'abcdefghijklmnopqrstuvwxyz'.indexOf(letter) + 1;
-// } 
 
 // function convertHashToArray(hash) {
-//     const sortObj = {};
 //     const sortKeys = Object.keys(hash)
-//         .sort((a, b) => (a[0] !== b[0]) ? (isAlphabetNumber(a[0]) - isAlphabetNumber(b[0])) : (isAlphabetNumber(a[1]) - isAlphabetNumber(b[1])));
-//     sortKeys.forEach(el => sortObj[el] = hash[el]);
-                                 
-//     return Object.entries(sortObj);
+//         .sort();
+//    return sortKeys.map(el => [el, hash[el]]);
+//     // https://learn.javascript.ru/array-methods#sort-fn
+//     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 // };
-// console.log(convertHashToArray({ powerLevelOver: 9000, product: "CodeWars"}));
+//  console.log(convertHashToArray({name: "Jeremy", age: 24}));
     
-//------------------------------- 14 --------------------------//Kebabize
-
+//------------------------------- 14 --------------------------// Kebabize
+//Измените kebabizeфункцию, чтобы она преобразовывала строку регистра верблюда в регистр кебаба.
 //  function kebabize(str) {
-//      return str.replace(/[A-Z]/g, c=>'-'+c.toLowerCase()).replace(/[0-9]/g, '').replace(/^-/, '');
+//      return str.replace(/[A-Z,0-9]/g, c=>'-'+c.toLowerCase()).replace(/[0-9]/g, '').replace(/^-/, '');
+// }
+// console.log(kebabize('CamelCased3Str-ing'));
 
-//      //     let arr = [];
-// //     str.split('').forEach((element, i) => {
-// //         if ( element === element.toUpperCase() && 
-// //         (element.charCodeAt() < '0'.charCodeAt() || element.charCodeAt() > '9'.charCodeAt()) ) { 
-// //             element = element.toLowerCase();
-// //             arr.push('-');
-// //         }
-// //         if ( 'A' <= element && element <= 'z') { 
-// //             arr.push(element);
-// //         }
-// //     });
-// //     while (arr[0] === '-') {
-// //         arr = arr.splice(1)
-// //      }
-// //     return arr.join('');
+
+
+// ------------------------------- 15 --------------------------//Word a10n (abbreviation)
+//любые и все «слова» (см. ниже) в этой строке длиной 4 или больше в аббревиатуру
+//  function abbreviate(string) {
+//     const arr = [];
+//     const array = string.replace(/[,]/g, ' ,').replace(/[-]/g, ' - ').split(' ');
+//     array.forEach(element => {
+//         element.length <= 3 ? arr.push(element) : arr.push(`${element.slice(0, 1) + (element.length - 2) + element.slice(-1)}`);
+//     });
+//     return arr.join(' ').replace(/ ,/g, ',').replace(/ - /g, '-');
 //  }
-//  console.log(kebabize('CamelCased3Str-ing'));
+//  console.log(abbreviate("You need, need-not want, to complete this code-wars mission"));
+
+
+// ------------------------------- 16 --------------------------//IP Validation 
+// Напишите алгоритм, который будет определять действительные адреса IPv4 в
+// десятичном формате с точками.IP - адреса следует считать действительными,
+// если они состоят из четырех октетов со значениями от 0 до 255 включительно.
+// function isValidIP(str) {
+//     const arr = str.split('.');
+//     if ((arr
+//         .some((el) => (+el.length > 1 && +el[0] === 0) || arr.length !== 4 || str === '' || el === '' ||
+//             +el < 0 || +el > 255)) || (str.replace(/[^0-9]/g, '.') !== str)) {
+//        return false;
+//     }
+//     return true;
+// }
+// console.log(isValidIP('35.173.198.'));
+
+// ------------------------------- 17 --------------------------//
+//Super power frequency function
+// function frequency(arr, options) {
+
+
+//     const names = {};
+//     for (const name of arr) {
+//         if (!names.hasOwnProperty(name)) {
+//             names[name] = 0;
+//         }
+//         if (names.hasOwnProperty(name)) {
+//             names[name] += 1;
+//         }
+//     }
+//    return Object.keys(names).map((el, i) => [arr[i], names[el]]);
+     
+// }
+
+//                                                       // сортировки по алфавиту
+// function alphabeticalCompare(value1, value2) {
+//   if (String(value1) < String(value2)) {
+//     return -1;
+//   } else if (String(value1) > String(value2)) {
+//     return 1;
+//   } else {
+//     return 0;
+//   }
+// }
+
+
+// function frequencyCompare(value1, value2, freq1, freq2) {
+//   return freq2 - freq1;
+// }
+
+
+// function isEven(number) {
+//   return number % 2 === 0;
+// }
+
+// function parity(number) {
+//   return isEven(number) ? 'even' : 'odd';
+// }
+
+// function profession(person) {
+//   return person.profession;
+// }
+
+// var persons = [
+//   {name: 'Peter', profession: 'teacher'},
+//   {name: 'Michael', profession: 'teacher'},
+//   {name: 'Anna', profession: 'scientific'},
+//   {name: 'Rose', profession: 'scientific'},
+//   {name: 'Anna', profession: 'scientific'},
+//   {name: 'Anna', profession: 'politician'}
+// ];
+// console.log(frequency(['Peter', 'Anna', 'Rose', 'Peter', 'Peter', 'Anna'], {compareTo: alphabeticalCompare}));
+//frequency(persons, {criteria: profession, compareTo: frequencyCompare}); //[["scientific", 3], ["teacher", 2], ["politician", 1]]
+//console.log(frequency([1, 10, 12, 2, 1, 10, 2, 2], {compareTo: isEven}));
+
+// ------------------------------- 18 --------------------------// String incrementer;
+//написать функцию, которая увеличивает строку, чтобы создать новую строку.
+
+// Если строка уже заканчивается числом, число должно быть увеличено на 1.
+// Если строка не заканчивается цифрой. число 1 должно быть добавлено к новой строке.
+
+
+// function incrementString(string) {
+//     if (isNaN(+string[string.length - 1])) {
+//         return string + '1';
+//     }
+//     const strReverse = string.split('').reverse();
+//     let length = 0;
+//     for (const letter of strReverse) {
+//         if (!isNaN(+letter)) {
+//             length += 1;
+//         }
+//         if (isNaN(+letter)) {
+//             break;
+//         }
+//     }
+//     return string.slice(0, - length) + (String(+string.slice(-length) + 1)).padStart(length, '0');
+// }
+// console.log(incrementString("fo99obar99"));
+
+
+// ------------------------------- 19 --------------------------// From..To..Series #2: from arr1 to arr2. Find the most same sum value of pairs
+
+// Подсчитайте сумму соответствующего номера позиции, найдите наибольшее количество пар с одинаковым 
+// значением суммы.вернуть результат двумерным массивом, содержащим все пары.
+
+    //     for (let j = 0; j < arr2.length; i += 1) { 
+
+    //     }
+    // }
+    
+    // const obj = {};
+    // for (let i = 0; i < arr1.length; i += 1) {
+    //     obj[i] = arr1[i] + arr2[i];
+    // }
+    // const values = Object.values(obj); console.log('val', values);
+    // const object = {};
+ 
+
+    // for (let i = 0; i < values.length; i += 1) {
+    //     for (let j = 1; j < values.length; j += 1) {
+    //         if (values[i] === values[j]) {
+    //             object[arr1[i]] = arr2[i];
+    //         }
+    //     }
+//      } 
+//     // console.log('ob', object);
+    
+    
+// }
+// console.log(findPair([5, 2, 3, 4, 0,], [0, 8, 0, 0, 9]));
+
+
+// ------------------------------- 20 --------------------------//Evaluating prefix Polish notation
+// function calculate(expression) {
+//   const arr = expression.split(' ').reverse(); console.log(arr);
+//   for (let i = 0; i < arr.length; i += 1){
+//     if ((i + 1) % 3 === 0) {
+//       const arrSlice = (+arr.slice((i - 2), (i - 1))) + arr.slice((i), (i + 1)) + (+arr.slice((i - 1), (i))).replace('+', +);
+//         console.log(arrSlice);
+//      }
+//   }
+// }
+// console.log(calculate('+ 5 -3'))
