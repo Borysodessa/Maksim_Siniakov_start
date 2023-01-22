@@ -159,7 +159,6 @@
 
 //  const getUserStatus = (friend) => {
 //     const { status, lastActivity, username } = friend;
-
 //     if (status === 'online' && lastActivity <= 10) {
 //         return 'online';
 //     }
@@ -173,16 +172,12 @@
 //     for (let i = 0; i < friends.length; i += 1) {
 //         const status = getUserStatus(friends[i]);
 //         const username = friends[i].username
-//         // if (friendsStatus[status] === undefined) {
-//         // if (!(status in friendsStatus)) {
 //         if (!friendsStatus.hasOwnProperty(status)) {
 //             friendsStatus[status] = [];
 //         }
 //         friendsStatus[status].push(username);
-        
 //     }
 //     return friendsStatus;
-    
 // }
 // console.log(whosOnline([
 // {
@@ -231,11 +226,7 @@
 //         }
 //         obj[letter] -= 1;
 //     }
-    
 //     return Object.values(obj).every(el => el === 0) ;
-//     // 1. прибавлять буквы первого слова
-//     // 2. вычитать буквы второго слова
-//     // 3. проверить, что все буквы имеют значение 0
 // }
 
 // function anagrams(word, words) {
@@ -259,16 +250,14 @@
 // console.log(arithmetic(8, 2, 'divide')); //3
 
 //------------------------------- 10 --------------------------// Pluck
- //возвращает последовательность, содержащую именованное свойство каждого объекта
+//возвращает последовательность, содержащую именованное свойство каждого объекта
 // function pluck(objs, name) {
-    
 //     return objs.map(obj => obj[name])
-    
 // }
 // console.log(pluck([{ a: 1 }, { a: 2 }, { b: 2 }], 'a'));
 
 
-//------------------------------- 11 --------------------------//Remove duplicate words ???????????Использовать вместо  for of - for each ?
+//------------------------------- 11 --------------------------//Remove duplicate words
 // удалить из строки все повторяющиеся слова, оставив только одиночные (первые) слова.
 
 // function removeDuplicateWords(s) {
@@ -333,7 +322,6 @@
 //         firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby',
 //       },
 // ];
-
 // const rawtrseyrtduytifucfj = [
 //     {
 //         firstName: 'Aaaaaa', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
@@ -347,180 +335,252 @@
 //============================================================================================================================//
 
 
-//------------------------------- 14 --------------------------//Convert Hash To An Array  
+//------------------------------- 14 --------------------------//Convert Hash To An Array
 //Преобразование хеша в массив.Ни больше ни меньше.
 
 // function convertHashToArray(hash) {
 //     const sortKeys = Object.keys(hash)
 //         .sort();
 //    return sortKeys.map(el => [el, hash[el]]);
-//     // https://learn.javascript.ru/array-methods#sort-fn
-//     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 // };
 //  console.log(convertHashToArray({name: "Jeremy", age: 24}));
-    
+ //==========================================================================================================================//
+
 //------------------------------- 14 --------------------------// Kebabize
 //Измените kebabizeфункцию, чтобы она преобразовывала строку регистра верблюда в регистр кебаба.
 //  function kebabize(str) {
-//      return str.replace(/[A-Z,0-9]/g, c=>'-'+c.toLowerCase()).replace(/[0-9]/g, '').replace(/^-/, '');
+//      return str
+//         .replace(/[0-9]/g, '')
+//         .replace(/[A-Z]/g, c=>'-'+c.toLowerCase())
+//         .replace(/^-/, '');
 // }
 // console.log(kebabize('CamelCased3Str-ing'));
-
+//============================================================================================//
 
 
 // ------------------------------- 15 --------------------------//Word a10n (abbreviation)
 //любые и все «слова» (см. ниже) в этой строке длиной 4 или больше в аббревиатуру
+
+
 //  function abbreviate(string) {
-//     const arr = [];
-//     const array = string.replace(/[,]/g, ' ,').replace(/[-]/g, ' - ').split(' ');
-//     array.forEach(element => {
-//         element.length <= 3 ? arr.push(element) : arr.push(`${element.slice(0, 1) + (element.length - 2) + element.slice(-1)}`);
-//     });
-//     return arr.join(' ').replace(/ ,/g, ',').replace(/ - /g, '-');
-//  }
+//     return string.replace(/[a-z]{4,}/gi, word => word[0] + (word.length - 2) + word.at(-1));                            //i  игнорирует кейс; +    метод at
+// }
 //  console.log(abbreviate("You need, need-not want, to complete this code-wars mission"));
 
 
-// ------------------------------- 16 --------------------------//IP Validation 
+// ------------------------------- 16 --------------------------//IP Validation
 // Напишите алгоритм, который будет определять действительные адреса IPv4 в
 // десятичном формате с точками.IP - адреса следует считать действительными,
 // если они состоят из четырех октетов со значениями от 0 до 255 включительно.
+
+// function validNumber(str) {
+//   const containsDigitsOnly = /^[0-9]+$/.test(str);
+//   if (!containsDigitsOnly) {
+//     return false
+//   }
+//   if (str[0] === '0' && str !== '0') {
+//       return false
+//   }
+//   const num = Number(str);
+//   if (num < 0 && num > 255) {
+//       return false
+//   }
+//   return true;
+// }
+
 // function isValidIP(str) {
 //     const arr = str.split('.');
-//     if ((arr
-//         .some((el) => (+el.length > 1 && +el[0] === 0) || arr.length !== 4 || str === '' || el === '' ||
-//             +el < 0 || +el > 255)) || (str.replace(/[^0-9]/g, '.') !== str)) {
-//        return false;
-//     }
-//     return true;
-// }
-// console.log(isValidIP('35.173.198.'));
+//     return arr.length === 4 && arr.every(validNumber);
+//
+//  console.log(isValidIP('35.173.198.'));
+//=================================================================================================//
 
-// ------------------------------- 17 --------------------------//
-//Super power frequency function
+// ------------------------------- 17 --------------------------//Super power frequency function
+//Функция берет массив и вычисляет частоту каждого значения массива, отсортированного естественным образом.
+
 // function frequency(arr, options) {
-
-
-//     const names = {};
-//     for (const name of arr) {
-//         if (!names.hasOwnProperty(name)) {
-//             names[name] = 0;
-//         }
-//         if (names.hasOwnProperty(name)) {
-//             names[name] += 1;
-//         }
-//     }
-//    return Object.keys(names).map((el, i) => [arr[i], names[el]]);
-     
-// }
-
-//                                                       // сортировки по алфавиту
-// function alphabeticalCompare(value1, value2) {
-//   if (String(value1) < String(value2)) {
-//     return -1;
-//   } else if (String(value1) > String(value2)) {
-//     return 1;
-//   } else {
-//     return 0;
+//   const criteria = options.compareTo;
+//   //let array = arr; console.log('arr->', array);
+//   let array = [];                 //compareTo: number
+//   for (const el of arr) { 
+//     array.push(criteria(el));
 //   }
-// }
+//  //array = arr.sort(criteria(el));     // compareTo: alphabeticalCompare
 
-
+//   const map = new Map();
+//   for (let name of arr) {
+//     if (!map.has(name)) { 
+//       map.set(name, 1)
+//     } else {
+//       map.set(name, (map.get(name) + 1));
+//     }
+//    }
+//    return Array.from(map);            
+//}
+//  console.log(1, frequency([6, 1111, 10, 12, 22, 1, 1022, 2, 2, 4, 4], {
+//   compareTo: number => number.toString().length
+//  }));
+ //console.log(2, frequency(['Peter', 'Anna', 'Rose', 'Peter', 'Peter', 'Anna'], { compareTo: alphabeticalCompare }));
+//function alphabeticalCompare(value1, value2) {
+  // if (String(value1) < String(value2)) {
+  //   return -1;
+  // } else if (String(value1) > String(value2)) {
+  //   return 1;
+  // } else {
+  //   return 0;
+  // }
+ //}
+//console.log(3, frequency(['Peter', 'Anna', 'Rose', 'Peter', 'Peter', 'Anna'], { frequencyCompare }));
 // function frequencyCompare(value1, value2, freq1, freq2) {
-//   return freq2 - freq1;
-// }
-
-
+  //return freq2 - freq1;
+//}
+//console.log(frequency([1, 2, 3, 4, 5, 6, 7], {criteria: parity}));
 // function isEven(number) {
 //   return number % 2 === 0;
 // }
-
-// function parity(number) {
-//   return isEven(number) ? 'even' : 'odd';
+// function parity(number) { 
+//   return isEven(number) ? 'even' : 'odd';              //[["even", 3], ["odd", 4]]
 // }
 
-// function profession(person) {
-//   return person.profession;
-// }
 
-// var persons = [
-//   {name: 'Peter', profession: 'teacher'},
-//   {name: 'Michael', profession: 'teacher'},
-//   {name: 'Anna', profession: 'scientific'},
-//   {name: 'Rose', profession: 'scientific'},
-//   {name: 'Anna', profession: 'scientific'},
-//   {name: 'Anna', profession: 'politician'}
-// ];
-// console.log(frequency(['Peter', 'Anna', 'Rose', 'Peter', 'Peter', 'Anna'], {compareTo: alphabeticalCompare}));
-//frequency(persons, {criteria: profession, compareTo: frequencyCompare}); //[["scientific", 3], ["teacher", 2], ["politician", 1]]
-//console.log(frequency([1, 10, 12, 2, 1, 10, 2, 2], {compareTo: isEven}));
+
+
+
+
 
 // ------------------------------- 18 --------------------------// String incrementer;
 //написать функцию, которая увеличивает строку, чтобы создать новую строку.
-
 // Если строка уже заканчивается числом, число должно быть увеличено на 1.
 // Если строка не заканчивается цифрой. число 1 должно быть добавлено к новой строке.
-
+///^[0-9]+$/.test(str)   спросить  isNaN(+letter)  и тернарник  + break и continue
 
 // function incrementString(string) {
-//     if (isNaN(+string[string.length - 1])) {
+//     if (!/^[0-9]+$/.test(string.at(-1))) {
 //         return string + '1';
 //     }
 //     const strReverse = string.split('').reverse();
-//     let length = 0;
+//     let lengthNumber = 0;
 //     for (const letter of strReverse) {
-//         if (!isNaN(+letter)) {
-//             length += 1;
+//         if (/^[0-9]+$/.test(letter)) {
+//             lengthNumber += 1;
 //         }
-//         if (isNaN(+letter)) {
+//         if (!/^[0-9]+$/.test(letter)) {
 //             break;
 //         }
 //     }
-//     return string.slice(0, - length) + (String(+string.slice(-length) + 1)).padStart(length, '0');
+//     return string.slice(0, - lengthNumber) + (String(+string.slice(-lengthNumber) + 1)).padStart(lengthNumber, '0');
 // }
-// console.log(incrementString("fo99obar99"));
+// console.log(incrementString("fo99obar179"));
 
 
-// ------------------------------- 19 --------------------------// From..To..Series #2: from arr1 to arr2. Find the most same sum value of pairs
-
-// Подсчитайте сумму соответствующего номера позиции, найдите наибольшее количество пар с одинаковым 
+// ------------------------------- 19 --------------------------// From..To..Series #2: from arr1 to arr2.??????????
+// Find the most same sum value of pairs
+// Подсчитайте сумму соответствующего номера позиции, найдите наибольшее количество пар с одинаковым
 // значением суммы.вернуть результат двумерным массивом, содержащим все пары.
+  // function frequency(arr) {
+  //     const map = new Map();
+  //     for (let name of arr) {
+  //         if (!map.has(name)) {
+  //             map.set(name, 1)
+  //         } else {
+  //             map.set(name, (map.get(name) + 1));
+  //         }
+  //     }
+  //   return Array.from(map);
+  // }
 
-    //     for (let j = 0; j < arr2.length; i += 1) { 
+  // function findPair(arr1, arr2) {
+  //   const pairs = []; 
+  //   for (let i = 0; i < arr1.length; i += 1) {
+  //     pairs.push(arr1[i] + arr2[i]);
+  //   } 
+  //   const frequencyPairs = frequency(pairs); console.log('frequency', frequencyPairs);
+  //   const repeatedPairs = [];
+  //   for (const arr of frequencyPairs) {
+  //     if (arr[1] > 1) {
+  //       repeatedPairs.push(arr);
+  //     }
+  //   }
+    
+    
+    
+    // const filteredPairs = pairs
+    //   .filter((pair, i, arr) => arr.indexOf(pair) !== i); console.log(filteredPairs);
+    // for (let i = 0; i < filteredPairs.length; i += 1) { 
 
-    //     }
     // }
-    
-    // const obj = {};
-    // for (let i = 0; i < arr1.length; i += 1) {
-    //     obj[i] = arr1[i] + arr2[i];
+    // const samePairs = []; 
+    // const maxPairs =  Math.max(...filteredPairs);
+    // for (i = 0; i < pairs.length; i += 1) {
+    //   if (pairs[i] === maxPairs) {
+    //     samePairs.push([arr1[i], arr2[i]]);
+    //   }
     // }
-    // const values = Object.values(obj); console.log('val', values);
-    // const object = {};
- 
-
-    // for (let i = 0; i < values.length; i += 1) {
-    //     for (let j = 1; j < values.length; j += 1) {
-    //         if (values[i] === values[j]) {
-    //             object[arr1[i]] = arr2[i];
-    //         }
-    //     }
-//      } 
-//     // console.log('ob', object);
-    
-    
-// }
-// console.log(findPair([5, 2, 3, 4, 0,], [0, 8, 0, 0, 9]));
+    // return samePairs;
+  // }
+  // console.log(findPair([1, 2, 9, 4, 5, 1], [9, 8, 0, 4, 3, 7]));
 
 
-// ------------------------------- 20 --------------------------//Evaluating prefix Polish notation
+// ------------------------------- 20 --------------------------//Evaluating prefix Polish notation????????????????
+// написать функцию calculate, которая принимает строку с математическим выражением, записанным в
+// префиксной польской нотации, и вычисляет ее
 // function calculate(expression) {
-//   const arr = expression.split(' ').reverse(); console.log(arr);
-//   for (let i = 0; i < arr.length; i += 1){
-//     if ((i + 1) % 3 === 0) {
-//       const arrSlice = (+arr.slice((i - 2), (i - 1))) + arr.slice((i), (i + 1)) + (+arr.slice((i - 1), (i))).replace('+', +);
-//         console.log(arrSlice);
-//      }
-//   }
+
+//   const a = ('5', Number('+'), '6');
+//   console.log(a);
 // }
-// console.log(calculate('+ 5 -3'))
+// console.log(calculate('+ 5 3'));
+
+
+// ------------------------------- 20 --------------------------//Convert A Hex String To RGB
+// извлечь для цвета отдельные значения компонентов красного, зеленого и синего(RGB).
+
+// function hexStringToRGB(hexString) {
+// return {
+//     r: parseInt(hexString.slice(1, 3), 16),
+//     g: parseInt(hexString.slice(3, 5), 16),
+//     b: parseInt(hexString.slice(5), 16)
+//   };
+// }
+// console.log(hexStringToRGB("#FF9933"));
+
+// ------------------------------- 21 --------------------------//Run-length encoding??????????????????
+// написать такую ​​кодировку длин серий.Для заданной строки верните список(или массив)
+// пар(или массивов)[(i 1, s 1 ), (i 2, s 2 ), …, (in , s n ) ]
+
+// var runLengthEncoding = function (str) {
+//  let arr = [];
+//   const array = [];
+//   for (let i = 0; i < str.length; i += 1){
+//     //const array = ([1, str[i]]);
+//     if (str[i] !== str[i + 1]) {
+//       arr.push(array);
+//     }
+//     if (str[i + 1] === str[ i ]) {
+//       array[0] += 1;
+//     }
+//     console.log(array);
+//   } return arr;
+// }
+// console.log(runLengthEncoding('WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW'));
+
+
+// ------------------------------- 21 --------------------------// Is a number prime?
+// Определите функцию, которая принимает целочисленный аргумент и возвращает логическое значение true или
+// false в зависимости от того, является ли целое число простым.
+// function isPrime(num) {
+//   if (num <= 0 || num === 1) {
+//     return false;
+//   }
+
+//   let number = 2;
+
+//   while ( number < num) { 
+//     if (num % number === 0 ) {
+//       return false;
+//   }
+//     number += 1;
+//   }
+//   return true;
+// }
+//  console.log(isPrime(17));

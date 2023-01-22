@@ -366,7 +366,7 @@
 // }
 //  console.log(findMagic([6, 5, 4, 3,18])); // 2
 
-//----------------------- 22 ------------------------// не проверенно: else, вторая функция.  
+//----------------------- 22 ------------------------//   
 
 // Функция rgb неполная.Завершите его, чтобы передача десятичных значений RGB
 // приводила к возврату шестнадцатеричного представления.Допустимые десятичные
@@ -468,14 +468,11 @@
 //  Вы получаете массив массивов.
 // Если вы отсортируете массивы по их длине, вы увидите, что их значения длины следуют друг за другом.
 // Но одного массива не хватает!
-
 // const isNullOrEmpty = el => el === null || el.length === 0;
-
 // function getLengthOfMissingArray(arrayOfArrays) {
 //     if (isNullOrEmpty(arrayOfArrays) || arrayOfArrays.some(isNullOrEmpty)) { 
 //         return 0;
 //     }
-    
 //     const lengths = arrayOfArrays.map(a => a.length).sort((a, b) => a - b);
 //     for (let i = 0; i < lengths.length - 1; i += 1) {
 //         if(lengths[i] !== lengths[i + 1] - 1) {
@@ -571,7 +568,6 @@
 // б) использовать только первую букву каждого предложения.Убедитесь, что остальная часть предложения
 //  написана строчными буквами.
 //  Example: He haD iEght ShOTs of CAffIEne. --> He had eight shots of caffeine.
-
 // function proofread(str) {
 //         return str
 //             .toLowerCase()
@@ -617,7 +613,6 @@
 // индекса нет, верните - 1.
 
 // function findEvenIndex(arr) {
-
 //     return arr.findIndex((_, i)=> {
 //         const left = arr.slice(0, i).reduce((acc, el) => acc + el, 0);
 //         const right = arr.slice(i + 1).reduce((acc, el) => acc + el, 0);
