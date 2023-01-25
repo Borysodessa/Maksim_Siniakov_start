@@ -55,3 +55,26 @@
 //   return `(${str.slice(0, 3)}) ${str.slice(3, 6)}-${str.slice(6)}`
 // }
 // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+
+//------------------- 7 ----------------------------//How many arguments
+// function args_count(a, b, l) {
+//  //   console.log(arguments[1]);
+//     return arguments.length
+// }
+// console.log((args_count(1,2,3)))
+
+
+//------------------- 8 ----------------------------// Leap Years
+//  является ли данный год високосным или нет. Если вы не знаете правил, вот они:
+// годы, которые делятся на 4, являются високосными
+// но годы, кратные 100, не являются високосными
+// но годы, кратные 400, являются високосными
+
+// isLeapYear = year => { 
+//     if (year % 4 !== 0 || (year % 100 === 0 && year % 400 !== 0) ) {
+//         return false;
+//     }
+//       return true;
+// }
+// console.log(isLeapYear(2014))
