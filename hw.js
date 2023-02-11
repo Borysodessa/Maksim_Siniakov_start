@@ -1,3 +1,8 @@
+//----------------------0.1-------------------------//Draw stairs
+
+
+
+
 //------------------- 1 ----------------------------//Even or Odd
 // Создайте функцию, которая принимает целое число в качестве аргумента
 //  и возвращает значение "Even"для четных или "Odd"нечетных чисел.
@@ -15,7 +20,7 @@
 // console.log(opposite(-5));
 
 
-//------------------- 2 ----------------------------//Century From Year
+//------------------- 3 ----------------------------//Century From Year
 //Учитывая год, верните столетие, в котором он находится.
 
 // function century(year) {
@@ -23,7 +28,7 @@
 // }
 // console.log(century(890));
 
-//------------------- 3 ----------------------------//Abbreviate a Two Word Name
+//------------------- 4 ----------------------------//Abbreviate a Two Word Name
 // Напишите функцию для преобразования имени в инициалы.Это ката строго состоит из
 // двух слов с одним пробелом между ними.
 // На выходе должны быть две заглавные буквы с точкой, разделяющей их.
@@ -32,14 +37,14 @@
 //   return   arr[0].slice(0, 1).toUpperCase() + '.' + arr[1].slice(0, 1).toUpperCase();
 // }
 // console.log(abbrevName("Sam harris"));
-//------------------- 4 ----------------------------//Reversed Strings
+//------------------- 5 ----------------------------//Reversed Strings
 // function solution(str) {
 //     return str.split('').reverse().join('');
 // }
 // console.log(solution('world'));
 
 
-//------------------- 5 ----------------------------// Remove First and Last Character
+//------------------- 6 ----------------------------// Remove First and Last Character
 // Это довольно просто.Ваша цель — создать функцию, которая удаляет первый и последний
 // символы строки.Вам дан один параметр, исходная строка.Вам не нужно беспокоиться о
 // строках, содержащих менее двух символов.
@@ -49,7 +54,7 @@
 // };
 // console.log(removeChar('eloquent'));
 
-//------------------- 6 ----------------------------//Create Phone Number
+//------------------- 7 ----------------------------//Create Phone Number
 // function createPhoneNumber(numbers) {
 //     const str = numbers.join(''); console.log(str);
 //   return `(${str.slice(0, 3)}) ${str.slice(3, 6)}-${str.slice(6)}`
@@ -57,7 +62,7 @@
 // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
 
-//------------------- 7 ----------------------------//How many arguments
+//------------------- 8 ----------------------------//How many arguments
 // function args_count(a, b, l) {
 //  //   console.log(arguments[1]);
 //     return arguments.length
@@ -65,16 +70,204 @@
 // console.log((args_count(1,2,3)))
 
 
-//------------------- 8 ----------------------------// Leap Years
+//------------------- 9 ----------------------------// Leap Years
 //  является ли данный год високосным или нет. Если вы не знаете правил, вот они:
 // годы, которые делятся на 4, являются високосными
 // но годы, кратные 100, не являются високосными
 // но годы, кратные 400, являются високосными
 
-// isLeapYear = year => { 
+// isLeapYear = year => {
 //     if (year % 4 !== 0 || (year % 100 === 0 && year % 400 !== 0) ) {
 //         return false;
 //     }
 //       return true;
 // }
-// console.log(isLeapYear(2014))
+// console.log(isLeapYear(2014));
+
+
+
+//------------------- 10 ----------------------------//If you can't sleep, just count sheep!!
+// var countSheep = function (num) {
+//     let value = '';
+//     for (let i = 0; i < num; i += 1){
+//         value += +`${i}`+' sheep...'
+//     }
+//     return value;
+// }
+// console.log(countSheep(10));
+
+
+//------------------- 11 ----------------------------//String insert values
+//Учитывая строку и объект нужно вернуть отформатированную строку.
+
+// var format = function (str, foo) {
+//      //console.log('exempl', `Hello ${obj.foo} - make me a ${obj.bar}`);
+//     const string = `Hello {foo} - make me a {bar}`//.replace(/[{]/g, '${obj.');
+//     return string;
+// };
+// console.log(format('Hello {foo} - make me a {bar}', { foo: 'Jack', bar: 'sandwich' }));
+
+
+
+//------------------- 12 ----------------------------//Пара перчаток
+// определить количество пар перчаток, которое вы можете составить из перчаток, которые есть в вашем ящике.
+// Учитывая массив, описывающий цвет каждой перчатки, верните количество пар, которые вы можете составить,
+// предполагая, что только перчатки одного цвета могут образовывать пары.
+
+// function numberOfPairs(gloves){
+//     const obj = {};
+//     for (const glove of gloves) {
+//         if (!obj.hasOwnProperty(glove)) {
+//             obj[glove] = 1;
+//         } else {
+//             obj[glove] += 1;
+//         }
+//     }
+//     return Object.entries(obj).filter(el => el[1] >= 2).map(el => Math.floor(el[1] / 2)).reduce((akk, el) => akk + el, 0);
+// }
+// console.log(numberOfPairs(["red", "green", "red", "blue", "blue", "red", "blue", "green", "red", "red", "blue", "blue", "blue", "blue"]));
+//=========================================================================================================
+
+
+//------------------- 13 ----------------------------//Simple Fun #379: Division
+// function division(t,a,b){
+//     const length = (t ** a - 1) / (t ** b - 1).toString().length;
+//     return length > 100 ? (t ** a - 1) / (t ** b - 1).toString() : "Not an integer with less than 100 digits"
+// }
+// console.log(division(2, 9, 3));
+
+
+//------------------- 14 ----------------------------//Simple Fun #52: Pair Of Shoes
+// проверить, можно ли соединить найденные туфли так, чтобы каждая пара состояла из
+//  правого и левого ботинка одинакового размера.
+// function pairOfShoes(shoes) {
+//     const arr0 = [];
+//     const arr1 = [];
+//     for (const el of shoes) {
+//         if (el[0] === 0) {
+//             arr0.push(el[1]);
+//         } else {
+//             arr1.push(el[1]);
+//         }
+//     }
+//     if (arr0.length !== arr1.length) {
+//         return false
+//      }
+//     console.log('arr0', arr0);
+//         console.log('arr1', arr1);
+//     return arr0.filter(el => arr1.includes(el)).length === arr0.length;
+// }
+// console.log(pairOfShoes([[0, 23], [1, 23], [1, 23], [0, 23], [0, 23], [0, 23]]));
+
+
+
+//------------------- 15 ----------------------------//Roman Numerals Decoder//////////////////////
+// function solution (roman) {
+ 
+  
+// 	return 0;
+// }
+// console.log(solution ('XXI'))  //21
+
+//--------------------- 16 ---------------------------//Multiples of 3 or 5
+// Завершите решение так, чтобы оно возвращало сумму всех чисел, кратных 3
+// или 5, меньше переданного числа.Кроме того, если число отрицательное, верните 0
+
+// function solution(number) {
+//     let sum = 0;
+//     for (let i = 0; i < number; i += 1){
+//         if ( i % 3 === 0 || i % 5 === 0) {
+//             sum += i;
+//         }
+//     }
+//     return sum > 0 ? sum : 0;
+// }
+// console.log(solution(10));
+
+//--------------------- 17 ---------------------------//String repeat
+// Напишите функцию, которая принимает целое число nи строку sв качестве
+//  параметров и возвращает строку, sповторяющуюся ровно столько nраз.
+
+// function repeatStr(n, s) {
+//     return s.repeat(n);
+// }
+// console.log(repeatStr(3, 's'));
+
+
+//--------------------- 18 ---------------------------//Reverse fibonacci series
+// Напишите функцию для генерации n рядов Фибоначчи(0, 1, 1, 2, 3...) в обратном
+// порядке.На выходе должна быть строка рядов Фибоначчи в обратном порядке до
+// заданного числа.
+
+// function reverseFibo(n) {
+//     const fibo = [];
+//     for (let i = 0; i < n; i += 1) {
+//         i === 0 || i === 1 ? fibo.push(i) : fibo.push((fibo[i - 1]) + (fibo[i - 2]));
+//     }
+//         return fibo.reverse().join('');
+//     }
+// console.log(reverseFibo(3));
+
+
+//--------------------- 19 ---------------------------//Even Fibonacci Sum/////////////////////////////////////7kyu
+// Дайте сумму всех четных чисел в последовательности Фибоначчи до числа,
+//     переданного вашей функции, но не включая его.
+// function isFibonacci(n) {
+//     const fibo = [];
+//     for (let i = 0; i < n; i += 1) {console.log(fibo[i - 1]) + (fibo[i - 2]);
+//       fibo.lastIndexOf() < n && (i === 0 || i === 1) ? fibo.push(i) : fibo.push((fibo[i - 1]) + (fibo[i - 2]));
+//     }
+//     return fibo;
+// }
+// console.log(isFibonacci(2147483647));
+
+
+//--------------------- 20 ---------------------------//Factorial 7 kyu
+// function factorial(n) {
+//    let sum = 1;
+//     while (n > 0) {
+//         sum *= n;
+//         n -= 1;
+//     }
+//     return sum;
+// }
+// console.log(factorial(8));
+
+// function factorial(n) {
+//     let sum = 1;
+//     for (let i = 1; i <= n; i += 1){
+//          sum *= i;
+//     }
+//     return sum;
+// }
+//  console.log(factorial(8));
+
+
+//--------------------- 21 ---------------------------//7 kyu Anagram Detection
+// Завершите возвращаемую функцию, true если два заданных аргумента являются
+//  анаграммами друг друга; вернуть false иначе.
+var isAnagram = function (test, original) {
+
+
+    
+//     if (test.length !== original.length) {
+//         return false;
+//     }
+//     const obj = {};
+//     for (const letter of test) {
+//         if (!obj.hasOwnProperty(letter.toLowerCase())) { 
+//             obj[letter.toLowerCase()] = 1;
+//         } else {
+//             obj[letter.toLowerCase()] += 1;
+//         }
+//     } console.log('1', obj);
+//     for (const letter of original) {
+//         if (!obj.hasOwnProperty(letter.toLowerCase())) { 
+//             obj[letter.toLowerCase()] = 1;
+//         } else {
+//             obj[letter.toLowerCase()] -= 1;
+//         }
+//     }console.log(obj)
+//     return Object.values(obj).every(letter => letter === 0);
+ };
+console.log(isAnagram("Buckethead", "DeathCubeK"));

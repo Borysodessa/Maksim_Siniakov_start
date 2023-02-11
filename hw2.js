@@ -120,7 +120,7 @@
 // console.log(meeting(['X', 'O', 'X']));
 //================================================================================================================
 
-//------------------------------- 6 --------------------------//The Office V - Find a Chair
+//------------------------------- 6.1 --------------------------//The Office V - Find a Chair
 
 // В вашей комнате для совещаний можно разместить до 8стульев. needскажет вам, сколько было взято. Нужно найти столько.
 // Найдите запасные стулья во множестве конференц - залов.Каждый кортеж конференц - зала будет иметь количество
@@ -151,6 +151,7 @@
 //                         0            1            1            4
 //  console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 7], ['XXXXX', 9]], 4));
 //==============================================================================================
+
 
 //------------------------------- 7 --------------------------// Who's Online?
 // Получив ввод массива объектов, содержащих имена пользователей, статус и время с момента последнего
@@ -395,59 +396,6 @@
 //  console.log(isValidIP('35.173.198.'));
 //=================================================================================================//
 
-// ------------------------------- 17 --------------------------//Super power frequency function
-//Функция берет массив и вычисляет частоту каждого значения массива, отсортированного естественным образом.
-
-// function frequency(arr, options) {
-//   const criteria = options.compareTo;
-//   //let array = arr; console.log('arr->', array);
-//   let array = [];                 //compareTo: number
-//   for (const el of arr) { 
-//     array.push(criteria(el));
-//   }
-//  //array = arr.sort(criteria(el));     // compareTo: alphabeticalCompare
-
-//   const map = new Map();
-//   for (let name of arr) {
-//     if (!map.has(name)) { 
-//       map.set(name, 1)
-//     } else {
-//       map.set(name, (map.get(name) + 1));
-//     }
-//    }
-//    return Array.from(map);            
-//}
-//  console.log(1, frequency([6, 1111, 10, 12, 22, 1, 1022, 2, 2, 4, 4], {
-//   compareTo: number => number.toString().length
-//  }));
- //console.log(2, frequency(['Peter', 'Anna', 'Rose', 'Peter', 'Peter', 'Anna'], { compareTo: alphabeticalCompare }));
-//function alphabeticalCompare(value1, value2) {
-  // if (String(value1) < String(value2)) {
-  //   return -1;
-  // } else if (String(value1) > String(value2)) {
-  //   return 1;
-  // } else {
-  //   return 0;
-  // }
- //}
-//console.log(3, frequency(['Peter', 'Anna', 'Rose', 'Peter', 'Peter', 'Anna'], { frequencyCompare }));
-// function frequencyCompare(value1, value2, freq1, freq2) {
-  //return freq2 - freq1;
-//}
-//console.log(frequency([1, 2, 3, 4, 5, 6, 7], {criteria: parity}));
-// function isEven(number) {
-//   return number % 2 === 0;
-// }
-// function parity(number) { 
-//   return isEven(number) ? 'even' : 'odd';              //[["even", 3], ["odd", 4]]
-// }
-
-
-
-
-
-
-
 // ------------------------------- 18 --------------------------// String incrementer;
 //написать функцию, которая увеличивает строку, чтобы создать новую строку.
 // Если строка уже заканчивается числом, число должно быть увеличено на 1.
@@ -455,7 +403,7 @@
 ///^[0-9]+$/.test(str)   спросить  isNaN(+letter)  и тернарник  + break и continue
 
 // function incrementString(string) {
-//     if (!/^[0-9]+$/.test(string.at(-1))) {
+//     if (!/[0-9]+$/.test(string)) {
 //         return string + '1';
 //     }
 //     const strReverse = string.split('').reverse();
@@ -463,14 +411,14 @@
 //     for (const letter of strReverse) {
 //         if (/^[0-9]+$/.test(letter)) {
 //             lengthNumber += 1;
-//         }
-//         if (!/^[0-9]+$/.test(letter)) {
+//         } else {
 //             break;
 //         }
 //     }
-//     return string.slice(0, - lengthNumber) + (String(+string.slice(-lengthNumber) + 1)).padStart(lengthNumber, '0');
+//     return string.slice(0, -lengthNumber) + (String(+string.slice(-lengthNumber) + 1)).padStart(lengthNumber, '0');
 // }
 // console.log(incrementString("fo99obar179"));
+//==================================================================================================
 
 
 // ------------------------------- 19 --------------------------// From..To..Series #2: from arr1 to arr2.
@@ -504,15 +452,63 @@
 //=================================================================================================================//
 
 
-// ------------------------------- 20 --------------------------//Evaluating prefix Polish notation????????????????
+
+// ------------------------------- 20 --------------------------//Evaluating prefix Polish notation
 // написать функцию calculate, которая принимает строку с математическим выражением, записанным в
 // префиксной польской нотации, и вычисляет ее
-// function calculate(expression) {
-
-
+// function isNumber(str) { 
+//   return str !== '+' && str !== '-' && str !== '/' && str !== '*';
 // }
-// console.log(calculate('+ 5 3'));
+// const operators = {
+//   '+': (a,b) => a + b,
+//   '-': (a, b) => a - b,
+//   '*': (a, b) => a * b,
+//   '/': (a,b) => a / b,
+//}
+// function arithmetic(arr ) { 
+//   return operators[arr[0]](+arr[1], +arr[2]);
+// }
 
+// function calculate(expression) {
+//   const arr = expression.split(' ');
+//   for (let i = arr.length - 3; i >= 0; i--) {
+//     if (!isNumber(arr[i]) && isNumber(arr[i + 1]) && isNumber(arr[i + 2]) ) {
+//       arr.splice(i, 0, arithmetic(arr.splice(i, 3)));
+//     }
+//   }
+//   return +arr;
+// }
+// console.log(calculate('+ 100 / + 5 3 - + 1 9 6'));
+
+// ['+', '100', '/', '+', '5', '3', '-', '+', '1', '9', '6']
+
+
+// function calculate(expression) {
+//   const arr = expression.split(' '); 
+
+
+//   while(arr.length !== 0) {
+//     const index = arr.findLastIndex((_, i) => !isNumber(arr[i]) && isNumber(arr[i + 1]) && isNumber(arr[i + 2]));
+//     const [operator, left, right] = arr.splice(index, 3);
+//     const result = operators[operator](left, right);
+//     arr.splice(index, 0, result);
+//   }
+
+//     // for (let i = arr.length - 3; i >= 0; i--) {
+//     //   if () {
+//         // const spliceArr = arr.splice(i, 3);             
+//         // const resSpliceArrEl = arithmetic(spliceArr); 
+//         // console.log('op', arr.spilce(i, 0, 10));
+//     //     console.log('spliceArr', spliceArr); 
+        
+        
+//     //   }
+//     // }
+  
+//   return +arr[0];
+ 
+// }
+// console.log(calculate('+ 100 / + 5 3 - + 1 9 6')); // 102
 
 // ------------------------------- 20 --------------------------//Convert A Hex String To RGB
 // извлечь для цвета отдельные значения компонентов красного, зеленого и синего(RGB).
@@ -525,11 +521,10 @@
 //   };
 // }
 // console.log(hexStringToRGB("#FF9933"));
-
+//======================================================================================================
 // ------------------------------- 21 --------------------------//Run-length encoding
 // написать такую ​​кодировку длин серий.Для заданной строки верните список(или массив)
 // пар(или массивов)[(i 1, s 1 ), (i 2, s 2 ), …, (in , s n ) ]
-
 
 // const runLengthEncoding = function (str) {
 //   const array = [];
@@ -538,25 +533,24 @@
 //     if (str[i] === str[i + 1] ) {
 //       counter += 1;
 //     } else {
-//        array.push([counter, str[i]]);
-//      counter = 1;
+//       array.push([counter, str[i]]);
+//       counter = 1;
 //     }
-//    }
+//   }
 //   return array;
-// }                            //  4 1  3 3  4  1  4       
+// }                            
 // console.log(runLengthEncoding('WWWWBWWWBBBWWWWBWWWW'));
+//======================================================================================================
 
-
-// ------------------------------- 21 --------------------------// Is a number prime????????????????????????
+// ------------------------------- 21 --------------------------// Is a number prime
 // Определите функцию, которая принимает целочисленный аргумент и возвращает логическое значение true или
 // false в зависимости от того, является ли целое число простым.
 // function isPrime(num) {
-//   if (num <= 0 || num === 1 || num % 2 === 0) {
+//   if (num < 2 ) {
 //     return false;
 //   }
-// let number = 2;
-
-//   while ( number < num) { 
+//   let number = 2;
+//   while ( number * number <= num) { 
 //     if (num % number === 0 ) {
 //       return false;
 //   }
@@ -564,8 +558,8 @@
 //   }
 //   return true;
 // }
-//  console.log(isPrime(17));
-
+//   console.log(isPrime(4));
+//==========================================================================================================
 
 // ------------------------------- 22 --------------------------//Sum of Digits / Digital Root
 // Учитывая n, возьмите сумму цифр n.Если это значение имеет более одной цифры, продолжайте 
@@ -581,68 +575,124 @@
 // }
 
 // function digitalRoot(n) {
-//   let sum = n;
-//   do{
-//     sum = sumDigit(sum);
-//   }
-//   while (sum > 9)
-//   return sum;
+//   while (n > 9) {
+//     n = sumDigit(n)
+//      return n;
 // }
 // console.log(digitalRoot(10));
-                                            //replace(/[a-z]{4,}/gi, word => word[0] + (word.length - 2) + word.at(-1))
-                                            
-                                            
+ //==========================================================================================================                                    
 
-// ------------------------------- 23 --------------------------//Alphabetized//??????????????????????????
+
+// ------------------------------- 23 --------------------------//Alphabetized//
 // Измените порядок символов строки, чтобы они были объединены в новую строку в порядке «без учета регистра в 
 // алфавитном порядке». Пробелы и знаки препинания просто удаляются!
-function isAlphabetNumber(letter) {
-  const abc = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ'
-   return abc.indexOf(letter);
-} 
-function alphabetized(str) {
-  const abc = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ';
-  
-  return str
-    .replace(/[^a-z]/gi, '')
-     .split('')
-    // .map(letter => isAlphabetNumber(letter))
-    // .sort((a, b) => a - b)
-    // .map(num => abc[num])
-    // .join('');
- }
 
- console.log(alphabetized('The Holy Bible'))
- 
+// function isAlphabetNumber(letter) {
 
-// ------------------------------- 24 --------------------------//Sort Strings by Most Contiguous Vowels???????????????
+//   const abc = 'abcdefghijklmnopqrstuvwxyz';
+//   const ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//   if (letter >= 'A' && letter <= 'Z') {
+//     return ABC.indexOf(letter);
+//   }
+//   return abc.indexOf(letter);
+// }
+ //console.log(isAlphabetNumber('h'));
 
-// Цель этой Ката — написать функцию, которая будет получать массив строк в качестве единственного
+// function alphabetized(str) {
+//   const string = str
+//     .replace(/[^a-z]/gi, '')
+//     .split('')
+//     .map((el, i) =>[ el, i])
+//     .sort((a, b) => {
+//       if (a[0].toLowerCase() < b[0].toLowerCase()) {
+//         return -1
+//       }
+//       if (a[0].toLowerCase() > b[0].toLowerCase()) { 
+//         return 1
+//       }
+//       if (a[1] < b[1]) {
+//       return -1
+//       }
+//       if (a[1] > b[1]) {
+//       return 1
+//       }
+//     }
+//     )
+//     .map(arr => arr[0])
+//     .join('');
+//      return string;
+// }
+// console.log(alphabetized("The Holy Bible"));
+ //======================================================================================================
+
+
+// ------------------------------- 24 --------------------------//Sort Strings by Most Contiguous Vowels
+// написать функцию, которая будет получать массив строк в качестве единственного
 // аргумента, затем каждая строка обрабатывается и сортируется(в порядке убывания) на основе длины 
 // единственной самой длинной подстроки смежных гласных(aeiouAEIOU), который может содержаться в
 // строке.Строки могут содержать буквы, цифры, специальные символы, прописные и строчные буквы, пробелы,
 //  а также могут быть(часто будут) несколько подстрок смежных гласных.Нас интересует только одна самая
 //    длинная подстрока гласных внутри каждой строки во входном массиве.
 
-// function numberSubString (strings) {
-//   const str = strings.replace(/[^aeiou' ']/gi, ''); console.log(str);
+// function maxAdjacentVowelsCount(string) {
+//     const letters = string.replace(/[^aeiou' ']/gi, ' ')
+//     const num = letters.split(' ').map(letters => letters.length)
+//     return Math.max(...num);
 // }
-// console.log(numberSubString ('wha tkll opip uytu bky'));
+
+// function sortStringsByVowels () {                                                                
+// //   const vowelsMax = strings.map(str => maxAdjacentVowelsCount(str));
+
+//   return strings
+//     .sort((a, b) => {
+//         const aCount = maxAdjacentVowelsCount(a)
+//         const bCount = maxAdjacentVowelsCount(b)
+//         if (aCount < bCount) { 
+//             return 1;
+//         }
+//         if (aCount > bCount) { 
+//             return -1;
+//         }
+//         return 0;
+//     })
+// }
+// console.log(sortStringsByVowels (["how about now", "a beautiful trio of", "a bautiful trio of"]));
+//=====================================================================================================
 
 
-// ------------------------------- 25 --------------------------//My Language Skills ????????????????????????????
+// ------------------------------- 25 --------------------------//My Language Skills 
 // Вам предоставляется словарь / хэш / объект, содержащий несколько языков и результаты вашего теста на данных
 // языках.Верните список языков, на которых ваш тестовый балл не ниже 60, в порядке убывания баллов.
 // Примечание: баллы всегда будут уникальными (поэтому не будет повторяющихся значений).
 
 // function myLanguages(results) {
-
+//   return Object.keys(results)
+//     .filter(key => results[key] >= 60)
+//     .sort((a, b) => results[b] - results[a]);
 // }
+// console.log(myLanguages({ "Python" : 65, "Java" : 10, "Ruby" : 80}));
 
 
-// ------------------------------- 26 --------------------------//Sports League Table Ranking??????????????????????????
-// Каждая команда встречается со всеми остальными командами.В вашей лиге победа дает команде 2 points, ничья дает 
-// обеим командам 1 point.После некоторых игр вам нужно вычислить порядок команд в вашей лиге.Вы используете следующие
+//   // const filteredValues = Object.values(results)
+//   //   .filter(value => value >= 60)
+//   //   .sort((a, b) => b - a);  
+//   // const keys = Object.keys(results);
+//   // const skils = [];
+//   // for (let i = 0; i < filteredValues.length; i += 1) { 
+//   //   for (let j = 0; j < keys.length; j += 1) {
+//   //     if (filteredValues[i] === results[keys[j]]) { 
+//   //       skils.push(keys[j]);
+//   //     }
+//   //   }
+//   // }
+//   // return skils;
+// }
+//console.log(myLanguages({ "Python" : 65, "Java" : 10, "Ruby" : 80}));
+//=================================================================================
+
+//------------------------------- 26 --------------------------//Sports League Table Ranking
+// победа дает команде 2 points, ничья дает обеим командам 1 point.После некоторых игр вам нужно
+// вычислить порядок команд .Вы используете следующие
 //  критерии для организации команд:
 // очки
 // Дифференциал забитых мячей (разница между забитыми и пропущенными голами)
@@ -657,9 +707,75 @@ function alphabetized(str) {
 // positions: Массив позиций. -th iэлемент должен быть позицией i-th команды в вашей лиге.
 
 // function computeRanks(number, games) {
-    // }
-    
-    
+//   const teamsPoints = [];
+//   for (let i = 0; i < number; i += 1) {
+//     teamsPoints.push({ comand: i, points: 0, diffScoring: 0, goalsScored: 0 });  
+//   }
+//   console.log(teamsPoints)
+//   for (const game of games) {
+//     const [team1, team2, goals1, goals2] = game;
+//     if (goals1 < goals2) {
+//       teamsPoints[team2].points += 2;
+//     } else if (goals1 > goals2) {
+//       teamsPoints[team1].points += 2;
+//     } else if (goals1 === goals2) {
+//       teamsPoints[team2].points += 1;
+//       teamsPoints[team1].points += 1;
+//     }
+//     teamsPoints[team1].diffScoring += goals1 - goals2;
+//     teamsPoints[team2].diffScoring += goals2 - goals1;
+//     teamsPoints[team1].goalsScored += goals1;
+//     teamsPoints[team2].goalsScored += goals2;
+//   }
+
+//   const comparator = (a, b) => {
+//     if (a.points < b.points) {
+//       return 1;
+//     }
+//     if (a.points > b.points) {
+//       return -1;
+//     }
+//     if (a.diffScoring < b.diffScoring) {
+//       return 1;
+//     }
+//     if (a.diffScoring > b.diffScoring) {
+//       return -1;
+//     }
+//     if (a.goalsScored < b.goalsScored) {
+//       return 1;
+//     }
+//     if (a.goalsScored > b.goalsScored) {
+//       return -1;
+//     }
+//     return 0;
+//   };
+
+//   teamsPoints.sort(comparator);
+//   for (let i = 0; i < teamsPoints.length; i += 1) {
+//     teamsPoints[i].rank = i + 1;
+//     if (i !== 0 && comparator(teamsPoints[i], teamsPoints[i - 1]) === 0) { 
+//       teamsPoints[i].rank = teamsPoints[i - 1].rank
+//     }
+//   }
+//   const ranks = [];
+//   for (const teamsPoint of teamsPoints) { 
+//      ranks[teamsPoint.comand] = teamsPoint.rank;
+//   }
+//   return ranks;
+//   }
+//const gamesPlayed = [[0, 5, 2, 2],
+// [1, 4, 0, 2],
+// [2, 3, 1, 2],
+// [1, 5, 2, 2],
+// [2, 0, 1, 1],
+// [2, 5, 0, 2],
+// [3, 1, 1, 1],
+// [4, 0, 2, 0]];
+// console.log(computeRanks(6, gamesPlayed));
+
+// console.log(computeRanks(6, []));
+//===================================================================================================================
+ 
 
 // ------------------------------- 26 --------------------------//Double Sort
 //  вернуть один массив, в котором сначала числа отсортированы в порядке возрастания, а затем строки, отсортированные
@@ -674,17 +790,39 @@ function alphabetized(str) {
 // console.log(dbSort(["Banana", "Orange", "Apple", "Mango", 0, 2, 2]));
 
 
-// ------------------------------- 27 --------------------------//Sorting by bits?????????????????????????
-//отсортировать массив 32-битных целых чисел в порядке возрастания количества битов 
-// function sortByBit(arr) {
-//   const array = arr.map(el => Math.clz32(el)).map(el => 32 - el).sort((a, b) => a - b); console.log(array);
-//   const sortedArray = array.map(el => parseInt(el, 2)); console.log(sortedArray)
-// }
-// console.log(sortByBit([3, 8, 3, 6, 5, 7, 9, 1]));
+// ------------------------------- 27 --------------------------//Sorting by bits
+// отсортировать массив 32 - битных целых чисел в порядке возрастания количества битов,
+// которые они имеют
 
+// function sortByBit(arr) {
+//   return arr
+//       .map(el => el.toString(2))
+//       .join(', ')
+//       .replace(/0/gi, '')
+//       .split(', ')
+//       .map(str => str.length)
+//       .map((length, i) => [arr[i], length])
+    //  .sort((a, b) => {
+    //   if (a[1] > b[1]) {
+    //     return 1;
+    //   }
+    //   if (a[1] < b[1]) {
+    //     return -1;
+    //   }
+    //   if(a[0] > b[0]){
+    //     return 1
+    //   }
+    //   if(a[0] < b[0]){
+    //     return -1
+    //   }
+    // })
+//     //  .map(el => el[0]);
+// }
+// console.log(sortByBit( [9,4,5,3,5,7,2,56,8,2,6,8,0]));             //[0, 2, 2, 4, 8, 8, 3, 5, 5, 6, 9, 7, 56]
+  
 
 // ------------------------------- 28 --------------------------// Persistent Bugger.
-// Напишите функцию, persistence которая принимает положительный параметр numи возвращает
+// Напишите функцию, persistence которая принимает положительный параметр num и возвращает
 //  его мультипликативную постоянство, то есть количество раз, которое вы должны умножить
 //   на цифры num, пока не получите одну цифру.
 
@@ -698,13 +836,23 @@ function alphabetized(str) {
 //    }
 //   return counter;
 // }
-// console.log(persistence(39));
+//  console.log(persistence(39));
 
 
 // ------------------------------- 29 --------------------------//Group Anagrams проходит только    test
 //сгруппировать слова в анаграммы.
 
 // function isAnagrams(word, word2) {
+//   if (word.length !== word2.length) {
+//     return false;
+//   }
+//----------------------------------------
+
+
+
+
+
+//----------------------------------------
 //   const obj = {};
 //   for (const letter of word) {
 //     if (!obj.hasOwnProperty(letter)) {
@@ -736,5 +884,5 @@ function alphabetized(str) {
 //   }
 //   return [arr.filter(el => el.length !== 0)];
 // }
-// console.log(groupAnagrams(["tsar", "rat", "tar", "star", "tars", "cheese"]));
-// console.log(groupAnagrams([]));
+// console.log(groupAnagrams([[1,2], [3]], [[3], [1,2]]));
+//  console.log(groupAnagrams([]));
