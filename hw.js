@@ -1,8 +1,5 @@
 //----------------------0.1-------------------------//Draw stairs
 
-
-
-
 //------------------- 1 ----------------------------//Even or Odd
 // Создайте функцию, которая принимает целое число в качестве аргумента
 //  и возвращает значение "Even"для четных или "Odd"нечетных чисел.
@@ -18,7 +15,6 @@
 //     return number * (-1)  ;
 // }
 // console.log(opposite(-5));
-
 
 //------------------- 3 ----------------------------//Century From Year
 //Учитывая год, верните столетие, в котором он находится.
@@ -43,7 +39,6 @@
 // }
 // console.log(solution('world'));
 
-
 //------------------- 6 ----------------------------// Remove First and Last Character
 // Это довольно просто.Ваша цель — создать функцию, которая удаляет первый и последний
 // символы строки.Вам дан один параметр, исходная строка.Вам не нужно беспокоиться о
@@ -61,14 +56,12 @@
 // }
 // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
-
 //------------------- 8 ----------------------------//How many arguments
 // function args_count(a, b, l) {
 //  //   console.log(arguments[1]);
 //     return arguments.length
 // }
 // console.log((args_count(1,2,3)))
-
 
 //------------------- 9 ----------------------------// Leap Years
 //  является ли данный год високосным или нет. Если вы не знаете правил, вот они:
@@ -84,8 +77,6 @@
 // }
 // console.log(isLeapYear(2014));
 
-
-
 //------------------- 10 ----------------------------//If you can't sleep, just count sheep!!
 // var countSheep = function (num) {
 //     let value = '';
@@ -96,7 +87,6 @@
 // }
 // console.log(countSheep(10));
 
-
 //------------------- 11 ----------------------------//String insert values
 //Учитывая строку и объект нужно вернуть отформатированную строку.
 
@@ -106,8 +96,6 @@
 //     return string;
 // };
 // console.log(format('Hello {foo} - make me a {bar}', { foo: 'Jack', bar: 'sandwich' }));
-
-
 
 //------------------- 12 ----------------------------//Пара перчаток
 // определить количество пар перчаток, которое вы можете составить из перчаток, которые есть в вашем ящике.
@@ -128,14 +116,12 @@
 // console.log(numberOfPairs(["red", "green", "red", "blue", "blue", "red", "blue", "green", "red", "red", "blue", "blue", "blue", "blue"]));
 //=========================================================================================================
 
-
 //------------------- 13 ----------------------------//Simple Fun #379: Division
 // function division(t,a,b){
 //     const length = (t ** a - 1) / (t ** b - 1).toString().length;
 //     return length > 100 ? (t ** a - 1) / (t ** b - 1).toString() : "Not an integer with less than 100 digits"
 // }
 // console.log(division(2, 9, 3));
-
 
 //------------------- 14 ----------------------------//Simple Fun #52: Pair Of Shoes
 // проверить, можно ли соединить найденные туфли так, чтобы каждая пара состояла из
@@ -159,12 +145,9 @@
 // }
 // console.log(pairOfShoes([[0, 23], [1, 23], [1, 23], [0, 23], [0, 23], [0, 23]]));
 
-
-
 //------------------- 15 ----------------------------//Roman Numerals Decoder//////////////////////
 // function solution (roman) {
- 
-  
+
 // 	return 0;
 // }
 // console.log(solution ('XXI'))  //21
@@ -193,7 +176,6 @@
 // }
 // console.log(repeatStr(3, 's'));
 
-
 //--------------------- 18 ---------------------------//Reverse fibonacci series
 // Напишите функцию для генерации n рядов Фибоначчи(0, 1, 1, 2, 3...) в обратном
 // порядке.На выходе должна быть строка рядов Фибоначчи в обратном порядке до
@@ -208,7 +190,6 @@
 //     }
 // console.log(reverseFibo(3));
 
-
 //--------------------- 19 ---------------------------//Even Fibonacci Sum/////////////////////////////////////7kyu
 // Дайте сумму всех четных чисел в последовательности Фибоначчи до числа,
 //     переданного вашей функции, но не включая его.
@@ -220,7 +201,6 @@
 //     return fibo;
 // }
 // console.log(isFibonacci(2147483647));
-
 
 //--------------------- 20 ---------------------------//Factorial 7 kyu
 // function factorial(n) {
@@ -242,32 +222,133 @@
 // }
 //  console.log(factorial(8));
 
-
 //--------------------- 21 ---------------------------//7 kyu Anagram Detection
 // Завершите возвращаемую функцию, true если два заданных аргумента являются
 //  анаграммами друг друга; вернуть false иначе.
-var isAnagram = function (test, original) {
 
-
-    
+//var isAnagram = function (test, original) {
 //     if (test.length !== original.length) {
 //         return false;
 //     }
 //     const obj = {};
 //     for (const letter of test) {
-//         if (!obj.hasOwnProperty(letter.toLowerCase())) { 
+//         if (!obj.hasOwnProperty(letter.toLowerCase())) {
 //             obj[letter.toLowerCase()] = 1;
 //         } else {
 //             obj[letter.toLowerCase()] += 1;
 //         }
 //     } console.log('1', obj);
 //     for (const letter of original) {
-//         if (!obj.hasOwnProperty(letter.toLowerCase())) { 
+//         if (!obj.hasOwnProperty(letter.toLowerCase())) {
 //             obj[letter.toLowerCase()] = 1;
 //         } else {
 //             obj[letter.toLowerCase()] -= 1;
 //         }
 //     }console.log(obj)
 //     return Object.values(obj).every(letter => letter === 0);
- };
-console.log(isAnagram("Buckethead", "DeathCubeK"));
+//  };
+// console.log(isAnagram("Buckethead", "DeathCubeK"));
+
+//--------------------- 22 ---------------------------//6kyuGroup in 10s???????????????????????????
+// Напишите функцию groupIn10s, которая принимает любое количество аргументов,
+//     группирует их по десяткам и сортирует каждую группу в порядке возрастания.
+// Возвращаемое значение должно быть массивом массивов, так что числа между 0и
+// 9включительно находятся в позиции 0, числа между 10и 19находятся в позиции 1и
+
+// function groupIn10s(gruped) {
+
+//     const arr = [gruped]; return gruped;
+
+// }
+// console.log(groupIn10s(8, 12, 38, 3, 17, 19, 25, 35, 50));
+
+//--------------------- 23 ---------------------------// Largest Elements
+//выводит верхние nэлементы списка.
+//  function largest(n, array) {
+//   return  array.sort((a, b)=> b - a).slice(0, n).reverse();
+// }
+// console.log(largest(2,[ 7, 6, 5, 4, 3, 2, 1]));
+
+//--------------------- 24 ---------------------------//6 kyu Simple Fun #221: Furthest Distance Of Same Letter
+// Учитывая строку sстрочных букв('a' - 'z'), получите максимальное расстояние между
+//  двумя одинаковыми буквами и верните это расстояние вместе с буквой, из которой оно образовано.
+// Если существует более одной буквы с одинаковым максимальным расстоянием, верните ту,
+// которая появляется первой s.
+
+// function distSameLetter(s) {
+//     const obj = {};
+//     const arr = [...new Set(s.split(''))];
+//     for (const letter of s) {
+//         obj[letter] = s.lastIndexOf(letter) - (s.indexOf(letter) - 1);
+//     }
+//     const maxValue = Math.max(...Object.values(obj));
+//     for (const el of arr) {
+//         if (obj[el] === maxValue) {
+//             return el + maxValue;
+//         }
+//     }
+// }
+// console.log(distSameLetter("fffffahhhhhhaaahhhhbhhahhhhabxx"));
+
+//--------------------- 24 ---------------------------//6 kyu Simple Fun #338: The Sum Of Prime Distance
+
+// function allPairs(arr) {
+//     const array = [];
+//     for (let i = 0; i < arr.length; i += 1) {
+//         for (let j = 0; j < arr.length; j += 1) {
+//             if (arr[i] !== arr[j] && ) {
+//                 array.push([arr[i], arr[j]]);
+//             }
+//         }
+//     }
+//     return array;
+// }
+// console.log(allPairs([4, 6, 12]));
+
+//--------------------- 25 ---------------------------//7 kyu The Span Function
+// Он принимает последовательность и функцию - предикат и возвращает две
+// последовательности.Первая последовательность содержит все элементы
+// последовательности аргументов до элемента, вызвавшего первую ошибку
+// предиката.Вторая возвращенная последовательность содержит остальную
+// часть исходной последовательности.Исходная последовательность не изменена.
+
+// function predicate(x) {
+//     return Math.abs(x) % 2 !== 0;
+// }
+
+// function span(arr, predicate) {
+//     if (predicate.length === 0 && true) {
+//         return [[], []];
+//     }
+//     if (predicate.length === 0) {
+//         return [[arr], []];
+//     }
+
+//     const array = [];
+//     array.push([]);
+
+//     for (const number of arr) {
+//         if (predicate(number)) {
+//             array[0].push(number);
+//         }
+//         if (!predicate(number)) {
+//             counter = 0;
+//             break;
+//         }
+//     }
+//     array.push([]);
+//     console.log("array", array);
+//     for (let i = array[0].length; i < arr.length; i += 1) {
+//         array[1].push(arr[i]);
+//     }
+//     return array;
+// }
+// console.log(span([13, 17, 19, 11, 21], predicate));
+
+//--------------------- 26 ---------------------------//7 kyu The dropWhile Function
+// Еще один продукт для функционального программиста.У вас есть последовательность
+//  значений и некоторый предикат для этих значений.Вы хотите удалить самый длинный
+//  префикс элементов, чтобы предикат был истинным для каждого элемента.Мы назовем
+//  это функцией dropWhile.Он принимает два аргумента.Первая — это последовательность
+// значений, а вторая — функция предиката.Функция не изменяет значение исходной
+// последовательности.
