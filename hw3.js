@@ -29,6 +29,7 @@
 // zipWithберет функцию и два массива и объединяет массивы вместе, применяя функцию к каждой паре значений.
 // Значением функции является один новый массив.Если массивы имеют неравную длину, вывод будет такой же
 // длины, как и более короткий.
+
 // function repeat(a, i) {
 //     return a.repeat(i + 1);
 // }
@@ -49,6 +50,7 @@
 
 //----------------------- 3 --------------------//Functional Addition
 //Создайте функцию add(n), которая возвращает функцию, которая всегда добавляет n к любому числу.
+
 // const add = (n) => {
 //     return (a) => {
 //         return a + n;
@@ -126,21 +128,37 @@
 // есть последовательность значений и некоторый предикат для этих значений.
 //  Вы хотите удалить самый длинный префикс элементов, чтобы предикат был
 //   истинным для каждого элемента.Мы назовем это функцией dropWhile
-// function isEven(num) {
-//     return num % 2 === 0;
-// }
 
-// function dropWhile(arr, pred) {
-//     const arrey = [];
-//     counter = 1;
-//     for (const el of arr) {
-//         if (pred(el) && counter === 1) {
-//             arrey.push([el])
-//         }
-//         if (pred(el) && counter > 1) {
+function isEven(num) {
+    return num % 2 === 0;
+}
 
-//         }
-//     }
+function dropWhile(arr, pred) {
+    const array = [[]];
+    let counter = 0;
+    for (const el of arr) {
+        if (pred(el)) {
+            console.log(counter);
+            array[counter].push(el);
+        }
+        if (!pred(el)) {
+            array.push([]);
+            counter += 1;
+        }
+    }
+    return array;
+}
+//                          4         1     1     1
+console.log(dropWhile([2, 4, 6, 8, 1, 2, 5, 4, 3, 2], isEven));
+
+//----------------------- 8 --------------------//6 kyu Function composition
+
+// const addOne = (a) => a + 1;
+// const multTwo = (b) => b * 2;
+
+// function compose(...fns) {
+//     return (num) => {
+//         return fns.reverse().reduce((akk, fn) => fn(akk), num);
+//     };
 // }
-//               4         1     1     1
-// console.log(dropWhile([2, 4, 6, 8, 1, 2, 5, 4, 3, 2], isEven));
+// console.log(compose(multTwo, addOne)(5));
