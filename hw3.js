@@ -101,7 +101,7 @@
 // последовательности аргументов до элемента, вызвавшего первую ошибку
 // предиката.Вторая возвращенная последовательность содержит остальную
 // часть исходной последовательности.Исходная последовательность не изменена.
-//console.log([13, 17, 19, 11, 21].slice(0, 0));
+
 // function isEven(x) {
 //     return Math.abs(x) % 2 === 0;
 // }
@@ -109,47 +109,40 @@
 //     return Math.abs(x) % 2 !== 0;
 // }
 // function span(arr, predicate) {
-//     const array = [[], []];
-//     if (arr.every((el) => predicate(el))) {
-//         array[0] = [...arr];
+//     const i = arr.findIndex((el) => !predicate(el));
+//     if (i === -1) {
+//         return [arr, []];
 //     }
-//     for (let i = 0; i < arr.length; i += 1) {
-//         if (!predicate(arr[i])) {
-//             array[0] = [...arr.slice(0, i)];
-//             array[1] = [...arr.slice(i)];
-//             break;
-//         }
-//     }
-// return array;
+//     return [arr.slice(0, i), arr.slice(i)];
 // }
-// console.log(span([13, 17, 19, 11, 21], isOdd));
+// console.log(span([2, 4, 6, 12, 8, 10], isEven)); // [[2, 4, 6, 12, 8, 10], []]
+// console.log(span([2, 4, 6, 5, 8, 10], isEven)); // [[2, 4, 6], [5, 8, 10]]
+//=====================================================================================
 
 //----------------------- 7 --------------------//The dropWhile Function
 // есть последовательность значений и некоторый предикат для этих значений.
 //  Вы хотите удалить самый длинный префикс элементов, чтобы предикат был
 //   истинным для каждого элемента.Мы назовем это функцией dropWhile
 
-function isEven(num) {
-    return num % 2 === 0;
-}
+// function isEven(num) {
+//     return num % 2 === 0;
+// }
 
-function dropWhile(arr, pred) {
-    const array = [[]];
-    let counter = 0;
-    for (const el of arr) {
-        if (pred(el)) {
-            console.log(counter);
-            array[counter].push(el);
-        }
-        if (!pred(el)) {
-            array.push([]);
-            counter += 1;
-        }
-    }
-    return array;
-}
-//                          4         1     1     1
-console.log(dropWhile([2, 4, 6, 8, 1, 2, 5, 4, 3, 2], isEven));
+// function dropWhile(arr, pred) {
+//     if (idx===-1 ) {return [] }
+//     const idx = arr.findIndex(el => !pred(el));
+//      return arr.slice( idx);
+// } 
+//  console.log(dropWhile([ 4, 2, 3, 5, 4, 5, 6, 7], isEven)); // 
+
+
+//  var seq = [2,4,6,8,1,2,5,4,3,2];
+// dropWhile(seq, isEven) // -> [1,2,5,4,3,2]
+ 
+
+// var seq = [1,2,4,6,8,1,2,5,4,3,2];
+// dropWhile(seq, isEven) // -> [1, 2,4,6,8,1,2,5,4,3,2]
+
 
 //----------------------- 8 --------------------//6 kyu Function composition
 
@@ -162,3 +155,82 @@ console.log(dropWhile([2, 4, 6, 8, 1, 2, 5, 4, 3, 2], isEven));
 //     };
 // }
 // console.log(compose(multTwo, addOne)(5));
+//=======================================================================
+
+//----------------------- 9 --------------------//7 kyu Sequence generator
+// Реализовать функцию sequence, которая возвращает n массив нового размера, заполненный в соответствии с pattern.
+// pattern может быть:
+// a, function который принимает два: (element, index), один: (element)или любые аргументы(аналогично mapфункции),
+//     затем заполняется запуском этой функции, другими словами: функция описывает последовательность,
+// число, строка или любой другой объект, затем заполняется копированием этого объекта n- раз.
+
+// function sequence(n, pattern) {
+//     return typeof pattern !== "function"
+//         ? Array(n).fill(pattern)
+//         : Array(n).fill().map((_, i) => pattern(n, i));
+
+// const arr = [];
+// if (typeof pattern !== "function") {
+//     for (let i = 0; i < n; i += 1) {
+//         arr.push(pattern);
+//     }
+// } else {
+//     for (let i = 0; i < n; i += 1) {
+//         arr.push(pattern(n, i));
+//     }
+// }
+// return arr;
+//}
+// console.log(sequence(5, 4));
+//=========================================================
+
+//----------------------- 10 --------------------//5 kyu Lazy Repeater
+// Функция makeLooper() принимает строку(ненулевой длины)
+// в качестве аргумента. Она возвращает функцию. Функция, которую онa возвращает,
+// будет возвращать последовательные символы строки при последовательных вызовах.
+// Он начнется с начала строки, как только она достигнет конца.
+
+// function makeLooper(str) {
+//     let i = 0;
+//     return function () {
+//         const res = str[i];
+//         i++;
+//         if (i === str.length) {
+//             i = 0;
+//         }
+//         return res;
+//     };
+// }
+// const looper = makeLooper("abc");
+// console.log(looper());
+// console.log(looper());
+// console.log(looper());
+// console.log(looper());
+// console.log(looper());
+// console.log(looper());
+//====================================================================================
+
+//----------------------- 11 --------------------//6 kyu Reusable memoisation
+// Реализуйте повторно используемую функцию запоминания
+//     , которая, учитывая функцию одного аргумента, возвращает запомненную функцию
+// одного аргумента.Функции с более чем одним аргументом можно запоминать, каррируя
+// функцию и запоминая ее для каждого аргумента, по одному за раз.Это проще для
+// повторного использования, чем наличие другого компонента запоминания для каждого
+//  количества аргументов.
+// function memo(fn) {
+//     return fn;
+// }
+
+// декораторы
+// memo            
+// once
+// i-spy
+// multiFilter
+// Combinator Flip
+
+// Stringing me along
+// a-chain-adding-function
+
+// ES5 Generators
+
+

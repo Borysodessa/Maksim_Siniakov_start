@@ -352,3 +352,42 @@
 //  это функцией dropWhile.Он принимает два аргумента.Первая — это последовательность
 // значений, а вторая — функция предиката.Функция не изменяет значение исходной
 // последовательности.
+
+//--------------------- 27 ---------------------------//7 kyu From-To-Step Sequence Generator
+
+// Напишите функцию, которая генерирует последовательность чисел, которая начинается с
+// номера «От», затем добавляет к каждому следующему члену номер «Шаг» до номера
+// «До».Например:
+//def generator (From, To, Step):
+// function generator(From, To, Step) {
+//     const res = [];
+//     while (From <= To) {
+//         res.push(From);
+//         From += Step;
+//     }
+//     return res;
+// }
+
+// console.log(generator(10, 20, 1));
+
+
+//--------------------- 28 ---------------------------//7 kyuString ends with?
+// Завершите решение так, чтобы оно возвращало true, если первый переданный
+// аргумент(строка) заканчивается вторым аргументом(тоже строкой).
+// function solution(str, ending) {
+//   return ending === str.slice(-ending.length)
+// }
+// console.log(solution('abcde', 'cde'));
+
+//--------------------- 29 ---------------------------//7 kyu Highest and Lowest
+// function highAndLow(numbers) {
+//     return Math.max(...numbers.split(' ')) +' '+ Math.min(...numbers.split(' '));
+// }
+// console.log(highAndLow("1 2 3 4 5"));
+
+//--------------------- 29 ---------------------------//6 kyu Matrix Transpose
+// function transpose(matrix) {
+//   return matrix[0].map((el, i) => [el, matrix[1][i]]);
+// }
+// console.log(transpose([[1, 2, 3], [4, 5, 6], [ 7, 8, 9 ] ]));
+
