@@ -249,19 +249,6 @@
 //  };
 // console.log(isAnagram("Buckethead", "DeathCubeK"));
 
-//--------------------- 22 ---------------------------//6kyuGroup in 10s???????????????????????????
-// Напишите функцию groupIn10s, которая принимает любое количество аргументов,
-//     группирует их по десяткам и сортирует каждую группу в порядке возрастания.
-// Возвращаемое значение должно быть массивом массивов, так что числа между 0и
-// 9включительно находятся в позиции 0, числа между 10и 19находятся в позиции 1и
-
-// function groupIn10s(gruped) {
-
-//     const arr = [gruped]; return gruped;
-
-// }
-// console.log(groupIn10s(8, 12, 38, 3, 17, 19, 25, 35, 50));
-
 //--------------------- 23 ---------------------------// Largest Elements
 //выводит верхние nэлементы списка.
 //  function largest(n, array) {
@@ -385,9 +372,12 @@
 // }
 // console.log(highAndLow("1 2 3 4 5"));
 
-//--------------------- 29 ---------------------------//6 kyu Matrix Transpose
-// function transpose(matrix) {
-//   return matrix[0].map((el, i) => [el, matrix[1][i]]);
+//--------------------- 29 ---------------------------//6 kyu Replace With Alphabet Position
+
+// function alphabetPosition(text) {
+// const abc  = 'abcdefghijklmnopqrstuvwxyz'.split('');
+//   return text.toLowerCase().replace(/[^a-z]/gi, "").split('').map(letter => abc.indexOf(letter)+1).join(' ');
 // }
-// console.log(transpose([[1, 2, 3], [4, 5, 6], [ 7, 8, 9 ] ]));
+// console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+
 

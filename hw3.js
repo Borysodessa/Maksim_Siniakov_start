@@ -95,7 +95,7 @@
 // console.log(chain(3, [double, sq, divide])); // 3   →   6 → 36 → 18
 //==========================================================================
 
-//----------------------- 6 --------------------//7 kyu The Span Function
+//----------------------- 6 --------------------// 7 kyu The Span Function
 // Он принимает последовательность и функцию - предикат и возвращает две
 // последовательности.Первая последовательность содержит все элементы
 // последовательности аргументов до элемента, вызвавшего первую ошибку
@@ -129,11 +129,11 @@
 // }
 
 // function dropWhile(arr, pred) {
-//     if (idx===-1 ) {return [] }
+//     if (idx ===-1 ) {return [] }
 //     const idx = arr.findIndex(el => !pred(el));
 //      return arr.slice( idx);
-// } 
-//  console.log(dropWhile([ 4, 2, 3, 5, 4, 5, 6, 7], isEven)); // 
+// }
+//  console.log(dropWhile([ 4, 2, 3, 5, 4, 5, 6, 7], isEven)); //
 
 
 //  var seq = [2,4,6,8,1,2,5,4,3,2];
@@ -222,15 +222,14 @@
 // }
 
 // декораторы
-// memo            
-// once
+// memo
+// once--
 // i-spy
-// multiFilter
-// Combinator Flip
 
-// Stringing me along
+// Combinator Flip --
+
+// Stringing me along--
 // a-chain-adding-function
 
 // ES5 Generators
-
 
