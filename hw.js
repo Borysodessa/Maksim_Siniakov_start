@@ -562,4 +562,5 @@
 // }
 //     return sum;
 // }
-// console.log(summation(8))
+// console.log(summation(8))const customer = {
+  
