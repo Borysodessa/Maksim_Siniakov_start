@@ -381,3 +381,185 @@
 // console.log(alphabetPosition("The sunset sets at twelve o' clock."));
 
 
+
+// function hotpo(n) {
+//   let counter = 0;
+//   while (n !== 1) {
+//     n = n % 2 === 0 ? n / 2 : 3 * n + 1;
+//     counter++;
+//   }
+//   return counter;
+// }
+// console.log(hotpo(5));
+
+
+// function getAverage(marks){
+//      const b = marks.reduce((akk, kur) => akk + kur) / marks.length
+//     return Math.floor(b);
+// }
+// console.log(getAverage([1, 5, 87, 45, 8, 8]));
+// console.log(parseInt('5', 2))
+
+//-------------------------30-------------------//To square(root) or not to square(root)
+//Если число имеет целый квадратный корень, возьмите его, иначе возведите число в квадрат.
+
+// function squareOrSquareRoot(array) {
+//     return array
+//         .map(el => Number.isInteger(Math.sqrt(el)) ? Math.sqrt(el) : Math.pow(el, 2));
+   
+// }
+// console.log(squareOrSquareRoot([4,3,9,7,2,1]))
+
+//-------------------------31-------------------// 8 kyu Short Long Short
+// Учитывая 2 строки aи b, вернуть строку формы короткая + длинная + короткая, с более
+//  короткой строкой снаружи и более длинной строкой внутри.Строки не будут одинаковой
+// длины, но могут быть пустыми(zerolength).
+
+// function solution(a, b){
+//     return a.length > b.length ? b + a + b : a  + b + a;
+// }
+// console.log(solution('Soon', 'Me'));
+
+//-------------------------32-------------------//7 kyu First-Class Function Factory
+
+// function factory(x){
+//     return function (arr) {
+//         return arr.map(el => el * x);
+//     }
+// }
+
+// const myArray = factory(5)
+// console.log(myArray([1, 2, 3]))
+
+// function fib(fibonacci) {
+//     let cache = {};
+    
+    
+// return function fibNum() {
+//     if (object.keys(cache) !== 0) {
+    
+//     }
+  
+    
+//     }
+  
+  
+// }
+
+// function fibonacci(num) {
+//     if (num < 2) return num;
+//     return fib(num - 1) + fib(num - 2);
+// }
+
+// const fibFibonacci = fib(fibonacci)
+// console.log(fibFibonacci(5));
+
+//  describeAge=(a)=> {
+// return `You're a(n) ${a <= 12 ? "kid" :a >= 13 && a <= 17 ? "teenager" :a >= 18 && a <= 64 ? "adult" : "elderly"}`
+// }
+
+
+// console.log(describeAge(20))
+
+
+// function barTriang(p1, p2, p3){
+//     const arr = [];
+//     arr.push(Number(((p1[0] + p2[0] + p3[0])/3).toFixed(4)));
+//     arr.push(Number(((p1[1] + p2[1] + p3[1])/3).toFixed(4)));
+//     return arr;
+// }
+
+// console.log(barTriang([4, 6], [12, 4], [10, 10]));
+
+
+// var humanYearsCatYearsDogYears = function(humanYears) {
+//     const years = [];
+//     years.push(humanYears);
+//     if(humanYears === 1){[1, 15, 15]};
+//     if (humanYears === 2) { [2, 24, 24] };
+//     return [humanYears, 24 + (humanYears - 2) * 4, 24 + (humanYears - 2) * 5];
+// }
+
+// function depth(obj) {
+//   if (obj === null || Object.keys(obj).length === 0 || Array.isArray(obj)) {
+//     return 0;
+//   }
+//   let maxDepth = 1;//counter
+//   const values = Object.values(obj);
+//   for (const value of values) {
+//     if (typeof value === "object") {
+//       const depthValue = depth(value) + 1;
+//       if (depthValue > maxDepth) {
+//         maxDepth = depthValue;
+//       }
+//     }
+//   }
+//   return maxDepth;
+// }
+
+
+
+// console.log(depth(null));
+// console.log(depth({}));
+// console.log(depth({ a: 1 }));
+// console.log(depth({ a: false }));
+
+// console.log(depth({
+// a: 1,
+// c: { w: 3 },
+// b: { c: 2, g: 5, f: { k: 5, l: 6 } },
+// })
+// );
+
+// 1.проводим сравнение на 0, {}, [];
+// 2.объявляем counter = 1;
+// 3.получаем объект значений из obj(values);
+// 4.перебираем циклом for of - values;
+// 5.проверяем элементы на 'object';
+
+
+
+// function depth(obj) {
+//     if (obj === null || Object.keys(obj).length === 0 || Array.isArray(obj)) {
+//         return 0;
+//     }
+//     let counter = 1;
+//     const values = Object.values(obj);
+//     for (const value of values) {
+//         if (typeof value === 'object') {
+//             const depthValue = depth(value) + 1;
+//             if (counter < depthValue) {
+//                 counter = depthValue;
+//              }
+//         }
+//     }
+//     return counter;
+// }
+// //console.log(depth({ a: 1, b: { c: 2 } }));
+// // console.log(depth({
+// // a: 1,
+// // c: { w: 3 },
+// // b: { c: 2, g: 5, f: { k: 5, l: 6 } },
+// // })
+// // );
+
+
+// function factorial(n){
+//   if (n === 0){
+//     return 1;
+//   }
+  
+//  n *= factorial(n-1);
+//   return n;
+// }
+// console.log(factorial(-5))var summation = function (num) {
+
+
+// var summation = function (num) {
+//   let sum = num;
+// while(num > 0){
+//   sum += num = num-1
+// }
+//     return sum;
+// }
+// console.log(summation(8))
