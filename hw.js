@@ -357,7 +357,6 @@
 
 // console.log(generator(10, 20, 1));
 
-
 //--------------------- 28 ---------------------------//7 kyuString ends with?
 // Завершите решение так, чтобы оно возвращало true, если первый переданный
 // аргумент(строка) заканчивается вторым аргументом(тоже строкой).
@@ -380,8 +379,6 @@
 // }
 // console.log(alphabetPosition("The sunset sets at twelve o' clock."));
 
-
-
 // function hotpo(n) {
 //   let counter = 0;
 //   while (n !== 1) {
@@ -391,7 +388,6 @@
 //   return counter;
 // }
 // console.log(hotpo(5));
-
 
 // function getAverage(marks){
 //      const b = marks.reduce((akk, kur) => akk + kur) / marks.length
@@ -406,7 +402,7 @@
 // function squareOrSquareRoot(array) {
 //     return array
 //         .map(el => Number.isInteger(Math.sqrt(el)) ? Math.sqrt(el) : Math.pow(el, 2));
-   
+
 // }
 // console.log(squareOrSquareRoot([4,3,9,7,2,1]))
 
@@ -433,17 +429,14 @@
 
 // function fib(fibonacci) {
 //     let cache = {};
-    
-    
+
 // return function fibNum() {
 //     if (object.keys(cache) !== 0) {
-    
+
 //     }
-  
-    
+
 //     }
-  
-  
+
 // }
 
 // function fibonacci(num) {
@@ -458,9 +451,7 @@
 // return `You're a(n) ${a <= 12 ? "kid" :a >= 13 && a <= 17 ? "teenager" :a >= 18 && a <= 64 ? "adult" : "elderly"}`
 // }
 
-
 // console.log(describeAge(20))
-
 
 // function barTriang(p1, p2, p3){
 //     const arr = [];
@@ -470,7 +461,6 @@
 // }
 
 // console.log(barTriang([4, 6], [12, 4], [10, 10]));
-
 
 // var humanYearsCatYearsDogYears = function(humanYears) {
 //     const years = [];
@@ -497,8 +487,6 @@
 //   return maxDepth;
 // }
 
-
-
 // console.log(depth(null));
 // console.log(depth({}));
 // console.log(depth({ a: 1 }));
@@ -516,8 +504,6 @@
 // 3.получаем объект значений из obj(values);
 // 4.перебираем циклом for of - values;
 // 5.проверяем элементы на 'object';
-
-
 
 // function depth(obj) {
 //     if (obj === null || Object.keys(obj).length === 0 || Array.isArray(obj)) {
@@ -543,17 +529,15 @@
 // // })
 // // );
 
-
 // function factorial(n){
 //   if (n === 0){
 //     return 1;
 //   }
-  
+
 //  n *= factorial(n-1);
 //   return n;
 // }
 // console.log(factorial(-5))var summation = function (num) {
-
 
 // var summation = function (num) {
 //   let sum = num;
@@ -563,4 +547,201 @@
 //     return sum;
 // }
 // console.log(summation(8))const customer = {
-  
+
+//Рекурсивная репликация
+
+// function replicate(times, number) {
+//     if (times <= 0) {
+//         return [];
+//     }
+//     times -= 1;
+//     return [number, ...replicate(times, number)];
+// }
+// console.log(replicate(31, 6));
+
+//Sum of a nested list
+
+// const sumNested = (arr) => {
+//     if (arr.length === 0) {
+//         return 0;
+//     }
+//     if (arr[1] === undefined) {
+//         return arr[0];
+//     }
+
+//     if (arr.every((el) => typeof el === "number")) {
+//         return arr[0] + sumNested(arr.slice(1));
+//     }
+//     return arr[0] + sumNested(arr[1]);
+// };
+// console.log(sumNested([1, [2, [3, [4]]]]));
+// console.log(sumNested([1]));
+// console.log(sumNested([1, 2, 3, 4]));
+// console.log(sumNested([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+// console.log(sumNested([]));
+
+// const sumNested = (arr) => {
+//     let sum = 0;
+//     for (const el of arr) {
+//         Array.isArray(el) ? (sum += sumNested(el)) : (sum += el);
+//     }
+//     return sum;
+// };
+// console.log(sumNested([1, [3, 4]]));
+//console.log(sumNested([1, 2, [[3, 4], 5], 6]));
+
+//Broken Collatz
+// function collatz(n, count) {
+//     if (n < 1) return count;
+//     return (n = n % 2 === 0 ? n / 2 : n * 3 + 1);
+//     collatz(n, count + 1);
+// }
+// console.log(collatz(6, 1));
+
+// function findMultiples(integer, limit) {
+//     const multiples = [];
+//     let a = integer;
+//     while (a <= limit) {
+//         if (limit % a === 0) {
+//             multiples.push(a);
+//         }
+//         a += integer;
+//     }
+//     return multiples;
+// }
+// console.log(findMultiples(5, 25));
+
+//Sum squares of numbers in list that may contain more lists
+// function SumSquares(...l) {
+//     let sum = 0;
+//     for (const el of l) {
+//         typeof el === "number" ? (sum += el ** 2) : (sum += SumSquares(...el));
+//     }
+//     return sum;
+// }
+// console.log(SumSquares([[1, 2], 3]));
+
+//  суммы квадратов цифр любого числа привести к значению value < 10
+// function sumPows(n) {
+//     //let value = 0;
+//     const number = n ** 2;
+//     const num = number
+//         .toString()
+//         .split("")
+//         .map((el) => Number(el))
+//         .reduce((akk, curr) => akk + curr ** 2, 0);
+//     if (num > 10) {
+//         sqrtSum(num);
+//     }
+//     return num;
+// }
+// console.log(sqrtSum(7));
+
+//Найдите гласные(индекс)
+// function vowelIndices(word) {
+//     const vowels = ["a", "e", "i", "o", "u", "y"];
+//     const indexes = [];
+//     for (let i = 0; i < word.length; i += 1) {
+//         if (vowels.includes(word[i].toLowerCase())) {
+//             indexes.push(i + 1);
+//         }
+//     }
+//     return indexes;
+// }
+// console.log(vowelIndices("Apple"));
+
+// function sumPows(x, n, counter = 0) {
+//     if (counter === 0) {
+//         n = n ** 2;
+//     }
+//     const num = n
+//         .toString()
+//         .split("")
+//         .map((el) => Number(el))
+//         .reduce((akk, curr) => akk + curr ** 2, 0);
+//     if (num >= 10) {
+//         return sumPows(x, num, counter + 1);
+//     }
+//     return num;
+// }
+
+// function happyNumbers(x) {
+//     const happyNum = [];
+//     let sum = [];
+//     let n = 1;
+//     while (n <= x) {
+//         if (sumPows(x, n, (counter = 0)) === 1) {
+//             happyNum.push(n);
+//             sum = [];
+//         }
+//         if (sumPows(x, n, (counter = 0)) !== 1) {
+//             happyNum.push(n);
+//             sum = [];
+//         }
+
+//         n += 1;
+//     }
+//     console.log(sum);
+//     return happyNum;
+// }
+// console.log(happyNumbers(20));
+
+// Тимми и Сара думают, что они влюблены, но там, где они живут, они
+//  узнают об этом, только когда каждый сорвет по цветку.Если у одного
+//   из цветов четное количество лепестков, а у другого нечетное
+//    количество лепестков, это означает, что они влюблены.
+
+// Напишите функцию, которая будет принимать количество лепестков каждого
+//  цветка и возвращать true, если они влюблены, и false, если нет.
+
+// function lovefunc(flower1, flower2) {
+//     return (flower1 + flower2) % 2 !== 0;
+// }
+// // console.log(lovefunc(1, 4));
+// // console.log(lovefunc(2, 2));
+// // console.log(lovefunc(0, 1));
+// // console.log(lovefunc(0, 0));
+// console.log(lovefunc(647, 973));
+
+//Vowel one
+// function vowelOne(s) {
+//     return s.replace(/[^aeiou]/gi, 0).replace(/[aeiou]/gi, 1);
+// }
+// console.log(vowelOne("vowelOne"));
+
+//---------------------- 9(714) ---------------------//Flatten a Nested Map
+// const input = {
+//     a: {
+//         b: {
+//             c: 12,
+//             d: "Hello World",
+//         },
+//         e: [1, 2, 3],
+//     },
+// };
+
+// function flattenMap(obj, path = "") {
+//     const object = {};
+//     const keys = Object.keys(obj);
+//     console.log(keys);
+//     let i = 0;
+// }
+// console.log(flattenMap(input));
+
+// function nod(x) {
+//     const nodX = [];
+//     let a = 1;
+
+//     if (x % a === 0) {
+//         nodX.push(a);
+//     }
+
+//     nod(a + 1);
+//     return nodX;
+// }
+
+// function mygcd(x, y) {
+//     //console.log(nod(x));
+//     return Math.max(...nod(x).filter((el) => nod(y).includes(el)));
+// }
+// console.log(mygcd(30, 12));

@@ -102,7 +102,6 @@
 // console.log(adderSpy.returned(0));
 // // console.log("----", adderSpy.callCount()); // 2
 
-
 // // console.log(adderSpy(1, 1)); // 2
 // // console.log(adderSpy(1, 1)); // 2
 // // console.log(adderSpy(1, 1)); // 2
@@ -127,7 +126,6 @@
 // const flippedPow = flip(pow);
 // console.log(flippedPow(2, 3)); // 9
 
-
 // console.log(pow(2, 3)); //8
 
 // function join(...args) {
@@ -139,8 +137,6 @@
 // const flippedJoin = flip(join);
 // console.log(flippedJoin("x", "y")) // "y x";
 // console.log(flippedJoin("q", "w", "e", "r")) // "r e w q";
-
-
 
 // const flippedPrints = flip(prints)
 // console.log(flippedPrints(4, 5, 6, 7));
@@ -192,9 +188,6 @@
 // const newAddNumber2 = addNumber(100);
 // console.log(+newAddNumber2); // 106
 
-
-
-
 // console.log(obj[Symbol.toPrimitive] = addNum == 6);
 
 // https://learn.javascript.ru/object-basics
@@ -210,7 +203,6 @@
 
 // https://learn.javascript.ru/object-toprimitive#symbol-toprimitive
 
-
 //------------------------ 17 --------------------- //6 kyu Reusable memoisation
 // Реализуйте повторно используемую функцию запоминания
 //     , которая, учитывая функцию одного аргумента, возвращает запомненную функцию
@@ -218,16 +210,16 @@
 // функцию и запоминая ее для каждого аргумента, по одному за раз.Это проще для
 // повторного использования, чем наличие другого компонента запоминания для каждого
 //  количества аргументов.
- 
+
 // function memoize(fn) {
-//     const map = new Map(); 
+//     const map = new Map();
 //     return function memoFn(arg) {
 //         if (map.has(arg)) {
 //             return map.get(arg);
 //         }
 //         else{
 //             let result = fn(arg);
-//            map.set(arg, result) 
+//            map.set(arg, result)
 //             return result;
 //         }
 //     }
@@ -274,9 +266,9 @@
 //         }
 //     }
 // }
- 
+
 // function fn(a) {
-    //return a === 0 || a === 1 ? 1 : a * fn(a - 1); //factorial
+//return a === 0 || a === 1 ? 1 : a * fn(a - 1); //factorial
 
 // }
 // const memoFn = memo(fn);
@@ -284,23 +276,21 @@
 // console.log(memoFn(0));
 // console.log(memoFn(1));
 // console.log(memoFn(15));
- 
 
 //------------------------ 18 --------------------- //Генераторы ES5(i)
 //реализовать псевдогенераторы с помощью ES5.
 
-function generator(sequencer, ...args) {
-    return {
-      next: sequencer(...args),
-    }
-}
-  
+// function generator(sequencer, ...args) {
+//     return {
+//       next: sequencer(...args),
+//     }
+// }
 
-function dummySeq() {
-  return function() {
-    return "dummy";
-  };
-}
+// function dummySeq() {
+//   return function() {
+//     return "dummy";
+//   };
+// }
 
 // function factorialSeq() {
 //     let factorial = 1;
@@ -313,7 +303,7 @@ function dummySeq() {
 
 //         return result;
 //     }
-    
+
 // }
 // const fn = factorialSeq();
 
@@ -341,7 +331,6 @@ function dummySeq() {
 // console.log(fn()); // 5
 // console.log(fn()); // 8
 
-
 // function rangeSeq(start, step) {
 //     let arg = start;
 //     return function () {
@@ -360,19 +349,16 @@ function dummySeq() {
 // console.log(fn());
 // console.log(fn());
 
-
-
 // https://www.codewars.com/kata/5262119038c0985a5b00029f
 
 // function isPrime(num) {
 //   if (num < 2) return false;
-  
+
 //   for(var i=2; i*i <= num; i++) {
 //     if (num % i === 0) return false;
 //   }
 //   return true;
 // }
-
 
 // function primeSeq() {
 //     let dividend = 2;
@@ -390,7 +376,6 @@ function dummySeq() {
 //     }
 // };
 
-
 // const fn = primeSeq();
 
 // console.log(fn()); // 2
@@ -403,14 +388,14 @@ function dummySeq() {
 
 // function partialSumSeq() {
 //     let cache = 0;
-//     return function (n) { 
+//     return function (n) {
 //     return cache += n;
 //     }
 // }
 // const fn = partialSumSeq();
 
-// console.log(fn(1)); 
-// console.log(fn(3)); 
-// console.log(fn(7)); 
-// console.log(fn(2)); 
-// console.log(fn(0)); 
+// console.log(fn(1));
+// console.log(fn(3));
+// console.log(fn(7));
+// console.log(fn(2));
+// console.log(fn(0));
