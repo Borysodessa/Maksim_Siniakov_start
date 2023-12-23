@@ -399,3 +399,14 @@
 // console.log(fn(7));
 // console.log(fn(2));
 // console.log(fn(0));
+
+// function dashatize(num) {
+//   if (!isNaN(num)) {
+//     return String(num)
+//       .replace(/[13579]/g,'-$&-')
+//       .replace(/--/g,'-')
+//       .replace(/^-|-$/g,'');
+//   } else {
+//     return 'NaN'
+//   }
+// };

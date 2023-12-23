@@ -285,17 +285,17 @@
 // }
 
 const input = {
-      type: "struct",
-      members: [
-        "int",
-        "int",
-        "float",
-        {
-          type: "union",
-          members:[] 
-        }
-      ]
-    }//8
+  type: "struct",
+  members: [
+    "int",
+    "int",
+    "float",
+    {
+      type: "union",
+      members: [],
+    },
+  ],
+}; //8
 // const input = {
 //     type: "struct",
 //     members: [
@@ -304,7 +304,7 @@ const input = {
 //         1,   //19
 //         8,
 //         8,
-        
+
 //         {
 //             type: "union",
 //             members: [
@@ -325,7 +325,7 @@ const input = {
 //         },
 //         2 //2
 //     ]
-// }; // 31 
+// }; // 31
 
 // const input = {
 //     type: "struct",
@@ -352,39 +352,38 @@ const input = {
 //         },
 //         "short",
 //     ],
-// }; 
-const base = {
-    'char': 1,
-    'unsigned char': 1,
-    'int': 2,
-    'short': 2,
-    'unsigned short': 2,
-    'unsigned int': 2,
-    'float': 4,
-    'long': 4,
-    'unsigned long': 4,
-    'unsigned long long': 8,
-    'double':8,
-     'long long':8
-}
+// };
+// const base = {
+//     'char': 1,
+//     'unsigned char': 1,
+//     'int': 2,
+//     'short': 2,
+//     'unsigned short': 2,
+//     'unsigned int': 2,
+//     'float': 4,
+//     'long': 4,
+//     'unsigned long': 4,
+//     'unsigned long long': 8,
+//     'double':8,
+//      'long long':8
+// }
 
-function sizeof(obj) {
-   
-   
-    if(typeof obj === 'string'){
-        return base[obj];
-    }
-    if (obj.type === 'struct') {
-        return obj.members.reduce((akk, cur) => akk + sizeof(cur), 0);
-    }
-    if (obj.type === 'union') {
-        if(obj.members.length === 0) { return 0 }
-        const size = obj.members.map(el => sizeof(el));
-        return Math.max(...size);
-    }
-}
-console.log(sizeof(input));      
-  
+// function sizeof(obj) {
+
+//     if(typeof obj === 'string'){
+//         return base[obj];
+//     }
+//     if (obj.type === 'struct') {
+//         return obj.members.reduce((akk, cur) => akk + sizeof(cur), 0);
+//     }
+//     if (obj.type === 'union') {
+//         if(obj.members.length === 0) { return 0 }
+//         const size = obj.members.map(el => sizeof(el));
+//         return Math.max(...size);
+//     }
+// }
+// console.log(sizeof(input));
+
 // Test.assertEquals(sizeof("char"), 1);
 // Test.assertEquals(sizeof("short"), 2);
 // Test.assertEquals(sizeof("int"), 2);
@@ -397,3 +396,19 @@ console.log(sizeof(input));
 // Test.assertEquals(sizeof("unsigned long long"), 8);
 // Test.assertEquals(sizeof("float"), 4);
 // Test.assertEquals(sizeof("double"), 8);
+
+// function removeEveryOther(arr) {
+//   return arr.filter((el, i) => i % 2 === 0);
+// }
+// console.log(removeEveryOther([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+// console.log(removeEveryOther(["Hello", "Goodbye", "Hello Again"]));
+
+function pipeFix(numbers) {
+  const a = [];
+
+  for (let i = numbers[0]; i <= numbers[numbers.length - 1]; i += 1) {
+    a.push(i);
+  }
+  return a;
+}
+console.log(pipeFix([1, 2, 3, 5, 6, 8, 9]));
